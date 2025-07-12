@@ -10,13 +10,9 @@ import Foundation
 func loadCoaches(from fileName: String) -> [Coach]
 {
     var coaches: [Coach] = []
-    guard let filePath = Bundle.main.path(forResource: fileName, ofType: "csv")
-    else
-    {
-        return []
-}
-    do
-    {
+    guard let filePath = Bundle.main.path(forResource: fileName, ofType: "csv") else { return [] }
+    
+    do {
         let content = try String(contentsOfFile: filePath)
         let rows = content.components(separatedBy: .newlines).dropFirst()
         
