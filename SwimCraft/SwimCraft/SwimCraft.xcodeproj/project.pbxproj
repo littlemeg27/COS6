@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BABF2A982E21F80D0072FFE4 /* SwimCraftWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BABF2A782E21F80C0072FFE4 /* SwimCraftWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BABF2AB62E24A7BD0072FFE4 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF2AB52E24A7BD0072FFE4 /* SharedModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		BABF2A782E21F80C0072FFE4 /* SwimCraftWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwimCraftWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BABF2A842E21F80D0072FFE4 /* SwimCraftWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwimCraftWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BABF2A8E2E21F80D0072FFE4 /* SwimCraftWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwimCraftWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABF2AB52E24A7BD0072FFE4 /* SharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -166,6 +168,7 @@
 		BAAAC54E2E1DF64300F4F88A = {
 			isa = PBXGroup;
 			children = (
+				BABF2AB52E24A7BD0072FFE4 /* SharedModels.swift */,
 				BAAAC5592E1DF64300F4F88A /* SwimCraft */,
 				BAAAC5702E1DF64500F4F88A /* SwimCraftTests */,
 				BAAAC57A2E1DF64500F4F88A /* SwimCraftUITests */,
@@ -438,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BABF2AB62E24A7BD0072FFE4 /* SharedModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

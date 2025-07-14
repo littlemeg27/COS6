@@ -6,52 +6,145 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class WorkoutListViewController: UITableViewController {
+class WorkoutListViewController: UITableViewController, WCSessionDelegate
+{
     var workouts: [SwimWorkout] = []
-    
-    override func viewDidLoad() {
+    private var session: WCSession?
+
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        HealthKitManager.shared.fetchWorkouts { fetchedWorkouts, error in
-            if let fetchedWorkouts = fetchedWorkouts {
-                self.workouts = fetchedWorkouts
-                self.tableView.reloadData()
+        if WCSession.isSupported()
+        {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
+        HealthKitManager.shared.requestAuthorization {
+            success, error in
+            
+            if success
+            {
+                HealthKitManager.shared.fetchWorkouts {
+                    fetchedWorkouts, error in
+                    
+                    if let fetchedWorkouts = fetchedWorkouts
+                    {
+                        self.workouts = fetchedWorkouts
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+            else if let error = error
+            {
+                print("HealthKit authorization failed: \(error)")
             }
         }
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    func session(_ session: WCSession, activationDidCompleteWith state: WCSessionActivationState, error: Error?)
+    {
+        if let error = error
+        {
+            print("WCSession activation failed: \(error)")
+        }
+        else
+        {
+            sendWorkoutsToWatch() // Send workouts after session activation
+        }
+    }
+
+    func sessionDidBecomeInactive(_ session: WCSession) {}
+    func sessionDidDeactivate(_ session: WCSession) {}
+
+    func sendWorkoutsToWatch()
+    {
+        guard let session = session, session.isReachable else
+        {
+            print("Watch session not reachable")
+            return
+        }
+        let workoutData = workouts.map { workout in
+            [
+                "id": workout.id.uuidString,
+                "name": workout.name,
+                "distance": workout.distance,
+                "duration": workout.duration,
+                "strokes": workout.strokes,
+                "createdViaWorkoutKit": workout.createdViaWorkoutKit,
+                "coach": workout.coach.map
+                {
+                    [
+                        "name": $0.name,
+                        "level": $0.level,
+                        "dateCompleted": $0.dateCompleted,
+                        "clubAbbr": $0.clubAbbr,
+                        "clubName": $0.clubName,
+                        "lmsc": $0.lmsc
+                    ]
+                }
+                as Any,
+                "source": workout.source ?? ""
+            ]
+        }
+        session.sendMessage(["workouts": workoutData], replyHandler: nil)
+        {
+            error in
+            print("Error sending workouts to watch: \(error)")
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         workouts.count
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath)
         let workout = workouts[indexPath.row]
         cell.textLabel?.text = workout.name
         cell.detailTextLabel?.text = "Coach: \(workout.coach?.name ?? "WorkoutKit")"
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
         shareWorkout(workouts[indexPath.row])
     }
-    
-    @IBAction func addWorkoutTapped(_ sender: UIBarButtonItem) {
+
+    @IBAction func addWorkoutTapped(_ sender: UIBarButtonItem)
+    {
         performSegue(withIdentifier: "toWorkoutDetail", sender: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toWorkoutDetail",
-           let destination = segue.destination as? WorkoutDetailViewController {
-            destination.onSave = { workout in
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "toWorkoutDetail", let destination = segue.destination as? WorkoutDetailViewController {
+            destination.onSave =
+            {
+                workout in
                 self.workouts.append(workout)
-                HealthKitManager.shared.saveWorkout(workout) { _, _ in }
-                self.tableView.reloadData()
+                HealthKitManager.shared.saveWorkout(workout) { success, error in
+                    
+                    if success
+                    {
+                        self.tableView.reloadData()
+                        self.sendWorkoutsToWatch()
+                    }
+                    else if let error = error
+                    {
+                        print("Error saving workout: \(error)")
+                    }
+                }
             }
         }
     }
-    
-    func shareWorkout(_ workout: SwimWorkout) {
+
+    func shareWorkout(_ workout: SwimWorkout)
+    {
         let shareText = """
         Swim Workout: \(workout.name)
         Distance: \(workout.distance) meters
@@ -62,18 +155,24 @@ class WorkoutListViewController: UITableViewController {
         let activityController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
     }
-    
+
     @IBAction func addWorkoutKitWorkoutTapped(_ sender: UIButton) {
         let workoutKitWorkout = WorkoutKitManager.shared.createWorkoutKitSwimWorkout(
             name: "Sprint Swim",
             distance: 1000,
             strokes: ["Freestyle"]
         )
-        WorkoutKitManager.shared.saveWorkoutKitWorkout(workoutKitWorkout) { swimWorkout, error in
-            if let swimWorkout = swimWorkout {
+        WorkoutKitManager.shared.saveWorkoutKitWorkout(workoutKitWorkout, strokes: ["Freestyle"])
+        {
+            swimWorkout, error in
+            if let swimWorkout = swimWorkout
+            {
                 self.workouts.append(swimWorkout)
                 self.tableView.reloadData()
-            } else if let error = error {
+                self.sendWorkoutsToWatch()
+            }
+            else if let error = error
+            {
                 print("Error saving WorkoutKit workout: \(error)")
             }
         }
