@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SharedModule
 
 func loadCoaches(from fileName: String) -> [Coach]
 {

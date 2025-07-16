@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SharedModule
 
 class WorkoutDetailViewController: UIViewController
 {
@@ -34,7 +35,8 @@ class WorkoutDetailViewController: UIViewController
               let durationText = durationTextField.text, let duration = Double(durationText),
               let strokesText = strokesTextField.text else { return }
 
-        let strokes = strokesText.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespaces) }
+        let strokes = strokesText.components(separatedBy: ",").map
+        { $0.trimmingCharacters(in: .whitespaces) }
 
         let workout = SwimWorkout(
             id: UUID(),

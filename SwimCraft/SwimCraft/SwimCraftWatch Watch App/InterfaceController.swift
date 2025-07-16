@@ -5,38 +5,32 @@
 //  Created by Brenna Pavlinchak on 7/9/25.
 //
 
+// InterfaceController.swift
 import WatchKit
 import WatchConnectivity
+import Foundation
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate
-{
+class InterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet weak var workoutTable: WKInterfaceTable!
     var workouts: [SwimWorkout] = []
 
-    override func awake(withContext context: Any?)
-    {
+    override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        if WCSession.isSupported()
-        {
+        if WCSession.isSupported() {
             let session = WCSession.default
             session.delegate = self
             session.activate()
         }
     }
 
-    func session(_ session: WCSession, activationDidCompleteWith state: WCSessionActivationState, error: Error?)
-    {
-        if let error = error
-        {
+    func session(_ session: WCSession, activationDidCompleteWith state: WCSessionActivationState, error: Error?) {
+        if let error = error {
             print("WCSession activation failed: \(error.localizedDescription)")
         }
     }
 
-    func session(_ session: WCSession, didReceiveMessage message: [String: Any])
-    {
-        if let workoutData = message["workouts"] as? [[String: Any]]
-        {
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+        if let workoutData = message["workouts"] as? [[String: Any]] {
             workouts = workoutData.compactMap { dict in
                 guard let idString = dict["id"] as? String,
                       let id = UUID(uuidString: idString),
@@ -44,8 +38,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate
                       let distance = dict["distance"] as? Double,
                       let duration = dict["duration"] as? Double,
                       let strokes = dict["strokes"] as? [String],
-                      let createdViaWorkoutKit = dict["createdViaWorkoutKit"] as? Bool else
-                {
+                      let createdViaWorkoutKit = dict["createdViaWorkoutKit"] as? Bool else {
                     return nil
                 }
                 let coach: Coach?
@@ -54,12 +47,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate
                    let coachLevel = coachDict["level"],
                    let dateCompleted = coachDict["dateCompleted"],
                    let clubAbbr = coachDict["clubAbbr"],
-                   let clubName = coachDict["clubName"],
+                   let clubName = coachDict["clubNameLatin"],
                    let lmsc = coachDict["lmsc"] {
                     coach = Coach(name: coachName, level: coachLevel, dateCompleted: dateCompleted, clubAbbr: clubAbbr, clubName: clubName, lmsc: lmsc)
-                }
-                else
-                {
+                } else {
                     coach = nil
                 }
                 return SwimWorkout(
@@ -73,27 +64,22 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate
                     source: dict["source"] as? String
                 )
             }
-            DispatchQueue.main.async
-            {
+            DispatchQueue.main.async {
                 self.updateTable()
             }
         }
     }
 
-    func updateTable()
-    {
+    func updateTable() {
         workoutTable.setNumberOfRows(workouts.count, withRowType: "WorkoutRow")
-        for (index, workout) in workouts.enumerated()
-        {
-            if let row = workoutTable.rowController(at: index) as? WorkoutRowController
-            {
+        for (index, workout) in workouts.enumerated() {
+            if let row = workoutTable.rowController(at: index) as? WorkoutRowController {
                 row.workoutLabel.setText(workout.name)
             }
         }
     }
 }
 
-class WorkoutRowController: NSObject
-{
+class WorkoutRowController: NSObject {
     @IBOutlet weak var workoutLabel: WKInterfaceLabel!
 }

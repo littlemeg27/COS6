@@ -6,6 +6,7 @@
 //
 
 import HealthKit
+import SharedModule
 
 class HealthKitManager
 {

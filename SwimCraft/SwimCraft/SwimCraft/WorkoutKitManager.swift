@@ -8,13 +8,11 @@
 import WorkoutKit
 import Foundation
 
-struct WorkoutKitManager
-{
+struct WorkoutKitManager {
     static let shared = WorkoutKitManager()
 
-    func createWorkoutKitSwimWorkout(name: String, distance: Double, strokes: [String]) -> CustomWorkout
-    {
-        let distanceGoal = WorkoutGoal.distance(.init(value: distance, unit: .meters))
+    func createWorkoutKitSwimWorkout(name: String, distance: Double, strokes: [String]) -> CustomWorkout {
+        let distanceGoal = WorkoutGoal.distance(Measurement(value: distance, unit: UnitLength.meters))
         let step = CustomWorkoutStep(goal: distanceGoal)
         let workout = CustomWorkout(
             displayName: name,
@@ -25,12 +23,9 @@ struct WorkoutKitManager
         return workout
     }
 
-    func saveWorkoutKitWorkout(workout: CustomWorkout, strokes: [String], completion: @escaping (SwimWorkout?, Error?) -> Void)
-    {
-        Task
-        {
-            do
-            {
+    func saveWorkoutKitWorkout(workout: CustomWorkout, strokes: [String], completion: @escaping (SwimWorkout?, Error?) -> Void) {
+        Task {
+            do {
                 let plan = WorkoutPlan(workout: workout)
                 try await WorkoutScheduler.shared.schedule(plan: plan, at: Date())
                 let swimWorkout = SwimWorkout(
@@ -46,18 +41,13 @@ struct WorkoutKitManager
                     source: nil
                 )
                 HealthKitManager.shared.saveWorkout(swimWorkout) { success, error in
-                    if success
-                    {
+                    if success {
                         completion(swimWorkout, nil)
-                    }
-                    else
-                    {
+                    } else {
                         completion(nil, error)
                     }
                 }
-            }
-            catch
-            {
+            } catch {
                 print("Error scheduling workout: \(error)")
                 completion(nil, error)
             }
