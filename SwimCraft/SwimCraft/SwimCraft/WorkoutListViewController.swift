@@ -5,7 +5,7 @@
 //  Created by Brenna Pavlinchak on 7/9/25.
 //
 
-// WorkoutListViewController.swift
+
 import UIKit
 import WatchConnectivity
 import Foundation
@@ -101,7 +101,7 @@ class WorkoutListViewController: UITableViewController, WCSessionDelegate {
         if segue.identifier == "toWorkoutDetail", let destination = segue.destination as? WorkoutDetailViewController {
             destination.onSave = { workout in
                 self.workouts.append(workout)
-                HealthKitManager.shared.saveWorkout(workout: workout) { success, error in
+                HealthKitManager.shared.saveWorkout(workout) { success, error in
                     if success {
                         self.tableView.reloadData()
                         self.sendWorkoutsToWatch()
@@ -126,18 +126,18 @@ class WorkoutListViewController: UITableViewController, WCSessionDelegate {
     }
 
     @IBAction func addWorkoutKitWorkoutTapped(_ sender: UIButton) {
-        let workoutKitWorkout = WorkoutKitManager.shared.createWorkoutKitSwimWorkout(
+        SwimWorkoutManager.shared.createSwimWorkout(
             name: "Sprint Swim",
             distance: 1000,
+            duration: 3600, // 1 hour
             strokes: ["Freestyle"]
-        )
-        WorkoutKitManager.shared.saveWorkoutKitWorkout(workoutKitWorkout, strokes: ["Freestyle"]) { swimWorkout, error in
+        ) { swimWorkout, error in
             if let swimWorkout = swimWorkout {
                 self.workouts.append(swimWorkout)
                 self.tableView.reloadData()
                 self.sendWorkoutsToWatch()
             } else if let error = error {
-                print("Error saving WorkoutKit workout: \(error)")
+                print("Error creating swim workout: \(error)")
             }
         }
     }

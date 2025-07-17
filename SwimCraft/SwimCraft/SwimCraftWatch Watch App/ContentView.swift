@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SharedModule
 
 struct ContentView: View
 {

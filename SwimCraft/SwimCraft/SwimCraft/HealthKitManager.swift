@@ -6,7 +6,6 @@
 //
 
 import HealthKit
-import SharedModule
 
 class HealthKitManager
 {
@@ -29,25 +28,76 @@ class HealthKitManager
 
     func saveWorkout(_ swimWorkout: SwimWorkout, completion: @escaping (Bool, Error?) -> Void)
     {
-        let workout = HKWorkout(
-            activityType: .swimming,
-            start: Date(),
-            end: Date().addingTimeInterval(swimWorkout.duration),
-            duration: swimWorkout.duration,
-            totalEnergyBurned: nil as HKQuantity?,
-            totalDistance: HKQuantity(unit: .meter(), doubleValue: swimWorkout.distance),
-            metadata: [
-                "coach": swimWorkout.coach?.name ?? "WorkoutKit",
-                "strokes": swimWorkout.strokes.joined(separator: ","),
-                "createdViaWorkoutKit": swimWorkout.createdViaWorkoutKit,
-                "source": swimWorkout.source ?? ""
-            ]
+        let workoutConfiguration = HKWorkoutConfiguration()
+        workoutConfiguration.activityType = .swimming
+        workoutConfiguration.locationType = .indoor
+
+        let builder = HKWorkoutBuilder(
+            healthStore: healthStore,
+            configuration: workoutConfiguration,
+            device: nil
         )
 
-        healthStore.save(workout)
+        let startDate = Date()
+        let endDate = startDate.addingTimeInterval(swimWorkout.duration)
+
+        builder.beginCollection(withStart: startDate)
         {
             success, error in
-            completion(success, error)
+            guard success else
+            {
+                completion(false, error)
+                return
+            }
+
+            let distanceQuantity = HKQuantity(unit: .meter(), doubleValue: swimWorkout.distance)
+            let distanceSample = HKQuantitySample(
+                type: HKQuantityType.quantityType(forIdentifier: .distanceSwimming)!,
+                quantity: distanceQuantity,
+                start: startDate,
+                end: endDate
+            )
+
+            builder.add([distanceSample])
+            {
+                success, error in
+                guard success else
+                {
+                    completion(false, error)
+                    return
+                }
+
+                builder.addMetadata([
+                    "coach": swimWorkout.coach?.name ?? "WorkoutKit",
+                    "strokes": swimWorkout.strokes.joined(separator: ","),
+                    "createdViaWorkoutKit": swimWorkout.createdViaWorkoutKit,
+                    "source": swimWorkout.source ?? ""
+                ])
+                {
+                    success, error in
+                    guard success else
+                    {
+                        completion(false, error)
+                        return
+                    }
+
+                    builder.endCollection(withEnd: endDate)
+                    {
+                        success, error in
+                        guard success else
+                        {
+                            completion(false, error)
+                            return
+                        }
+
+                        builder.finishWorkout
+                        {
+                            workout, error in
+                            completion(workout != nil, error)
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -58,9 +108,7 @@ class HealthKitManager
         let query = HKSampleQuery(sampleType: .workoutType(), predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: [sortDescriptor])
         {
             _, samples, error in
-            let workouts = samples?.compactMap
-            {
-                sample -> SwimWorkout? in
+            let workouts = samples?.compactMap { sample -> SwimWorkout? in
                 guard let workout = sample as? HKWorkout else { return nil }
                 let strokes = (workout.metadata?["strokes"] as? String)?.components(separatedBy: ",") ?? []
                 let createdViaWorkoutKit = (workout.metadata?["createdViaWorkoutKit"] as? Bool) ?? (workout.metadata?["coach"] as? String == "WorkoutKit")
