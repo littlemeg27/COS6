@@ -6,6 +6,7 @@
 //
 
 
+// SwimWorkoutManager.swift
 import Foundation
 
 struct SwimWorkoutManager
@@ -25,7 +26,10 @@ struct SwimWorkoutManager
             source: nil
         )
 
-        HealthKitManager.shared.saveWorkout(swimWorkout) { success, error in
+        HealthKitManager.shared.saveWorkout(swimWorkout)
+        {
+            success, error in
+            
             if success
             {
                 completion(swimWorkout, nil)

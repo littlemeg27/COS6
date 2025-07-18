@@ -20,8 +20,8 @@ class HealthKitManager
             return
         }
 
-        let typesToShare: Set = [HKObjectType.workoutType()]
-        let typesToRead: Set = [HKObjectType.workoutType()]
+        let typesToShare: Set = [HKObjectType.workoutType(), HKQuantityType.quantityType(forIdentifier: .distanceSwimming)!]
+        let typesToRead: Set = [HKObjectType.workoutType(), HKQuantityType.quantityType(forIdentifier: .distanceSwimming)!]
 
         healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead, completion: completion)
     }
@@ -41,9 +41,7 @@ class HealthKitManager
         let startDate = Date()
         let endDate = startDate.addingTimeInterval(swimWorkout.duration)
 
-        builder.beginCollection(withStart: startDate)
-        {
-            success, error in
+        builder.beginCollection(withStart: startDate) { success, error in
             guard success else
             {
                 completion(false, error)
@@ -58,9 +56,7 @@ class HealthKitManager
                 end: endDate
             )
 
-            builder.add([distanceSample])
-            {
-                success, error in
+            builder.add([distanceSample]) { success, error in
                 guard success else
                 {
                     completion(false, error)
@@ -68,7 +64,8 @@ class HealthKitManager
                 }
 
                 builder.addMetadata([
-                    "coach": swimWorkout.coach?.name ?? "WorkoutKit",
+                    "name": swimWorkout.name, // Added name to metadata
+                    "coach": swimWorkout.coach?.name ?? "None",
                     "strokes": swimWorkout.strokes.joined(separator: ","),
                     "createdViaWorkoutKit": swimWorkout.createdViaWorkoutKit,
                     "source": swimWorkout.source ?? ""
@@ -81,9 +78,7 @@ class HealthKitManager
                         return
                     }
 
-                    builder.endCollection(withEnd: endDate)
-                    {
-                        success, error in
+                    builder.endCollection(withEnd: endDate) { success, error in
                         guard success else
                         {
                             completion(false, error)
@@ -108,10 +103,12 @@ class HealthKitManager
         let query = HKSampleQuery(sampleType: .workoutType(), predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: [sortDescriptor])
         {
             _, samples, error in
-            let workouts = samples?.compactMap { sample -> SwimWorkout? in
+            let workouts = samples?.compactMap
+            {
+                sample -> SwimWorkout? in
                 guard let workout = sample as? HKWorkout else { return nil }
                 let strokes = (workout.metadata?["strokes"] as? String)?.components(separatedBy: ",") ?? []
-                let createdViaWorkoutKit = (workout.metadata?["createdViaWorkoutKit"] as? Bool) ?? (workout.metadata?["coach"] as? String == "WorkoutKit")
+                let createdViaWorkoutKit = (workout.metadata?["createdViaWorkoutKit"] as? Bool) ?? (workout.metadata?["coach"] as? String == "None")
                 return SwimWorkout(
                     id: workout.uuid,
                     name: workout.metadata?["name"] as? String ?? "Swim Workout",

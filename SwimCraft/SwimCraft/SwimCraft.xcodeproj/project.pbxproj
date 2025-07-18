@@ -28,6 +28,20 @@
 			remoteGlobalIDString = BAAAC5562E1DF64300F4F88A;
 			remoteInfo = SwimCraft;
 		};
+		BABD086A2E29B20F000E3790 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAAAC54F2E1DF64300F4F88A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BABD085C2E29B20E000E3790;
+			remoteInfo = "SwimCraft Watch App";
+		};
+		BABD08742E29B20F000E3790 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAAAC54F2E1DF64300F4F88A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BABD085C2E29B20E000E3790;
+			remoteInfo = "SwimCraft Watch App";
+		};
 		BABF2A852E21F80D0072FFE4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BAAAC54F2E1DF64300F4F88A /* Project object */;
@@ -101,6 +115,9 @@
 		BAAAC5572E1DF64300F4F88A /* SwimCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwimCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAAAC56D2E1DF64500F4F88A /* SwimCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAAAC5772E1DF64500F4F88A /* SwimCraftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimCraftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABD085D2E29B20E000E3790 /* SwimCraft Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwimCraft Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABD08692E29B20F000E3790 /* SwimCraft Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwimCraft Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABD08732E29B20F000E3790 /* SwimCraft Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwimCraft Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BABF2A782E21F80C0072FFE4 /* SwimCraftWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwimCraftWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BABF2A842E21F80D0072FFE4 /* SwimCraftWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwimCraftWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BABF2A8E2E21F80D0072FFE4 /* SwimCraftWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwimCraftWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +132,13 @@
 				Info.plist,
 			);
 			target = BAAAC5562E1DF64300F4F88A /* SwimCraft */;
+		};
+		BABD08892E29F05D000E3790 /* Exceptions for "SharedModule" folder in "SwimCraft Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SharedModels.swift,
+			);
+			target = BABD085C2E29B20E000E3790 /* SwimCraft Watch App */;
 		};
 		BABF2ADA2E25DB140072FFE4 /* Exceptions for "SharedModule" folder in "SwimCraft" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -151,19 +175,19 @@
 			path = SwimCraftUITests;
 			sourceTree = "<group>";
 		};
-		BABF2A792E21F80C0072FFE4 /* SwimCraftWatch Watch App */ = {
+		BABD085E2E29B20E000E3790 /* SwimCraft Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "SwimCraftWatch Watch App";
+			path = "SwimCraft Watch App";
 			sourceTree = "<group>";
 		};
-		BABF2A872E21F80D0072FFE4 /* SwimCraftWatch Watch AppTests */ = {
+		BABD086C2E29B20F000E3790 /* SwimCraft Watch AppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "SwimCraftWatch Watch AppTests";
+			path = "SwimCraft Watch AppTests";
 			sourceTree = "<group>";
 		};
-		BABF2A912E21F80D0072FFE4 /* SwimCraftWatch Watch AppUITests */ = {
+		BABD08762E29B20F000E3790 /* SwimCraft Watch AppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "SwimCraftWatch Watch AppUITests";
+			path = "SwimCraft Watch AppUITests";
 			sourceTree = "<group>";
 		};
 		BABF2ABD2E25DAE30072FFE4 /* SharedModule */ = {
@@ -171,6 +195,7 @@
 			exceptions = (
 				BABF2ADA2E25DB140072FFE4 /* Exceptions for "SharedModule" folder in "SwimCraft" target */,
 				BABF2ADB2E25DB140072FFE4 /* Exceptions for "SharedModule" folder in "SharedModule" target */,
+				BABD08892E29F05D000E3790 /* Exceptions for "SharedModule" folder in "SwimCraft Watch App" target */,
 			);
 			path = SharedModule;
 			sourceTree = "<group>";
@@ -199,6 +224,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BAAAC5742E1DF64500F4F88A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD085A2E29B20E000E3790 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD08662E29B20F000E3790 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD08702E29B20F000E3790 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -250,11 +296,11 @@
 				BAAAC5592E1DF64300F4F88A /* SwimCraft */,
 				BAAAC5702E1DF64500F4F88A /* SwimCraftTests */,
 				BAAAC57A2E1DF64500F4F88A /* SwimCraftUITests */,
-				BABF2A792E21F80C0072FFE4 /* SwimCraftWatch Watch App */,
-				BABF2A872E21F80D0072FFE4 /* SwimCraftWatch Watch AppTests */,
-				BABF2A912E21F80D0072FFE4 /* SwimCraftWatch Watch AppUITests */,
 				BABF2ABD2E25DAE30072FFE4 /* SharedModule */,
 				BABF2ACC2E25DAE40072FFE4 /* SharedModuleTests */,
+				BABD085E2E29B20E000E3790 /* SwimCraft Watch App */,
+				BABD086C2E29B20F000E3790 /* SwimCraft Watch AppTests */,
+				BABD08762E29B20F000E3790 /* SwimCraft Watch AppUITests */,
 				BAAAC5582E1DF64300F4F88A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -270,6 +316,9 @@
 				BABF2A8E2E21F80D0072FFE4 /* SwimCraftWatch Watch AppUITests.xctest */,
 				BABF2ABC2E25DAE30072FFE4 /* SharedModule.framework */,
 				BABF2AC62E25DAE40072FFE4 /* SharedModuleTests.xctest */,
+				BABD085D2E29B20E000E3790 /* SwimCraft Watch App.app */,
+				BABD08692E29B20F000E3790 /* SwimCraft Watch AppTests.xctest */,
+				BABD08732E29B20F000E3790 /* SwimCraft Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -359,6 +408,74 @@
 			productReference = BAAAC5772E1DF64500F4F88A /* SwimCraftUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		BABD085C2E29B20E000E3790 /* SwimCraft Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BABD087B2E29B20F000E3790 /* Build configuration list for PBXNativeTarget "SwimCraft Watch App" */;
+			buildPhases = (
+				BABD08592E29B20E000E3790 /* Sources */,
+				BABD085A2E29B20E000E3790 /* Frameworks */,
+				BABD085B2E29B20E000E3790 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				BABD085E2E29B20E000E3790 /* SwimCraft Watch App */,
+			);
+			name = "SwimCraft Watch App";
+			packageProductDependencies = (
+			);
+			productName = "SwimCraft Watch App";
+			productReference = BABD085D2E29B20E000E3790 /* SwimCraft Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BABD08682E29B20F000E3790 /* SwimCraft Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BABD087E2E29B20F000E3790 /* Build configuration list for PBXNativeTarget "SwimCraft Watch AppTests" */;
+			buildPhases = (
+				BABD08652E29B20F000E3790 /* Sources */,
+				BABD08662E29B20F000E3790 /* Frameworks */,
+				BABD08672E29B20F000E3790 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BABD086B2E29B20F000E3790 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BABD086C2E29B20F000E3790 /* SwimCraft Watch AppTests */,
+			);
+			name = "SwimCraft Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "SwimCraft Watch AppTests";
+			productReference = BABD08692E29B20F000E3790 /* SwimCraft Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BABD08722E29B20F000E3790 /* SwimCraft Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BABD08812E29B20F000E3790 /* Build configuration list for PBXNativeTarget "SwimCraft Watch AppUITests" */;
+			buildPhases = (
+				BABD086F2E29B20F000E3790 /* Sources */,
+				BABD08702E29B20F000E3790 /* Frameworks */,
+				BABD08712E29B20F000E3790 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BABD08752E29B20F000E3790 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BABD08762E29B20F000E3790 /* SwimCraft Watch AppUITests */,
+			);
+			name = "SwimCraft Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "SwimCraft Watch AppUITests";
+			productReference = BABD08732E29B20F000E3790 /* SwimCraft Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		BABF2A772E21F80C0072FFE4 /* SwimCraftWatch Watch App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BABF2AA02E21F80D0072FFE4 /* Build configuration list for PBXNativeTarget "SwimCraftWatch Watch App" */;
@@ -370,9 +487,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				BABF2A792E21F80C0072FFE4 /* SwimCraftWatch Watch App */,
 			);
 			name = "SwimCraftWatch Watch App";
 			packageProductDependencies = (
@@ -394,9 +508,6 @@
 			dependencies = (
 				BABF2A862E21F80D0072FFE4 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				BABF2A872E21F80D0072FFE4 /* SwimCraftWatch Watch AppTests */,
-			);
 			name = "SwimCraftWatch Watch AppTests";
 			packageProductDependencies = (
 			);
@@ -416,9 +527,6 @@
 			);
 			dependencies = (
 				BABF2A902E21F80D0072FFE4 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				BABF2A912E21F80D0072FFE4 /* SwimCraftWatch Watch AppUITests */,
 			);
 			name = "SwimCraftWatch Watch AppUITests";
 			packageProductDependencies = (
@@ -495,6 +603,17 @@
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = BAAAC5562E1DF64300F4F88A;
 					};
+					BABD085C2E29B20E000E3790 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					BABD08682E29B20F000E3790 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = BABD085C2E29B20E000E3790;
+					};
+					BABD08722E29B20F000E3790 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = BABD085C2E29B20E000E3790;
+					};
 					BABF2A772E21F80C0072FFE4 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -537,6 +656,9 @@
 				BABF2A8D2E21F80D0072FFE4 /* SwimCraftWatch Watch AppUITests */,
 				BABF2ABB2E25DAE30072FFE4 /* SharedModule */,
 				BABF2AC52E25DAE40072FFE4 /* SharedModuleTests */,
+				BABD085C2E29B20E000E3790 /* SwimCraft Watch App */,
+				BABD08682E29B20F000E3790 /* SwimCraft Watch AppTests */,
+				BABD08722E29B20F000E3790 /* SwimCraft Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -557,6 +679,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BAAAC5752E1DF64500F4F88A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD085B2E29B20E000E3790 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD08672E29B20F000E3790 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD08712E29B20F000E3790 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -622,6 +765,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BABD08592E29B20E000E3790 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD08652E29B20F000E3790 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD086F2E29B20F000E3790 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BABF2A742E21F80C0072FFE4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -670,6 +834,16 @@
 			target = BAAAC5562E1DF64300F4F88A /* SwimCraft */;
 			targetProxy = BAAAC5782E1DF64500F4F88A /* PBXContainerItemProxy */;
 		};
+		BABD086B2E29B20F000E3790 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BABD085C2E29B20E000E3790 /* SwimCraft Watch App */;
+			targetProxy = BABD086A2E29B20F000E3790 /* PBXContainerItemProxy */;
+		};
+		BABD08752E29B20F000E3790 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BABD085C2E29B20E000E3790 /* SwimCraft Watch App */;
+			targetProxy = BABD08742E29B20F000E3790 /* PBXContainerItemProxy */;
+		};
 		BABF2A862E21F80D0072FFE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BABF2A772E21F80C0072FFE4 /* SwimCraftWatch Watch App */;
@@ -711,6 +885,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D3758JUXWN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwimCraft/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SwimCraft;
@@ -741,6 +916,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D3758JUXWN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwimCraft/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SwimCraft;
@@ -947,6 +1123,138 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SwimCraft;
+			};
+			name = Release;
+		};
+		BABD087C2E29B20F000E3790 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D3758JUXWN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SwimCraft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp.SwimCraft.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		BABD087D2E29B20F000E3790 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D3758JUXWN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SwimCraft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp.SwimCraft.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+		BABD087F2E29B20F000E3790 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RavenDesign.testApp.SwimCraft-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwimCraft Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwimCraft Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		BABD08802E29B20F000E3790 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RavenDesign.testApp.SwimCraft-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwimCraft Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwimCraft Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+		BABD08822E29B20F000E3790 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RavenDesign.testApp.SwimCraft-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "SwimCraft Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		BABD08832E29B20F000E3790 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RavenDesign.testApp.SwimCraft-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "SwimCraft Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
 			};
 			name = Release;
 		};
@@ -1245,6 +1553,33 @@
 			buildConfigurations = (
 				BAAAC5892E1DF64500F4F88A /* Debug */,
 				BAAAC58A2E1DF64500F4F88A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BABD087B2E29B20F000E3790 /* Build configuration list for PBXNativeTarget "SwimCraft Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BABD087C2E29B20F000E3790 /* Debug */,
+				BABD087D2E29B20F000E3790 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BABD087E2E29B20F000E3790 /* Build configuration list for PBXNativeTarget "SwimCraft Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BABD087F2E29B20F000E3790 /* Debug */,
+				BABD08802E29B20F000E3790 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BABD08812E29B20F000E3790 /* Build configuration list for PBXNativeTarget "SwimCraft Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BABD08822E29B20F000E3790 /* Debug */,
+				BABD08832E29B20F000E3790 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

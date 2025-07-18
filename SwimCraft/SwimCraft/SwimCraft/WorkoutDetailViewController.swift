@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SharedModule
+import Foundation
 
 class WorkoutDetailViewController: UIViewController
 {
@@ -14,61 +14,30 @@ class WorkoutDetailViewController: UIViewController
     @IBOutlet weak var distanceTextField: UITextField!
     @IBOutlet weak var durationTextField: UITextField!
     @IBOutlet weak var strokesTextField: UITextField!
-    @IBOutlet weak var coachPicker: UIPickerView!
+    @IBOutlet weak var coachLabel: UILabel!
 
-    var coaches: [Coach] = []
-    var selectedCoach: Coach?
-    var onSave: ((SwimWorkout) -> Void)?
+    var workout: SwimWorkout?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        coachPicker.dataSource = self
-        coachPicker.delegate = self
-        coaches = loadCoaches(from: "CertifiedCoaches")
+        nameTextField.isEnabled = false
+        distanceTextField.isEnabled = false
+        durationTextField.isEnabled = false
+        strokesTextField.isEnabled = false
+
+        if let workout = workout
+        {
+            nameTextField.text = workout.name
+            distanceTextField.text = String(workout.distance)
+            durationTextField.text = String(Int(workout.duration / 60))
+            strokesTextField.text = workout.strokes.joined(separator: ", ")
+            coachLabel.text = workout.coach?.name ?? "None"
+        }
     }
 
-    @IBAction func saveButtonTapped(_ sender: UIButton)
+    @IBAction func backButtonTapped(_ sender: UIButton)
     {
-        guard let name = nameTextField.text, !name.isEmpty,
-              let distanceText = distanceTextField.text, let distance = Double(distanceText),
-              let durationText = durationTextField.text, let duration = Double(durationText),
-              let strokesText = strokesTextField.text else { return }
-
-        let strokes = strokesText.components(separatedBy: ",").map
-        { $0.trimmingCharacters(in: .whitespaces) }
-
-        let workout = SwimWorkout(
-            id: UUID(),
-            name: name,
-            coach: selectedCoach,
-            distance: distance,
-            duration: duration,
-            strokes: strokes,
-            createdViaWorkoutKit: false,
-            source: nil // Added source
-        )
-        onSave?(workout)
         navigationController?.popViewController(animated: true)
-    }
-}
-
-extension WorkoutDetailViewController: UIPickerViewDataSource, UIPickerViewDelegate
-{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
-    {
-        coaches.count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        "\(coaches[row].name) (\(coaches[row].level))"
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-    {
-        selectedCoach = coaches[row]
     }
 }

@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  SwimCraftWatch Watch App
+//  SwimCraft Watch App
 //
 //  Created by Brenna Pavlinchak on 7/11/25.
 //
