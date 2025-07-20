@@ -6,7 +6,6 @@
 //
 
 
-// SwimWorkoutManager.swift
 import Foundation
 
 struct SwimWorkoutManager

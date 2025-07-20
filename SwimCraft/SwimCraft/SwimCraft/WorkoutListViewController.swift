@@ -24,6 +24,7 @@ class WorkoutListViewController: UITableViewController, WCSessionDelegate
             session?.delegate = self
             session?.activate()
         }
+        
         HealthKitManager.shared.requestAuthorization
         {
             success, error in
