@@ -8,12 +8,12 @@
 import UIKit
 
 class WorkoutDetailTableViewCell: UITableViewCell
-{    
-    @IBOutlet weak var yardsLabel: UILabel!
-    @IBOutlet weak var typeLabel: UILabel!
-    @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var strokeLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+{
+    private let yardsLabel = UILabel()
+    private let typeLabel = UILabel()
+    private let amountLabel = UILabel()
+    private let strokeLabel = UILabel()
+    private let timeLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?)
     {
@@ -63,6 +63,9 @@ class WorkoutDetailTableViewCell: UITableViewCell
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
+        
+        accessibilityLabel = "Workout Segment"
+        accessibilityHint = "Displays details of a workout segment"
     }
     
     func configure(with segment: WorkoutSegment)
@@ -72,6 +75,8 @@ class WorkoutDetailTableViewCell: UITableViewCell
         strokeLabel.text = "Stroke: \(segment.stroke)"
         typeLabel.text = "Type: \(segment.type)"
         timeLabel.text = "Time: \(Int(segment.time)) sec"
+        
+        accessibilityLabel = "\(segment.amount) reps of \(segment.yards) yards \(segment.stroke), \(segment.type), \(Int(segment.time)) seconds"
     }
     
     override func awakeFromNib()

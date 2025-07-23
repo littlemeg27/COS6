@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddButtonTableViewCell: UITableViewCell
+class AddButtonCell: UITableViewCell
 {
     
     private let addLabel = UILabel()
@@ -42,6 +42,10 @@ class AddButtonTableViewCell: UITableViewCell
         ])
         
         contentView.backgroundColor = .systemGray6
+        
+        addLabel.isAccessibilityElement = true
+        addLabel.accessibilityLabel = "Add Segment"
+        addLabel.accessibilityHint = "Tap to add a new workout segment"
     }
     
     override func awakeFromNib()
@@ -53,7 +57,6 @@ class AddButtonTableViewCell: UITableViewCell
     override func setSelected(_ selected: Bool, animated: Bool)
     {
         super.setSelected(selected, animated: animated)
-        
         addLabel.textColor = selected ? .systemBlue.withAlphaComponent(0.7) : .systemBlue
     }
 }

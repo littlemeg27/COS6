@@ -8,36 +8,22 @@
 
 import Foundation
 
-   struct SwimWorkoutManager
+class SwimWorkoutManager
 {
-       static let shared = SwimWorkoutManager()
-
-       func createSwimWorkout(name: String, distance: Double, duration: TimeInterval, strokes: [String], completion: @escaping (SwimWorkout?, Error?) -> Void)
-       {
-           let swimWorkout = SwimWorkout(
-               id: UUID(),
-               name: name,
-               coach: nil,
-               warmUp: [WorkoutSegment(yards: distance, type: "Swim", amount: 1, stroke: strokes.first ?? "Freestyle", time: duration)],
-               mainSet: [],
-               coolDown: [],
-               createdViaWorkoutKit: false,
-               source: nil
-           )
-
-           HealthKitManager.shared.saveWorkout(swimWorkout)
-           {
-               success, error in
-               
-               if success
-               {
-                   completion(swimWorkout, nil)
-               }
-               else
-               {
-                   completion(nil, error)
-               }
-           }
-       }
-   }
-   
+    static let shared = SwimWorkoutManager()
+    
+    func createSwimWorkout(name: String, distance: Double, duration: TimeInterval, strokes: [String], completion: @escaping (SwimWorkout?, Error?) -> Void)
+    {
+        let workout = SwimWorkout(
+            id: UUID(),
+            name: name,
+            coach: nil,
+            warmUp: [],
+            mainSet: [WorkoutSegment(yards: distance, type: "Swim", amount: 1, stroke: strokes.first ?? "Freestyle", time: duration)],
+            coolDown: [],
+            createdViaWorkoutKit: true,
+            source: "WorkoutKit"
+        )
+        completion(workout, nil)
+    }
+}

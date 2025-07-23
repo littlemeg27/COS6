@@ -11,13 +11,19 @@ import Foundation
 
 class WorkoutListViewController: UITableViewController, WCSessionDelegate
 {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var createButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var createButton: UIButton?
+    @IBOutlet weak var shareButton: UIButton?
     
     var workouts: [SwimWorkout] = []
     private var session: WCSession?
     private var isSelectingForShare = false
+    
+    private let dateFormatter: DateFormatter =
+    {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return formatter
+    }()
 
     override func viewDidLoad()
     {
@@ -29,6 +35,7 @@ class WorkoutListViewController: UITableViewController, WCSessionDelegate
             session?.delegate = self
             session?.activate()
         }
+        
         HealthKitManager.shared.requestAuthorization
         {
             success, error in
@@ -44,6 +51,10 @@ class WorkoutListViewController: UITableViewController, WCSessionDelegate
                         self.workouts = fetchedWorkouts
                         self.tableView.reloadData()
                     }
+                    else if let error = error
+                    {
+                        print("Error fetching workouts: \(error)")
+                    }
                 }
             }
             else if let error = error
@@ -51,7 +62,13 @@ class WorkoutListViewController: UITableViewController, WCSessionDelegate
                 print("HealthKit authorization failed: \(error)")
             }
         }
+        
         tableView.register(WorkoutListTableViewCell.self, forCellReuseIdentifier: "WorkoutCell")
+        
+        createButton?.accessibilityLabel = "Add Workout"
+        createButton?.accessibilityHint = "Tap to create a new swim workout"
+        shareButton?.accessibilityLabel = "Share Workout"
+        shareButton?.accessibilityHint = "Tap to select and share a workout"
     }
 
     func session(_ session: WCSession, activationDidCompleteWith state: WCSessionActivationState, error: Error?)
@@ -91,7 +108,7 @@ class WorkoutListViewController: UITableViewController, WCSessionDelegate
                     [
                         "name": $0.name,
                         "level": $0.level,
-                        "dateCompleted": $0.dateCompleted,
+                        "dateCompleted": self.dateFormatter.string(from: $0.dateCompleted),
                         "clubAbbr": $0.clubAbbr,
                         "clubName": $0.clubName,
                         "lmsc": $0.lmsc
@@ -150,7 +167,7 @@ class WorkoutListViewController: UITableViewController, WCSessionDelegate
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel)
                         {
             _ in
-            self.isSelectingForShare = false③
+            self.isSelectingForShare = false
         })
         present(alert, animated: true)
     }
@@ -163,7 +180,9 @@ class WorkoutListViewController: UITableViewController, WCSessionDelegate
         }
         else if segue.identifier == "toWorkoutCreation", let destination = segue.destination as? WorkoutCreationViewController
         {
-            destination.onSave = { workout in
+            destination.onSave =
+            {
+                workout in
                 self.workouts.append(workout)
                 HealthKitManager.shared.saveWorkout(workout)
                 {

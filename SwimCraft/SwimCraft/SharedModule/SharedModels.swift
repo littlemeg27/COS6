@@ -11,10 +11,19 @@ struct Coach
 {
     let name: String
     let level: String
-    let dateCompleted: String
+    let dateCompleted: Date
     let clubAbbr: String
     let clubName: String
     let lmsc: String
+}
+
+struct WorkoutSegment
+{
+    let yards: Double
+    let type: String
+    let amount: Int
+    let stroke: String
+    let time: TimeInterval
 }
 
 struct SwimWorkout
@@ -30,25 +39,22 @@ struct SwimWorkout
     
     var distance: Double
     {
-        (warmUp + mainSet + coolDown).reduce(0) { $0 + $1.yards }
+        let warmUpDistance = warmUp.reduce(0.0) { $0 + $1.yards * Double($1.amount) }
+        let mainSetDistance = mainSet.reduce(0.0) { $0 + $1.yards * Double($1.amount) }
+        let coolDownDistance = coolDown.reduce(0.0) { $0 + $1.yards * Double($1.amount) }
+        return warmUpDistance + mainSetDistance + coolDownDistance
     }
     
     var duration: TimeInterval
     {
-        (warmUp + mainSet + coolDown).reduce(0) { $0 + $1.time * Double($1.amount) }
+        let warmUpDuration = warmUp.reduce(0.0) { $0 + $1.time * Double($1.amount) }
+        let mainSetDuration = mainSet.reduce(0.0) { $0 + $1.time * Double($1.amount) }
+        let coolDownDuration = coolDown.reduce(0.0) { $0 + $1.time * Double($1.amount) }
+        return warmUpDuration + mainSetDuration + coolDownDuration
     }
     
     var strokes: [String]
     {
-        Array(Set((warmUp + mainSet + coolDown).map { $0.stroke }))
+        Array(Set(warmUp.map { $0.stroke } + mainSet.map { $0.stroke } + coolDown.map { $0.stroke }))
     }
-}
-
-struct WorkoutSegment
-{
-    let yards: Double
-    let type: String // Drill, Swim, Kick
-    let amount: Int // number of reps
-    let stroke: String // Freestyle, Backstroke
-    let time: TimeInterval // interval time in seconds
 }

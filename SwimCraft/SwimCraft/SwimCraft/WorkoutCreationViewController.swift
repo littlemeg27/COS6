@@ -7,13 +7,12 @@
 
 import UIKit
 import Foundation
-import CSVParser
 
 class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var coachPicker: UIDropDownPicker!
+    @IBOutlet weak var coachPicker: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
     var coaches: [Coach] = []
@@ -32,8 +31,6 @@ class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UI
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        coachPicker.dataSource = self
-        coachPicker.delegate = self
         coaches = loadCoaches(from: "CertifiedCoaches")
         
         warmUpSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
@@ -41,11 +38,38 @@ class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UI
         coolDownSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
         
         tableView.register(WorkoutCreationTableViewCell.self, forCellReuseIdentifier: "WorkoutSegmentCell")
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "AddButtonCell")
+        tableView.register(AddButtonCell.self, forCellReuseIdentifier: "AddButtonCell")
+        
+        setupCoachPicker()
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int
+    private func setupCoachPicker()
     {
+        coachPicker.setTitle("Select Coach", for: .normal)
+        coachPicker.showsMenuAsPrimaryAction = true
+        coachPicker.titleLabel?.font = .systemFont(ofSize: 16)
+        coachPicker.setTitleColor(.systemBlue, for: .normal)
+        
+        updateCoachPickerMenu()
+        
+        coachPicker.accessibilityLabel = "Select Coach"
+        coachPicker.accessibilityHint = "Tap to choose a coach for the workout"
+    }
+    
+    private func updateCoachPickerMenu()
+    {
+        let coachActions = coaches.enumerated().map { index, coach in
+            UIAction(title: "\(coach.name) (\(coach.level))", handler: { [weak self] _ in
+                self?.selectedCoach = coach
+                self?.coachPicker.setTitle("\(coach.name) (\(coach.level))", for: .normal)
+            })
+        }
+        
+        let menu = UIMenu(title: "Select Coach", children: coachActions)
+        coachPicker.menu = menu
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
@@ -83,10 +107,7 @@ class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UI
             let segment = segments[row]
             cell.configure(with: segment, types: segmentTypes, strokes: strokeTypes, times: timeOptions)
             
-            cell.onUpdate =
-            {
-                [weak self] updatedSegment in
-                
+            cell.onUpdate = { [weak self] updatedSegment in
                 if section == 0
                 {
                     self?.warmUpSegments[row] = updatedSegment
@@ -104,9 +125,7 @@ class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UI
         }
         else
         {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AddButtonCell", for: indexPath)
-            cell.textLabel?.text = "+ Add Segment"
-            cell.textLabel?.textAlignment = .center
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddButtonCell", for: indexPath) as! AddButtonCell
             return cell
         }
     }
@@ -160,25 +179,5 @@ class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UI
         )
         onSave?(workout)
         navigationController?.popViewController(animated: true)
-    }
-}
-
-extension WorkoutCreationViewController: UIPickerViewDataSource, UIPickerViewDelegate
-{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
-    {
-        coaches.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        "\(coaches[row].name) (\(coaches[row].level))"
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-    {
-        selectedCoach = coaches[row]
     }
 }

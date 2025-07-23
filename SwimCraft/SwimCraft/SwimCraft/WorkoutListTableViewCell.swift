@@ -9,11 +9,11 @@ import UIKit
 
 class WorkoutListTableViewCell: UITableViewCell
 {
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var coachLabel: UILabel!
-    @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-
+    private let nameLabel = UILabel()
+    private let coachLabel = UILabel()
+    private let distanceLabel = UILabel()
+    private let durationLabel = UILabel()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?)
     {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -60,6 +60,9 @@ class WorkoutListTableViewCell: UITableViewCell
         ])
         
         accessoryType = .disclosureIndicator
+        
+        accessibilityLabel = "Workout Cell"
+        accessibilityHint = "Tap to view workout details or share"
     }
     
     func configure(with workout: SwimWorkout)
@@ -68,6 +71,8 @@ class WorkoutListTableViewCell: UITableViewCell
         coachLabel.text = "Coach: \(workout.coach?.name ?? "None")"
         distanceLabel.text = "Distance: \(workout.distance) meters"
         durationLabel.text = "Duration: \(Int(workout.duration / 60)) minutes"
+        
+        accessibilityLabel = "Workout: \(workout.name), Coach: \(workout.coach?.name ?? "None"), Distance: \(workout.distance) meters, Duration: \(Int(workout.duration / 60)) minutes"
     }
     
     override func awakeFromNib()

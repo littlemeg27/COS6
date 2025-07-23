@@ -5,15 +5,22 @@
 //  Created by Brenna Pavlinchak on 7/9/25.
 //
 
-
 import WatchKit
 import WatchConnectivity
 import Foundation
+
 
 class InterfaceController: WKInterfaceController, WCSessionDelegate
 {
     @IBOutlet weak var workoutTable: WKInterfaceTable!
     var workouts: [SwimWorkout] = []
+    
+    private let dateFormatter: DateFormatter =
+    {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return formatter
+    }()
 
     override func awake(withContext context: Any?)
     {
@@ -53,15 +60,25 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate
                 {
                     return nil
                 }
+                
                 let coach: Coach?
-                if let coachDict = dict["coach"] as? [String: String],
-                   let coachName = coachDict["name"],
-                   let coachLevel = coachDict["level"],
-                   let dateCompleted = coachDict["dateCompleted"],
-                   let clubAbbr = coachDict["clubAbbr"],
-                   let clubName = coachDict["clubName"],
-                   let lmsc = coachDict["lmsc"] {
-                    coach = Coach(name: coachName, level: coachLevel, dateCompleted: dateCompleted, clubAbbr: clubAbbr, clubName: clubName, lmsc: lmsc)
+                
+                if let coachDict = dict["coach"] as? [String: Any],
+                   let coachName = coachDict["name"] as? String,
+                   let coachLevel = coachDict["level"] as? String,
+                   let dateCompletedString = coachDict["dateCompleted"] as? String,
+                   let dateCompleted = self.dateFormatter.date(from: dateCompletedString),
+                   let clubAbbr = coachDict["clubAbbr"] as? String,
+                   let clubName = coachDict["clubName"] as? String,
+                   let lmsc = coachDict["lmsc"] as? String {
+                    coach = Coach(
+                        name: coachName,
+                        level: coachLevel,
+                        dateCompleted: dateCompleted,
+                        clubAbbr: clubAbbr,
+                        clubName: clubName,
+                        lmsc: lmsc
+                    )
                 }
                 else
                 {
@@ -69,15 +86,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate
                 }
                 
                 let warmUp = warmUpData.compactMap
-                { seg -> WorkoutSegment? in
-                    guard let yards = seg["yards"] as? Double,
-                          let type = seg["type"] as? String,
-                          let amount = seg["amount"] as? Int,
-                          let stroke = seg["stroke"] as? String,
-                          let time = seg["time"] as? Double else { return nil }
-                    return WorkoutSegment(yards: yards, type: type, amount: amount, stroke: stroke, time: time)
-                }
-                let mainSet = mainSetData.compactMap
                 {
                     seg -> WorkoutSegment? in
                     guard let yards = seg["yards"] as? Double,
@@ -87,7 +95,19 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate
                           let time = seg["time"] as? Double else { return nil }
                     return WorkoutSegment(yards: yards, type: type, amount: amount, stroke: stroke, time: time)
                 }
-                let coolDown = coolDownData.compactMap { seg -> WorkoutSegment? in
+                
+                let mainSet = mainSetData.compactMap { seg -> WorkoutSegment? in
+                    guard let yards = seg["yards"] as? Double,
+                          let type = seg["type"] as? String,
+                          let amount = seg["amount"] as? Int,
+                          let stroke = seg["stroke"] as? String,
+                          let time = seg["time"] as? Double else { return nil }
+                    return WorkoutSegment(yards: yards, type: type, amount: amount, stroke: stroke, time: time)
+                }
+                
+                let coolDown = coolDownData.compactMap
+                {
+                    seg -> WorkoutSegment? in
                     guard let yards = seg["yards"] as? Double,
                           let type = seg["type"] as? String,
                           let amount = seg["amount"] as? Int,

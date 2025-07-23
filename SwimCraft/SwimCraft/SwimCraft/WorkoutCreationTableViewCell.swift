@@ -7,18 +7,22 @@
 
 import UIKit
 
-class WorkoutCreationTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate
+class WorkoutCreationTableViewCell: UITableViewCell
 {
     @IBOutlet weak var yardsTextField: UITextField!
-    @IBOutlet weak var typePicker: UIDropDownPicker!
+    @IBOutlet weak var typePicker: UIButton!
     @IBOutlet weak var amountTextField: UITextField!
-    @IBOutlet weak var strokePicker: UIDropDownPicker!
-    @IBOutlet weak var timePicker: UIDropDownPicker!
+    @IBOutlet weak var strokePicker: UIButton!
+    @IBOutlet weak var timePicker: UIButton!
     
     var types: [String] = []
     var strokes: [String] = []
     var times: [TimeInterval] = []
     var onUpdate: ((WorkoutSegment) -> Void)?
+    
+    private var selectedType: String?
+    private var selectedStroke: String?
+    private var selectedTime: TimeInterval?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?)
     {
@@ -34,20 +38,54 @@ class WorkoutCreationTableViewCell: UITableViewCell, UIPickerViewDataSource, UIP
     
     func setupUI()
     {
+        if yardsTextField == nil
+        {
+            yardsTextField = UITextField()
+            contentView.addSubview(yardsTextField)
+        }
+        if typePicker == nil
+        {
+            typePicker = UIButton(type: .system)
+            contentView.addSubview(typePicker)
+        }
+        if amountTextField == nil
+        {
+            amountTextField = UITextField()
+            contentView.addSubview(amountTextField)
+        }
+        if strokePicker == nil
+        {
+            strokePicker = UIButton(type: .system)
+            contentView.addSubview(strokePicker)
+        }
+        if timePicker == nil
+        {
+            timePicker = UIButton(type: .system)
+            contentView.addSubview(timePicker)
+        }
+        
         yardsTextField.placeholder = "Yards"
         yardsTextField.keyboardType = .decimalPad
+        yardsTextField.borderStyle = .roundedRect
+        
         amountTextField.placeholder = "Reps"
         amountTextField.keyboardType = .numberPad
-
-        typePicker.tag = 1
-        strokePicker.tag = 2
-        timePicker.tag = 3
-        typePicker.dataSource = self
-        typePicker.delegate = self
-        strokePicker.dataSource = self
-        strokePicker.delegate = self
-        timePicker.dataSource = self
-        timePicker.delegate = self
+        amountTextField.borderStyle = .roundedRect
+        
+        typePicker.setTitle("Select Type", for: .normal)
+        typePicker.setTitleColor(.systemBlue, for: .normal)
+        typePicker.showsMenuAsPrimaryAction = true
+        typePicker.titleLabel?.font = .systemFont(ofSize: 14)
+        
+        strokePicker.setTitle("Select Stroke", for: .normal)
+        strokePicker.setTitleColor(.systemBlue, for: .normal)
+        strokePicker.showsMenuAsPrimaryAction = true
+        strokePicker.titleLabel?.font = .systemFont(ofSize: 14)
+        
+        timePicker.setTitle("Select Time", for: .normal)
+        timePicker.setTitleColor(.systemBlue, for: .normal)
+        timePicker.showsMenuAsPrimaryAction = true
+        timePicker.titleLabel?.font = .systemFont(ofSize: 14)
         
         let stackView = UIStackView(arrangedSubviews: [yardsTextField, typePicker, amountTextField, strokePicker, timePicker])
         stackView.axis = .horizontal
@@ -65,6 +103,17 @@ class WorkoutCreationTableViewCell: UITableViewCell, UIPickerViewDataSource, UIP
         
         yardsTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         amountTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        
+        yardsTextField.accessibilityLabel = "Yards"
+        yardsTextField.accessibilityHint = "Enter the distance in yards"
+        amountTextField.accessibilityLabel = "Reps"
+        amountTextField.accessibilityHint = "Enter the number of repetitions"
+        typePicker.accessibilityLabel = "Segment Type"
+        typePicker.accessibilityHint = "Tap to select the type of workout segment"
+        strokePicker.accessibilityLabel = "Stroke"
+        strokePicker.accessibilityHint = "Tap to select the stroke type"
+        timePicker.accessibilityLabel = "Time"
+        timePicker.accessibilityHint = "Tap to select the time interval"
     }
     
     func configure(with segment: WorkoutSegment, types: [String], strokes: [String], times: [TimeInterval])
@@ -75,49 +124,64 @@ class WorkoutCreationTableViewCell: UITableViewCell, UIPickerViewDataSource, UIP
         yardsTextField.text = String(segment.yards)
         amountTextField.text = String(segment.amount)
         
-        if let typeIndex = types.firstIndex(of: segment.type)
-        {
-            typePicker.selectRow(typeIndex, inComponent: 0, animated: false)
-        }
-        if let strokeIndex = strokes.firstIndex(of: segment.stroke)
-        {
-            strokePicker.selectRow(strokeIndex, inComponent: 0, animated: false)
-        }
-        if let timeIndex = times.firstIndex(of: segment.time)
-        {
-            timePicker.selectRow(timeIndex, inComponent: 0, animated: false)
-        }
+        selectedType = segment.type
+        typePicker.setTitle(segment.type, for: .normal)
+        updateTypeMenu()
+        
+        selectedStroke = segment.stroke
+        strokePicker.setTitle(segment.stroke, for: .normal)
+        updateStrokeMenu()
+        
+        selectedTime = segment.time
+        timePicker.setTitle("\(Int(segment.time)) sec", for: .normal)
+        updateTimeMenu()
     }
     
-    @objc func textFieldDidChange() {
-        updateSegment()
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    private func updateTypeMenu()
     {
-        switch pickerView.tag
+        let actions = types.map
         {
-            case 1: return types.count
-            case 2: return strokes.count
-            case 3: return times.count
-            default: return 0
+            type in
+            UIAction(title: type, state: type == selectedType ? .on : .off)
+            {
+                [weak self] _ in
+                self?.selectedType = type
+                self?.typePicker.setTitle(type, for: .normal)
+                self?.updateSegment()
+            }
         }
+        typePicker.menu = UIMenu(title: "Select Type", children: actions)
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    private func updateStrokeMenu()
     {
-        switch pickerView.tag
+        let actions = strokes.map
         {
-            case 1: return types[row]
-            case 2: return strokes[row]
-            case 3: return "\(Int(times[row])) sec"
-            default: return nil
+            stroke in
+            UIAction(title: stroke, state: stroke == selectedStroke ? .on : .off) { [weak self] _ in
+                self?.selectedStroke = stroke
+                self?.strokePicker.setTitle(stroke, for: .normal)
+                self?.updateSegment()
+            }
         }
+        strokePicker.menu = UIMenu(title: "Select Stroke", children: actions)
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    private func updateTimeMenu()
+    {
+        let actions = times.map
+        {
+            time in
+            UIAction(title: "\(Int(time)) sec", state: time == selectedTime ? .on : .off) { [weak self] _ in
+                self?.selectedTime = time
+                self?.timePicker.setTitle("\(Int(time)) sec", for: .normal)
+                self?.updateSegment()
+            }
+        }
+        timePicker.menu = UIMenu(title: "Select Time", children: actions)
+    }
+    
+    @objc func textFieldDidChange()
     {
         updateSegment()
     }
@@ -125,14 +189,15 @@ class WorkoutCreationTableViewCell: UITableViewCell, UIPickerViewDataSource, UIP
     func updateSegment()
     {
         guard let yardsText = yardsTextField.text, let yards = Double(yardsText),
-              let amountText = amountTextField.text, let amount = Int(amountText) else { return }
+              let amountText = amountTextField.text, let amount = Int(amountText),
+              let type = selectedType, let stroke = selectedStroke, let time = selectedTime else { return }
         
         let segment = WorkoutSegment(
             yards: yards,
-            type: types[typePicker.selectedRow(inComponent: 0)],
+            type: type,
             amount: amount,
-            stroke: strokes[strokePicker.selectedRow(inComponent: 0)],
-            time: times[timePicker.selectedRow(inComponent: 0)]
+            stroke: stroke,
+            time: time
         )
         onUpdate?(segment)
     }

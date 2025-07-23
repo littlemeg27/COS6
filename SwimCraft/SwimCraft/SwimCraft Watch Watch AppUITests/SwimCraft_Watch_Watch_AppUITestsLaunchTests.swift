@@ -1,13 +1,13 @@
 //
-//  SwimCraft_Watch_AppUITestsLaunchTests.swift
-//  SwimCraft Watch AppUITests
+//  SwimCraft_Watch_Watch_AppUITestsLaunchTests.swift
+//  SwimCraft Watch Watch AppUITests
 //
-//  Created by Brenna Pavlinchak on 7/17/25.
+//  Created by Brenna Pavlinchak on 7/22/25.
 //
 
 import XCTest
 
-final class SwimCraft_Watch_AppUITestsLaunchTests: XCTestCase {
+final class SwimCraft_Watch_Watch_AppUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

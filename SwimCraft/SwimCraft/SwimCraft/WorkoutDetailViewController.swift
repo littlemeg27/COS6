@@ -5,7 +5,6 @@
 //  Created by Brenna Pavlinchak on 7/9/25.
 //
 
-
 import UIKit
 import Foundation
 
@@ -14,8 +13,9 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var coachLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
+    
+    private let distanceLabel = UILabel()
+    private let durationLabel = UILabel()
     
     var workout: SwimWorkout?
     
@@ -34,6 +34,11 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource
             distanceLabel.text = "Distance: \(workout.distance) meters"
             durationLabel.text = "Duration: \(Int(workout.duration / 60)) minutes"
         }
+        
+        nameLabel.accessibilityLabel = "Workout Name"
+        coachLabel.accessibilityLabel = "Coach"
+        distanceLabel.accessibilityLabel = "Distance"
+        durationLabel.accessibilityLabel = "Duration"
     }
     
     private func setupAdditionalLabels()
@@ -53,10 +58,10 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(stackView)
-
+        
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         coachLabel.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),

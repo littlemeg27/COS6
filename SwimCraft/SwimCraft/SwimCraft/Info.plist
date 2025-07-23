@@ -2,15 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>WKInterfaceStoryboardName</key>
+	<key>WKCompanionAppBundleIdentifier</key>
 	<string></string>
-	<key>WKInterfaceControllerClass</key>
-	<string></string>
-	<key>WKInterfaceController</key>
+	<key>NSHealthShareUsageDescription</key>
 	<string></string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string></string>
-	<key>NSHealthShareUsageDescription</key>
+	<key>WKInterfaceControllerClass</key>
+	<string></string>
+	<key>WKInterfaceStoryboardName</key>
 	<string></string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

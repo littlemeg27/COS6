@@ -71,6 +71,7 @@
                                                     <outlet property="distanceLabel" destination="SYt-cx-Umr" id="tPg-an-NaR"/>
                                                     <outlet property="durationLabel" destination="VBt-2z-v1Z" id="ZKj-jw-But"/>
                                                     <outlet property="nameLabel" destination="USr-G7-USG" id="YnC-Yj-l2j"/>
+                                                    <segue destination="PIm-dp-M6X" kind="show" id="crK-kH-ggE"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -98,8 +99,8 @@
                                             <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="addWorkoutKitWorkoutTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1sj-s0-09n"/>
-                                            <action selector="addWorkoutTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9uc-RF-d74"/>
+                                            <action selector="addWorkoutKitWorkoutTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zWY-RO-NHr"/>
+                                            <action selector="addWorkoutTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yet-RR-htG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EcX-gN-g7g">
@@ -116,7 +117,7 @@
                                             <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="shareWorkoutTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VOa-QQ-Gmk"/>
+                                            <action selector="shareWorkoutTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Erq-u0-MYQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -261,6 +262,11 @@
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="0lJ-eg-ryj" id="HVc-ix-hzM"/>
+                                            <outlet property="delegate" destination="0lJ-eg-ryj" id="7pO-UC-sOW"/>
+                                            <outlet property="prefetchDataSource" destination="0lJ-eg-ryj" id="j3D-YP-Whk"/>
+                                        </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coach Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3C-Vf-tTn">
                                         <rect key="frame" x="8" y="87" width="377" height="35"/>
@@ -305,6 +311,7 @@
                         <viewLayoutGuide key="safeArea" id="NZQ-jQ-82a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="hOU-4O-DMz"/>
                     <connections>
                         <outlet property="coachLabel" destination="c3C-Vf-tTn" id="uMp-uK-fIA"/>
                         <outlet property="distanceLabel" destination="T4Q-PN-pFK" id="SvY-SB-n4c"/>
@@ -322,11 +329,11 @@
             <objects>
                 <viewController id="PIm-dp-M6X" customClass="WorkoutCreationViewController" customModule="SwimCraft" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g1S-TQ-byc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0b8-8g-JqK">
-                                <rect key="frame" x="0.0" y="803" width="393" height="49"/>
+                                <rect key="frame" x="0.0" y="734" width="393" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
@@ -440,7 +447,7 @@
                                                     <outlet property="yardsTextField" destination="u4m-h6-GVc" id="Oxn-jL-2H8"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AddButtonCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddButtonCell" rowHeight="34" id="Ncd-bz-ftD" userLabel="AddButtonCell" customClass="AddButtonTableViewCell" customModule="SwimCraft" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AddButtonCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddButtonCell" rowHeight="34" id="Ncd-bz-ftD" userLabel="AddButtonCell" customClass="AddButtonCell" customModule="SwimCraft" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="115" width="393" height="34"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ncd-bz-ftD" id="7en-UN-iOj">
@@ -517,6 +524,7 @@
                         <viewLayoutGuide key="safeArea" id="lBv-gg-pE6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="a2X-uk-XMc"/>
                     <connections>
                         <outlet property="coachPicker" destination="6GS-oT-Cfr" id="vdM-nf-Ykj"/>
                         <outlet property="nameTextField" destination="XDF-PE-ycq" id="tUJ-FL-7iG"/>
