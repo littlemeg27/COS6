@@ -112,6 +112,7 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource
         guard let workout = workout else { return cell }
         
         let segment: WorkoutSegment
+        
         switch indexPath.section
         {
             case 0:

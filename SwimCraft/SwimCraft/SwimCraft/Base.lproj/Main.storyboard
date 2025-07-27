@@ -5,14 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Workout List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WorkoutListViewController" customModule="SwimCraft" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkoutListViewController" id="BYZ-38-t0r" customClass="WorkoutListViewController" customModule="SwimCraft" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +25,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WorkoutCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="67" id="fqd-AH-kBn" userLabel="WorkoutCell" customClass="WorkoutListTableViewCell" customModule="SwimCraft" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WorkoutCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkoutCell" rowHeight="67" id="fqd-AH-kBn" userLabel="WorkoutCell" customClass="WorkoutListTableViewCell" customModule="SwimCraft" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50" width="403" height="67"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fqd-AH-kBn" id="Hc5-6H-d4A">
@@ -66,13 +65,6 @@
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" red="0.59607843137254901" green="0.75686274509803919" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="WorkoutCell" label="WorkoutCell"/>
-                                                <connections>
-                                                    <outlet property="coachLabel" destination="DfW-di-g6W" id="dru-S0-4hl"/>
-                                                    <outlet property="distanceLabel" destination="SYt-cx-Umr" id="tPg-an-NaR"/>
-                                                    <outlet property="durationLabel" destination="VBt-2z-v1Z" id="ZKj-jw-But"/>
-                                                    <outlet property="nameLabel" destination="USr-G7-USG" id="YnC-Yj-l2j"/>
-                                                    <segue destination="PIm-dp-M6X" kind="show" id="crK-kH-ggE"/>
-                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -85,24 +77,6 @@
                                         <rect key="frame" x="129" y="4" width="134" height="117"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbC-0X-Hez">
-                                        <rect key="frame" x="124" y="145" width="144" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.93333333333333335" green="0.42352941176470588" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Create Workout">
-                                            <color key="titleColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <buttonConfiguration key="configuration" style="filled" title="Create Workout">
-                                            <color key="baseForegroundColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="addWorkoutKitWorkoutTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zWY-RO-NHr"/>
-                                            <action selector="addWorkoutTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yet-RR-htG"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EcX-gN-g7g">
                                         <rect key="frame" x="127" y="205" width="139" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -117,7 +91,30 @@
                                             <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="shareWorkoutTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Erq-u0-MYQ"/>
+                                            <action selector="shareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cKE-l3-JFh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="toWorkoutCreation" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbC-0X-Hez" userLabel="toWorkoutCreation">
+                                        <rect key="frame" x="124" y="143" width="144" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.93333333333333335" green="0.42352941176470588" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="toWorkoutCreation" label="toWorkoutCreation"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Create Workout">
+                                            <color key="titleColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <buttonConfiguration key="configuration" style="filled" title="Create Workout">
+                                            <color key="baseForegroundColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </buttonConfiguration>
+                                        <attributedString key="userComments">
+                                            <fragment content="toWorkoutCreation"/>
+                                        </attributedString>
+                                        <connections>
+                                            <action selector="addWorkoutKitWorkoutTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b9w-Jf-jtm"/>
+                                            <action selector="createButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Suf-KJ-BOA"/>
+                                            <segue destination="PIm-dp-M6X" kind="show" identifier="toWorkoutCreation" destinationCreationSelector="toWorkoutCreation" id="YoN-hf-vul"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -143,7 +140,7 @@
                                 <color key="tintColor" red="0.23921568627450979" green="0.3529411764705882" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.23921568627450979" green="0.3529411764705882" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Title" id="F1N-Za-GJE"/>
+                                    <navigationItem title="SwimCraft" id="F1N-Za-GJE"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -151,19 +148,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="createButton" destination="JbC-0X-Hez" id="qK9-HF-raK"/>
-                        <outlet property="shareButton" destination="EcX-gN-g7g" id="fP3-up-NAa"/>
-                        <outlet property="tableView" destination="3ZK-gE-90O" id="FAg-wB-qTI"/>
+                        <outlet property="createButton" destination="JbC-0X-Hez" id="rF0-dz-0Yk"/>
+                        <outlet property="shareButton" destination="EcX-gN-g7g" id="4if-JK-9s8"/>
+                        <outlet property="tableView" destination="3ZK-gE-90O" id="5ni-kd-ENo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-234.35114503816794" y="2.8169014084507045"/>
         </scene>
-        <!--Workout Detail View Controller-->
+        <!--SwimCraft-->
         <scene sceneID="vop-MA-9GT">
             <objects>
-                <viewController id="L1T-cR-WUg" customClass="WorkoutDetailViewController" customModule="SwimCraft" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkoutDetailViewController" title="SwimCraft" id="L1T-cR-WUg" customClass="WorkoutDetailViewController" customModule="SwimCraft" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gb6-Tc-Mtw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -253,13 +250,6 @@
                                                 <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="SegmentCell" label="SegmentCell"/>
-                                                <connections>
-                                                    <outlet property="amountLabel" destination="Cy2-mB-gzK" id="weQ-YT-Zox"/>
-                                                    <outlet property="strokeLabel" destination="9cH-WO-Obm" id="T2z-aC-Spx"/>
-                                                    <outlet property="timeLabel" destination="Kpp-Kq-z7U" id="jpr-CK-Q7Z"/>
-                                                    <outlet property="typeLabel" destination="XDT-9n-LnZ" id="Kyi-Aa-4fm"/>
-                                                    <outlet property="yardsLabel" destination="27f-FU-hLj" id="JuR-Ue-uBg"/>
-                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -314,8 +304,6 @@
                     <navigationItem key="navigationItem" id="hOU-4O-DMz"/>
                     <connections>
                         <outlet property="coachLabel" destination="c3C-Vf-tTn" id="uMp-uK-fIA"/>
-                        <outlet property="distanceLabel" destination="T4Q-PN-pFK" id="SvY-SB-n4c"/>
-                        <outlet property="durationLabel" destination="L3k-3e-aPe" id="Ce0-85-XIb"/>
                         <outlet property="nameLabel" destination="AUY-7e-KgO" id="TA1-0N-NM9"/>
                         <outlet property="tableView" destination="9xn-Yo-d6n" id="uD5-ne-5Mv"/>
                     </connections>
@@ -327,7 +315,7 @@
         <!--Workout Creation View Controller-->
         <scene sceneID="qoA-Nw-7wJ">
             <objects>
-                <viewController id="PIm-dp-M6X" customClass="WorkoutCreationViewController" customModule="SwimCraft" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkoutCreationViewController" id="PIm-dp-M6X" customClass="WorkoutCreationViewController" customModule="SwimCraft" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g1S-TQ-byc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -352,8 +340,8 @@
                                 <color key="tintColor" red="0.23921568630000001" green="0.35294117650000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.23921568630000001" green="0.35294117650000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Title" id="b1k-CP-tKX">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="BxW-wJ-Xbl"/>
+                                    <navigationItem title="SwimCraft" id="b1k-CP-tKX">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="BxW-wJ-Xbl"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -366,73 +354,37 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WorkoutCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkoutSegmentCell" rowHeight="65" id="TEv-9b-lIm" userLabel="WorkoutSegmentCell" customClass="WorkoutCreationTableViewCell" customModule="SwimCraft" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WorkoutSegmentCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkoutSegmentCell" rowHeight="65" id="TEv-9b-lIm" userLabel="WorkoutSegmentCell" customClass="WorkoutCreationTableViewCell" customModule="SwimCraft">
                                                 <rect key="frame" x="0.0" y="50" width="393" height="65"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TEv-9b-lIm" id="WWL-gt-yTs">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="65"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="timePicker" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krc-Oz-uOB">
-                                                            <rect key="frame" x="331" y="11" width="62" height="44"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <accessibility key="accessibilityConfiguration" identifier="timePicker" label="timePicker"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                            <menu key="menu" id="c4G-z2-KA7">
-                                                                <children>
-                                                                    <command title="Item 1" id="Ywq-YE-VL7"/>
-                                                                    <command title="Item 2" id="K5v-Jd-QXH"/>
-                                                                </children>
-                                                            </menu>
-                                                            <state key="normal" title="Time">
-                                                                <color key="titleColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="titleShadowColor" red="0.23921568630000001" green="0.35294117650000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                        </button>
-                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" restorationIdentifier="amountTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJI-cV-NBv">
-                                                            <rect key="frame" x="251" y="18" width="70" height="34"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <accessibility key="accessibilityConfiguration" identifier="amountTextField" label="amountTextField"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="strokePicker" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qv-se-4az">
-                                                            <rect key="frame" x="75" y="18" width="73" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <accessibility key="accessibilityConfiguration" identifier="strokePicker" label="strokePicker"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                            <menu key="menu" id="OL2-Ia-cBF">
-                                                                <children>
-                                                                    <command title="Item 1" id="Pbi-nm-0NY"/>
-                                                                    <command title="Item 2" id="gn9-Su-saE"/>
-                                                                </children>
-                                                            </menu>
-                                                            <state key="normal" title="Stroke">
-                                                                <color key="titleColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="titleShadowColor" red="0.23921568630000001" green="0.35294117650000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="typePicker" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dme-V8-Agu">
-                                                            <rect key="frame" x="167" y="18" width="76" height="31"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <accessibility key="accessibilityConfiguration" identifier="typePicker" label="typePicker"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                            <menu key="menu" id="Vxq-Oc-j0V">
-                                                                <children>
-                                                                    <command title="Item 1" id="a1a-AL-jK2"/>
-                                                                    <command title="Item 2" id="pd5-wP-WdP"/>
-                                                                </children>
-                                                            </menu>
-                                                            <state key="normal" title="Style">
-                                                                <color key="titleColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="titleShadowColor" red="0.23921568630000001" green="0.35294117650000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                        </button>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" restorationIdentifier="yardsTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yards" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4m-h6-GVc">
                                                             <rect key="frame" x="3" y="16" width="64" height="34"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <accessibility key="accessibilityConfiguration" identifier="yardsTextField" label="yardsTextField"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mth-aS-kI8">
+                                                            <rect key="frame" x="75" y="8" width="71" height="51"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                        </pickerView>
+                                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITI-2b-aS4">
+                                                            <rect key="frame" x="154" y="7" width="71" height="51"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                        </pickerView>
+                                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FwN-wq-Mt0">
+                                                            <rect key="frame" x="322" y="7" width="71" height="51"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                        </pickerView>
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" restorationIdentifier="amountTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJI-cV-NBv">
+                                                            <rect key="frame" x="244" y="16" width="70" height="34"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="amountTextField" label="amountTextField"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
@@ -441,9 +393,9 @@
                                                 <accessibility key="accessibilityConfiguration" identifier="WorkoutSegmentCell" label="WorkoutSegmentCell"/>
                                                 <connections>
                                                     <outlet property="amountTextField" destination="gJI-cV-NBv" id="OvB-yK-rek"/>
-                                                    <outlet property="strokePicker" destination="OL2-Ia-cBF" id="9k2-VD-vJt"/>
-                                                    <outlet property="timePicker" destination="c4G-z2-KA7" id="cyF-PF-WeW"/>
-                                                    <outlet property="typePicker" destination="Vxq-Oc-j0V" id="J8h-rw-8Dn"/>
+                                                    <outlet property="strokePicker" destination="Mth-aS-kI8" id="8H8-zm-EDj"/>
+                                                    <outlet property="timePicker" destination="FwN-wq-Mt0" id="tGA-qx-tGa"/>
+                                                    <outlet property="typePicker" destination="ITI-2b-aS4" id="t6a-A2-Fxe"/>
                                                     <outlet property="yardsTextField" destination="u4m-h6-GVc" id="Oxn-jL-2H8"/>
                                                 </connections>
                                             </tableViewCell>
@@ -453,9 +405,23 @@
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ncd-bz-ftD" id="7en-UN-iOj">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="34"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLp-Le-9qN">
+                                                            <rect key="frame" x="20" y="6" width="188" height="23"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <color key="textColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="highlightedColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="shadowColor" red="0.23921568630000001" green="0.35294117650000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <size key="shadowOffset" width="0.0" height="1"/>
+                                                        </label>
+                                                    </subviews>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="AddButtonCell" label="AddButtonCell"/>
+                                                <connections>
+                                                    <outlet property="addLabel" destination="bLp-Le-9qN" id="i57-uc-tS5"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -500,22 +466,10 @@
                                             <action selector="saveButtonTapped:" destination="PIm-dp-M6X" eventType="touchUpInside" id="kZm-by-VAk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vth-ni-4RJ">
-                                        <rect key="frame" x="8" y="172" width="377" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <size key="titleShadowOffset" width="0.0" height="1"/>
-                                        <menu key="menu" id="6GS-oT-Cfr">
-                                            <children>
-                                                <command title="Item 1" id="plJ-Uh-MdD"/>
-                                                <command title="Item 2" id="SCA-5Z-P1P"/>
-                                            </children>
-                                        </menu>
-                                        <state key="normal" title="Coach Drop Down">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" red="0.23921568630000001" green="0.35294117650000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rMQ-Yh-ff0">
+                                        <rect key="frame" x="0.0" y="168" width="393" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.98431372549999996" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.87843137250000003" green="0.98431372549999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -526,7 +480,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="a2X-uk-XMc"/>
                     <connections>
-                        <outlet property="coachPicker" destination="6GS-oT-Cfr" id="vdM-nf-Ykj"/>
+                        <outlet property="coachPicker" destination="rMQ-Yh-ff0" id="kC0-e3-71m"/>
                         <outlet property="nameTextField" destination="XDF-PE-ycq" id="tUJ-FL-7iG"/>
                         <outlet property="saveButton" destination="Z8E-Zt-I2x" id="s8d-UD-cJ8"/>
                         <outlet property="tableView" destination="chc-5M-vnp" id="ffQ-dR-5Lf"/>
@@ -537,6 +491,7 @@
             <point key="canvasLocation" x="1316.793893129771" y="2.8169014084507045"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

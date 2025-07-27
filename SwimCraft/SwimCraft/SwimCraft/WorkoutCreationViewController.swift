@@ -8,12 +8,11 @@
 import UIKit
 import Foundation
 
-class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
-{
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var coachPicker: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
+class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+    @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var nameTextField: UITextField?
+    @IBOutlet weak var coachPicker: UIPickerView!
+    @IBOutlet weak var saveButton: UIButton?
     
     var coaches: [Coach] = []
     var selectedCoach: Coach?
@@ -29,70 +28,104 @@ class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UI
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        print("WorkoutCreationViewController viewDidLoad started")
+        
+        guard let tableView = tableView else
+        {
+            print("Error: tableView is nil")
+            return
+        }
         tableView.dataSource = self
         tableView.delegate = self
+        
+        print("Setting up coachPicker, isEnabled: \(coachPicker.isUserInteractionEnabled)")
+        coachPicker.dataSource = self
+        coachPicker.delegate = self
+        coachPicker.reloadAllComponents()
+        
         coaches = loadCoaches(from: "CertifiedCoaches")
+        if coaches.isEmpty {
+            print("Warning: No coaches loaded")
+            coaches = [
+                Coach(name: "Default Coach", level: "Level 1", dateCompleted: Date(), clubAbbr: "", clubName: "", lmsc: "")
+            ]
+        }
+        
+        print("Loaded \(coaches.count) coaches: \(coaches.map { $0.name })")
+        selectedCoach = coaches.first
+        
+        if let firstIndex = coaches.firstIndex(where: { $0.name == coaches.first?.name })
+        {
+            coachPicker.selectRow(firstIndex, inComponent: 0, animated: false)
+        }
         
         warmUpSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
         mainSetSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
         coolDownSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
         
-        tableView.register(WorkoutCreationTableViewCell.self, forCellReuseIdentifier: "WorkoutSegmentCell")
-        tableView.register(AddButtonCell.self, forCellReuseIdentifier: "AddButtonCell")
-        
-        setupCoachPicker()
+        print("nameTextField: \(nameTextField?.text ?? "nil"), isEnabled: \(nameTextField?.isEnabled ?? false)")
+        print("coachPicker: set, isEnabled: \(coachPicker.isUserInteractionEnabled)")
+        print("saveButton: \(saveButton?.titleLabel?.text ?? "nil"), isEnabled: \(saveButton?.isEnabled ?? false)")
+        print("WorkoutCreationViewController viewDidLoad completed")
     }
     
-    private func setupCoachPicker()
+    func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
-        coachPicker.setTitle("Select Coach", for: .normal)
-        coachPicker.showsMenuAsPrimaryAction = true
-        coachPicker.titleLabel?.font = .systemFont(ofSize: 16)
-        coachPicker.setTitleColor(.systemBlue, for: .normal)
-        
-        updateCoachPickerMenu()
-        
-        coachPicker.accessibilityLabel = "Select Coach"
-        coachPicker.accessibilityHint = "Tap to choose a coach for the workout"
+        print("coachPicker numberOfComponents: 1")
+        return 1
     }
     
-    private func updateCoachPickerMenu()
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        let coachActions = coaches.enumerated().map { index, coach in
-            UIAction(title: "\(coach.name) (\(coach.level))", handler: { [weak self] _ in
-                self?.selectedCoach = coach
-                self?.coachPicker.setTitle("\(coach.name) (\(coach.level))", for: .normal)
-            })
-        }
-        
-        let menu = UIMenu(title: "Select Coach", children: coachActions)
-        coachPicker.menu = menu
+        print("coachPicker numberOfRows: \(coaches.count)")
+        return coaches.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+        let coach = coaches[row]
+        let title = "\(coach.name) (\(coach.level))"
+        print("coachPicker titleForRow \(row): \(title)")
+        return title
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        selectedCoach = coaches[row]
+        print("Selected coach: \(coaches[row].name)")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        print("numberOfSections: 3")
         return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        let count: Int
         switch section
         {
-            case 0: return warmUpSegments.count + 1
-            case 1: return mainSetSegments.count + 1
-            case 2: return coolDownSegments.count + 1
-            default: return 0
+            case 0: count = warmUpSegments.count + 1
+            case 1: count = mainSetSegments.count + 1
+            case 2: count = coolDownSegments.count + 1
+            default: count = 0
         }
+        print("numberOfRowsInSection \(section): \(count)")
+        return count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
+        let title: String?
         switch section
         {
-            case 0: return "Warm Up"
-            case 1: return "Main Set"
-            case 2: return "Cool Down"
-            default: return nil
+            case 0: title = "Warm Up"
+            case 1: title = "Main Set"
+            case 2: title = "Cool Down"
+            default: title = nil
         }
+        print("titleForHeaderInSection \(section): \(title ?? "nil")")
+        return title
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -103,11 +136,18 @@ class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UI
         
         if row < segments.count
         {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutSegmentCell", for: indexPath) as! WorkoutCreationTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutSegmentCell", for: indexPath) as? WorkoutCreationTableViewCell else
+            {
+                print("Error: Failed to dequeue WorkoutCreationTableViewCell at \(indexPath)")
+                return UITableViewCell()
+            }
             let segment = segments[row]
             cell.configure(with: segment, types: segmentTypes, strokes: strokeTypes, times: timeOptions)
             
-            cell.onUpdate = { [weak self] updatedSegment in
+            cell.onUpdate =
+            {
+                [weak self] updatedSegment in
+                
                 if section == 0
                 {
                     self?.warmUpSegments[row] = updatedSegment
@@ -120,12 +160,19 @@ class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UI
                 {
                     self?.coolDownSegments[row] = updatedSegment
                 }
+                print("Updated segment in section \(section), row \(row): \(updatedSegment)")
             }
+            print("Configured WorkoutSegmentCell at \(indexPath)")
             return cell
         }
         else
         {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AddButtonCell", for: indexPath) as! AddButtonCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddButtonCell", for: indexPath) as? AddButtonCell else
+            {
+                print("Error: Failed to dequeue AddButtonCell at \(indexPath)")
+                return UITableViewCell()
+            }
+            print("Configured AddButtonCell at \(indexPath)")
             return cell
         }
     }
@@ -154,13 +201,15 @@ class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UI
                 coolDownSegments.append(newSegment)
             }
             tableView.insertRows(at: [IndexPath(row: row, section: section)], with: .automatic)
+            print("Added new segment in section \(section): \(newSegment)")
         }
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton)
     {
-        guard let name = nameTextField.text, !name.isEmpty else
+        guard let nameTextField = nameTextField, let name = nameTextField.text, !name.isEmpty else
         {
+            print("Error: Workout name is empty")
             let alert = UIAlertController(title: "Error", message: "Please enter a workout name", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             present(alert, animated: true)
@@ -177,7 +226,18 @@ class WorkoutCreationViewController: UIViewController, UITableViewDataSource, UI
             createdViaWorkoutKit: false,
             source: nil
         )
+        print("Saving workout: \(workout.name), distance: \(workout.distance), duration: \(workout.duration), strokes: \(workout.strokes)")
         onSave?(workout)
-        navigationController?.popViewController(animated: true)
+        
+        if let navigationController = navigationController
+        {
+            print("Popping to WorkoutListViewController")
+            navigationController.popViewController(animated: true)
+        }
+        else
+        {
+            print("Error: navigationController is nil in saveButtonTapped")
+            dismiss(animated: true, completion: nil)
+        }
     }
 }
