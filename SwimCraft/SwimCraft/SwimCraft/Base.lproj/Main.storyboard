@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Un-Z0-lJ6">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Workout List View Controller-->
+        <!--WorkoutListViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="WorkoutListViewController" id="BYZ-38-t0r" customClass="WorkoutListViewController" customModule="SwimCraft" sceneMemberID="viewController">
+                <viewController restorationIdentifier="WorkoutListViewController" storyboardIdentifier="WorkoutListViewController" id="BYZ-38-t0r" userLabel="WorkoutListViewController" customClass="WorkoutListViewController" customModule="SwimCraft" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,7 +79,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EcX-gN-g7g">
-                                        <rect key="frame" x="127" y="205" width="139" height="35"/>
+                                        <rect key="frame" x="20" y="180" width="145" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.93333333333333335" green="0.42352941176470588" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -94,27 +95,62 @@
                                             <action selector="shareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cKE-l3-JFh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="toWorkoutCreation" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbC-0X-Hez" userLabel="toWorkoutCreation">
-                                        <rect key="frame" x="124" y="143" width="144" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZX-UE-cBX">
+                                        <rect key="frame" x="232" y="180" width="145" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.93333333333333335" green="0.42352941176470588" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Share Workout">
+                                            <color key="titleColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <buttonConfiguration key="configuration" style="filled" title="Delete Workout">
+                                            <color key="baseForegroundColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="deleteSelectedWorkouts:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7BH-5A-y5b"/>
+                                            <action selector="shareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Izn-1q-cme"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="toWorkoutCreation" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbC-0X-Hez" userLabel="toWorkoutCreation">
+                                        <rect key="frame" x="124" y="137" width="145" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" identifier="toWorkoutCreation" label="toWorkoutCreation"/>
+                                        <color key="tintColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Create Workout">
                                             <color key="titleColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <buttonConfiguration key="configuration" style="filled" title="Create Workout">
-                                            <color key="baseForegroundColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="baseForegroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="baseBackgroundColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <attributedString key="userComments">
                                             <fragment content="toWorkoutCreation"/>
                                         </attributedString>
                                         <connections>
-                                            <action selector="addWorkoutKitWorkoutTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b9w-Jf-jtm"/>
-                                            <action selector="createButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Suf-KJ-BOA"/>
-                                            <segue destination="PIm-dp-M6X" kind="show" identifier="toWorkoutCreation" destinationCreationSelector="toWorkoutCreation" id="YoN-hf-vul"/>
+                                            <action selector="createButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LJl-HR-8fX"/>
+                                            <segue destination="PIm-dp-M6X" kind="show" identifier="toWorkoutCreation" id="XKF-K1-XbF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da7-h4-Gll">
+                                        <rect key="frame" x="110" y="223" width="172" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Share Workout">
+                                            <color key="titleColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <buttonConfiguration key="configuration" style="filled" title="Delete all Workouts">
+                                            <color key="baseForegroundColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="clearWorkouts:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLU-rV-HCQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -147,15 +183,21 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="dSN-K8-PeE"/>
+                    <attributedString key="userComments">
+                        <fragment content="WorkoutListViewController"/>
+                    </attributedString>
                     <connections>
+                        <outlet property="clearButton" destination="da7-h4-Gll" id="JYR-Fw-Ak8"/>
                         <outlet property="createButton" destination="JbC-0X-Hez" id="rF0-dz-0Yk"/>
+                        <outlet property="deleteSelectedButton" destination="BZX-UE-cBX" id="C7Z-jW-xh9"/>
                         <outlet property="shareButton" destination="EcX-gN-g7g" id="4if-JK-9s8"/>
                         <outlet property="tableView" destination="3ZK-gE-90O" id="5ni-kd-ENo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-234.35114503816794" y="2.8169014084507045"/>
+            <point key="canvasLocation" x="692.36641221374043" y="2.8169014084507045"/>
         </scene>
         <!--SwimCraft-->
         <scene sceneID="vop-MA-9GT">
@@ -310,18 +352,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNk-4Q-KLQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="568.70229007633588" y="2.8169014084507045"/>
+            <point key="canvasLocation" x="1495.4198473282443" y="2.8169014084507045"/>
         </scene>
-        <!--Workout Creation View Controller-->
+        <!--WorkoutCreationViewController-->
         <scene sceneID="qoA-Nw-7wJ">
             <objects>
-                <viewController storyboardIdentifier="WorkoutCreationViewController" id="PIm-dp-M6X" customClass="WorkoutCreationViewController" customModule="SwimCraft" sceneMemberID="viewController">
+                <viewController restorationIdentifier="WorkoutCreationViewController" storyboardIdentifier="WorkoutCreationViewController" interactionActivityTrackingBaseName="WorkoutCreationViewController" id="PIm-dp-M6X" userLabel="WorkoutCreationViewController" customClass="WorkoutCreationViewController" customModule="SwimCraft" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g1S-TQ-byc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0b8-8g-JqK">
-                                <rect key="frame" x="0.0" y="734" width="393" height="49"/>
+                                <rect key="frame" x="0.0" y="803" width="393" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
@@ -357,45 +399,87 @@
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WorkoutSegmentCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkoutSegmentCell" rowHeight="65" id="TEv-9b-lIm" userLabel="WorkoutSegmentCell" customClass="WorkoutCreationTableViewCell" customModule="SwimCraft">
                                                 <rect key="frame" x="0.0" y="50" width="393" height="65"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TEv-9b-lIm" id="WWL-gt-yTs">
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TEv-9b-lIm" id="WWL-gt-yTs" userLabel="WorkoutSegmentCell">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="65"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" restorationIdentifier="yardsTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yards" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4m-h6-GVc">
-                                                            <rect key="frame" x="3" y="16" width="64" height="34"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <accessibility key="accessibilityConfiguration" identifier="yardsTextField" label="yardsTextField"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
-                                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mth-aS-kI8">
-                                                            <rect key="frame" x="75" y="8" width="71" height="51"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                        </pickerView>
-                                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITI-2b-aS4">
-                                                            <rect key="frame" x="154" y="7" width="71" height="51"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                        </pickerView>
-                                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FwN-wq-Mt0">
-                                                            <rect key="frame" x="322" y="7" width="71" height="51"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                        </pickerView>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" restorationIdentifier="amountTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJI-cV-NBv">
-                                                            <rect key="frame" x="244" y="16" width="70" height="34"/>
+                                                            <rect key="frame" x="244" y="7" width="70" height="34"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <accessibility key="accessibilityConfiguration" identifier="amountTextField" label="amountTextField"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" restorationIdentifier="yardsTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yards" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4m-h6-GVc">
+                                                            <rect key="frame" x="3" y="8" width="64" height="34"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="yardsTextField" label="yardsTextField"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="typeButton" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bch-Xk-PVc" userLabel="typeButton">
+                                                            <rect key="frame" x="160" y="6" width="58" height="35"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="typeButton" label="typeButton"/>
+                                                            <menu key="menu" title="typeButton" identifier="typeButton" id="9sK-Oh-GLN" userLabel="typeButton">
+                                                                <menuOptions key="menuOptions" displayInline="YES" singleSelection="YES"/>
+                                                                <children>
+                                                                    <command title="Item 1" id="kep-Ap-xTA"/>
+                                                                    <command title="Item 2" id="Dxw-d1-Q1s"/>
+                                                                </children>
+                                                                <attributedString key="userComments">
+                                                                    <fragment content="typeButton"/>
+                                                                </attributedString>
+                                                            </menu>
+                                                            <state key="normal" title="Style"/>
+                                                            <attributedString key="userComments">
+                                                                <fragment content="typeButton"/>
+                                                            </attributedString>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="timeButton" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkF-cb-jvT" userLabel="timeButton">
+                                                            <rect key="frame" x="331" y="6" width="58" height="35"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="timeButton" label="timeButton"/>
+                                                            <menu key="menu" title="timeButton" identifier="timeButton" id="y4m-UJ-Yfm" userLabel="timeButton">
+                                                                <menuOptions key="menuOptions" displayInline="YES" singleSelection="YES"/>
+                                                                <children>
+                                                                    <command title="Item 1" id="DEg-U2-z72"/>
+                                                                    <command title="Item 2" id="43D-Ui-mMK"/>
+                                                                </children>
+                                                                <attributedString key="userComments">
+                                                                    <fragment content="timeButton"/>
+                                                                </attributedString>
+                                                            </menu>
+                                                            <state key="normal" title="Time"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="strokeButton" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBd-Dy-iKp" userLabel="strokeButton">
+                                                            <rect key="frame" x="78" y="6" width="58" height="35"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="strokeButton" label="strokeButton"/>
+                                                            <menu key="menu" title="strokeButton" identifier="strokeButton" id="rJZ-ur-wC3" userLabel="strokeButton">
+                                                                <menuOptions key="menuOptions" displayInline="YES" singleSelection="YES"/>
+                                                                <children>
+                                                                    <command title="Item 1" id="Rgn-AK-0tH"/>
+                                                                    <command title="Item 2" id="ZDK-6B-Cyc"/>
+                                                                </children>
+                                                                <attributedString key="userComments">
+                                                                    <fragment content="strokeButton"/>
+                                                                </attributedString>
+                                                            </menu>
+                                                            <state key="normal" title="Stroke"/>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.59607843137254901" green="0.75686274509803919" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                                 </tableViewCellContentView>
                                                 <accessibility key="accessibilityConfiguration" identifier="WorkoutSegmentCell" label="WorkoutSegmentCell"/>
+                                                <attributedString key="userComments">
+                                                    <fragment content="WorkoutSegmentCell"/>
+                                                </attributedString>
                                                 <connections>
                                                     <outlet property="amountTextField" destination="gJI-cV-NBv" id="OvB-yK-rek"/>
-                                                    <outlet property="strokePicker" destination="Mth-aS-kI8" id="8H8-zm-EDj"/>
-                                                    <outlet property="timePicker" destination="FwN-wq-Mt0" id="tGA-qx-tGa"/>
-                                                    <outlet property="typePicker" destination="ITI-2b-aS4" id="t6a-A2-Fxe"/>
+                                                    <outlet property="strokeButton" destination="rJZ-ur-wC3" id="SoR-sA-1ie"/>
+                                                    <outlet property="timeButton" destination="y4m-UJ-Yfm" id="bzY-LT-v8O"/>
+                                                    <outlet property="typeButton" destination="9sK-Oh-GLN" id="YDO-1p-Hm2"/>
                                                     <outlet property="yardsTextField" destination="u4m-h6-GVc" id="Oxn-jL-2H8"/>
                                                 </connections>
                                             </tableViewCell>
@@ -407,7 +491,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLp-Le-9qN">
-                                                            <rect key="frame" x="20" y="6" width="188" height="23"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="34"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                             <color key="textColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -479,6 +563,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="a2X-uk-XMc"/>
+                    <attributedString key="userComments">
+                        <fragment content="WorkoutCreationViewController"/>
+                    </attributedString>
                     <connections>
                         <outlet property="coachPicker" destination="rMQ-Yh-ff0" id="kC0-e3-71m"/>
                         <outlet property="nameTextField" destination="XDF-PE-ycq" id="tUJ-FL-7iG"/>
@@ -488,7 +575,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZ1-Ir-fyK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1316.793893129771" y="2.8169014084507045"/>
+            <point key="canvasLocation" x="2243.5114503816794" y="2.8169014084507045"/>
+        </scene>
+        <!--SwimCraft-->
+        <scene sceneID="FSr-vq-mBr">
+            <objects>
+                <navigationController title="SwimCraft" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="9Un-Z0-lJ6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xCG-l2-zO8">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y65-9A-HOy">
+                        <rect key="frame" x="0.0" y="735" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="giA-P2-Wu0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="av1-ox-3WH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234.35114503816794" y="2.8169014084507045"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
