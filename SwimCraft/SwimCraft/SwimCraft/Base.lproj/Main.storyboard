@@ -92,7 +92,7 @@
                                             <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="shareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cKE-l3-JFh"/>
+                                            <action selector="shareSelectedWorkout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="owD-hJ-qpy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZX-UE-cBX">
@@ -110,7 +110,6 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="deleteSelectedWorkouts:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7BH-5A-y5b"/>
-                                            <action selector="shareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Izn-1q-cme"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="toWorkoutCreation" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbC-0X-Hez" userLabel="toWorkoutCreation">
@@ -132,7 +131,6 @@
                                             <fragment content="toWorkoutCreation"/>
                                         </attributedString>
                                         <connections>
-                                            <action selector="createButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LJl-HR-8fX"/>
                                             <segue destination="PIm-dp-M6X" kind="show" identifier="toWorkoutCreation" id="XKF-K1-XbF"/>
                                         </connections>
                                     </button>
@@ -150,7 +148,7 @@
                                             <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="clearWorkouts:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLU-rV-HCQ"/>
+                                            <action selector="deleteAllWorkouts:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mpl-3a-1A6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -188,9 +186,8 @@
                         <fragment content="WorkoutListViewController"/>
                     </attributedString>
                     <connections>
-                        <outlet property="clearButton" destination="da7-h4-Gll" id="JYR-Fw-Ak8"/>
-                        <outlet property="createButton" destination="JbC-0X-Hez" id="rF0-dz-0Yk"/>
-                        <outlet property="deleteSelectedButton" destination="BZX-UE-cBX" id="C7Z-jW-xh9"/>
+                        <outlet property="clearAllButton" destination="da7-h4-Gll" id="rU0-iV-A2H"/>
+                        <outlet property="clearButton" destination="BZX-UE-cBX" id="zTr-Lu-KwO"/>
                         <outlet property="shareButton" destination="EcX-gN-g7g" id="4if-JK-9s8"/>
                         <outlet property="tableView" destination="3ZK-gE-90O" id="5ni-kd-ENo"/>
                     </connections>
