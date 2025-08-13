@@ -8,91 +8,99 @@
 import UIKit
 
 class WorkoutCreationTableViewCell: UITableViewCell {
-    @IBOutlet weak var yardsTextField: UITextField!
-    @IBOutlet weak var typeButton: UIButton!
-    @IBOutlet weak var amountTextField: UITextField!
-    @IBOutlet weak var strokeButton: UIButton!
-    @IBOutlet weak var timeTextField: UITextField!
-    @IBOutlet weak var timeButton: UIButton!
+    @IBOutlet weak var yardsTextField: UITextField?
+    @IBOutlet weak var typeButton: UIButton?
+    @IBOutlet weak var amountTextField: UITextField?
+    @IBOutlet weak var strokeButton: UIButton?
+    @IBOutlet weak var timeButton: UIButton?
     
     var segment: WorkoutSegment?
     var onUpdate: ((WorkoutSegment) -> Void)?
     
+    private let types = ["Swim", "Kick", "Drill", "Pull"]
+    private let strokes = ["Freestyle", "Backstroke", "Breaststroke", "Butterfly", "IM"]
+    private let times: [TimeInterval] = [30, 60, 90, 120, 150, 180, 240, 300]
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("WorkoutCreationTableViewCell awakeFromNib")
+        print("WorkoutCreationTableViewCell awakeFromNib, typeButton: \(typeButton != nil ? "connected" : "nil"), strokeButton: \(strokeButton != nil ? "connected" : "nil"), timeButton: \(timeButton != nil ? "connected" : "nil")")
         setupTextFields()
+        setupButtons()
     }
     
-    private func setupButtons(types: [String], strokes: [String], times: [TimeInterval]) {
-        print("Setting up buttons with types: \(types), strokes: \(strokes), times: \(times)")
-        
-        // Verify buttons are UIButton
-        print("typeButton is UIButton: \(typeButton is UIButton ? String(describing: typeButton) : "Not a UIButton, actual type: \(type(of: typeButton))")")
-        print("strokeButton is UIButton: \(strokeButton is UIButton ? String(describing: strokeButton) : "Not a UIButton, actual type: \(type(of: strokeButton))")")
-        print("timeButton is UIButton: \(timeButton is UIButton ? String(describing: timeButton) : "Not a UIButton, actual type: \(type(of: timeButton))")")
-        
-        guard typeButton is UIButton, strokeButton is UIButton, timeButton is UIButton else {
-            print("Error: One or more buttons are not UIButton instances")
+    private func setupButtons() {
+        guard let typeButton = typeButton, let strokeButton = strokeButton, let timeButton = timeButton else {
+            print("Error: One or more buttons are nil (typeButton: \(typeButton != nil ? "connected" : "nil"), strokeButton: \(strokeButton != nil ? "connected" : "nil"), timeButton: \(timeButton != nil ? "connected" : "nil"))")
             return
         }
         
-        // Setup typeButton
+        // Setup typeButton menu
         let typeMenu = UIMenu(title: "Select Type", children: types.map { type in
-            UIAction(title: type, handler: { [weak self] _ in
-                guard var segment = self?.segment else { return }
+            UIAction(title: type) { [weak self] _ in
+                guard let self = self, var segment = self.segment else {
+                    print("Error: self or segment is nil in typeButton action")
+                    return
+                }
                 segment.type = type
-                self?.typeButton.setTitle(type, for: .normal)
-                self?.segment = segment
-                self?.onUpdate?(segment)
+                typeButton.setTitle(type, for: .normal)
+                self.segment = segment
+                self.onUpdate?(segment)
                 print("Selected type: \(type)")
-            })
+            }
         })
         typeButton.menu = typeMenu
         typeButton.showsMenuAsPrimaryAction = true
-        typeButton.setTitle(segment?.type ?? types.first ?? "Swim", for: .normal)
+        typeButton.setTitle(segment?.type.isEmpty ?? true ? types.first ?? "Swim" : segment!.type, for: .normal)
         
-        // Setup strokeButton
+        // Setup strokeButton menu
         let strokeMenu = UIMenu(title: "Select Stroke", children: strokes.map { stroke in
-            UIAction(title: stroke, handler: { [weak self] _ in
-                guard var segment = self?.segment else { return }
+            UIAction(title: stroke) { [weak self] _ in
+                guard let self = self, var segment = self.segment else {
+                    print("Error: self or segment is nil in strokeButton action")
+                    return
+                }
                 segment.stroke = stroke
-                self?.strokeButton.setTitle(stroke, for: .normal)
-                self?.segment = segment
-                self?.onUpdate?(segment)
+                strokeButton.setTitle(stroke, for: .normal)
+                self.segment = segment
+                self.onUpdate?(segment)
                 print("Selected stroke: \(stroke)")
-            })
+            }
         })
         strokeButton.menu = strokeMenu
         strokeButton.showsMenuAsPrimaryAction = true
-        strokeButton.setTitle(segment?.stroke ?? strokes.first ?? "Freestyle", for: .normal)
+        strokeButton.setTitle(segment?.stroke.isEmpty ?? true ? strokes.first ?? "Freestyle" : segment!.stroke, for: .normal)
         
-        // Setup timeButton
+        // Setup timeButton menu
         let timeMenu = UIMenu(title: "Select Time", children: times.map { time in
-            UIAction(title: "\(Int(time)) sec", handler: { [weak self] _ in
-                guard var segment = self?.segment else { return }
+            UIAction(title: "\(Int(time)) sec") { [weak self] _ in
+                guard let self = self, var segment = self.segment else {
+                    print("Error: self or segment is nil in timeButton action")
+                    return
+                }
                 segment.time = time
-                self?.timeButton.setTitle("\(Int(time)) sec", for: .normal)
-                self?.timeTextField.text = "\(Int(time))"
-                self?.segment = segment
-                self?.onUpdate?(segment)
+                timeButton.setTitle("\(Int(time)) sec", for: .normal)
+                self.segment = segment
+                self.onUpdate?(segment)
                 print("Selected time: \(time) sec")
-            })
+            }
         })
         timeButton.menu = timeMenu
         timeButton.showsMenuAsPrimaryAction = true
-        let timeTitle = segment?.time ?? 0 > 0 ? "\(Int(segment?.time ?? times.first ?? 30)) sec" : "\(Int(times.first ?? 30)) sec"
+        let timeTitle = segment?.time ?? 0 > 0 ? "\(Int(segment!.time!)) sec" : "\(Int(times.first ?? 30)) sec"
         timeButton.setTitle(timeTitle, for: .normal)
     }
     
     private func setupTextFields() {
-        yardsTextField.text = segment?.yards ?? 0 > 0 ? "\(segment?.yards ?? 0)" : ""
-        amountTextField.text = segment?.amount ?? 0 > 0 ? "\(segment?.amount ?? 0)" : ""
-        timeTextField.text = segment?.time ?? 0 > 0 ? "\(Int(segment?.time ?? 0))" : ""
+        guard let yardsTextField = yardsTextField, let amountTextField = amountTextField else {
+            print("Error: One or more text fields are nil (yardsTextField: \(yardsTextField != nil ? "connected" : "nil"), amountTextField: \(amountTextField != nil ? "connected" : "nil"))")
+            return
+        }
+        
+        yardsTextField.text = segment?.yards ?? 0 > 0 ? String(format: "%.0f", segment!.yards!) : ""
+        amountTextField.text = segment?.amount ?? 0 > 0 ? "\(segment!.amount!)" : ""
         
         yardsTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         amountTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        timeTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     @objc private func textFieldDidChange(_ textField: UITextField) {
@@ -104,22 +112,18 @@ class WorkoutCreationTableViewCell: UITableViewCell {
             segment.yards = Double(textField.text ?? "0") ?? 0
         } else if textField == amountTextField {
             segment.amount = Int(textField.text ?? "0") ?? 0
-        } else if textField == timeTextField {
-            segment.time = TimeInterval(textField.text ?? "0") ?? 0
-            let timeTitle = segment.time ?? 0 > 0 ? "\(Int(segment.time ?? 30)) sec" : "30 sec"
-            timeButton.setTitle(timeTitle, for: .normal)
         }
         self.segment = segment
-        onUpdate?(segment)
+        self.onUpdate?(segment)
         print("Updated segment: yards=\(segment.yards ?? 0), amount=\(segment.amount ?? 0), time=\(segment.time ?? 0)")
     }
     
-    func configure(with segment: WorkoutSegment, types: [String], strokes: [String], times: [TimeInterval]) {
+    func configure(with segment: WorkoutSegment, types: [String] = ["Swim", "Kick", "Drill", "Pull"], strokes: [String] = ["Freestyle", "Backstroke", "Breaststroke", "Butterfly", "IM"], times: [TimeInterval] = [30, 60, 90, 120, 150, 180, 240, 300])
+    {
         self.segment = segment
-        yardsTextField.text = segment.yards ?? 0 > 0 ? "\(segment.yards ?? 0)" : ""
-        amountTextField.text = segment.amount ?? 0 > 0 ? "\(segment.amount ?? 0)" : ""
-        timeTextField.text = segment.time ?? 0 > 0 ? "\(Int(segment.time ?? 0))" : ""
-        setupButtons(types: types, strokes: strokes, times: times)
+        self.yardsTextField?.text = segment.yards ?? 0 > 0 ? String(format: "%.0f", segment.yards!) : ""
+        self.amountTextField?.text = segment.amount ?? 0 > 0 ? "\(segment.amount!)" : ""
+        setupButtons()
         print("Configured cell with segment: type=\(segment.type), stroke=\(segment.stroke), yards=\(segment.yards ?? 0), amount=\(segment.amount ?? 0), time=\(segment.time ?? 0)")
     }
 }

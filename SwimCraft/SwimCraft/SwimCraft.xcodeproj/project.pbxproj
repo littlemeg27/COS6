@@ -87,6 +87,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				SwimCraft.xcdatamodeld,
 			);
 			target = BA4FF5912E307E3C00E594A3 /* SwimCraft */;
 		};
@@ -99,11 +100,22 @@
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		BAC38EF22E4D18100061BE12 /* Exceptions for "SwimCraft" folder in "Copy Bundle Resources" phase from "SwimCraft" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = BA4FF5902E307E3C00E594A3 /* Resources */;
+			membershipExceptions = (
+				SwimCraft.xcdatamodeld,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BA4FF5942E307E3C00E594A3 /* SwimCraft */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				BA4FF5BA2E307E3D00E594A3 /* Exceptions for "SwimCraft" folder in "SwimCraft" target */,
+				BAC38EF22E4D18100061BE12 /* Exceptions for "SwimCraft" folder in "Copy Bundle Resources" phase from "SwimCraft" target */,
 			);
 			path = SwimCraft;
 			sourceTree = "<group>";
