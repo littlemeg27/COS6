@@ -18,6 +18,7 @@ struct PersistenceController {
     }
     
     init() {
+
         let bundle = Bundle.main
         print("Using bundle: \(bundle.bundleIdentifier ?? "nil") at path: \(bundle.bundlePath)")
         

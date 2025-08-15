@@ -1,0 +1,28 @@
+{
+  "" : {
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITests-master.dia",
+    "emit-module-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITests-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITests-master-emit-module.dia",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITests-master.swiftdeps"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraftUITests/SwimCraftUITests.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITests.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITests.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITests.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITests.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITests.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITests.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITests.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITests~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraftUITests/SwimCraftUITestsLaunchTests.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITestsLaunchTests.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITestsLaunchTests.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITestsLaunchTests.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITestsLaunchTests.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITestsLaunchTests.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITestsLaunchTests.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITestsLaunchTests.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraftUITests.build/Objects-normal/arm64/SwimCraftUITestsLaunchTests~partial.swiftmodule"
+  }
+}

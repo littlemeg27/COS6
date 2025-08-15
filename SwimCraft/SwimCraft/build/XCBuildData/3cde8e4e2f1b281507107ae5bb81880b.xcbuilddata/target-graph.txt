@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'SwimCraft' in project 'SwimCraft'
+➜ Explicit dependency on target 'SharedModule' in project 'SwimCraft'
+Target 'SharedModule' in project 'SwimCraft' (no dependencies)

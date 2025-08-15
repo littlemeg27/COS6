@@ -1,0 +1,213 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "SharedModule",
+    "printedName": "SharedModule",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SharedModule",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "SharedModule"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PersistenceController",
+        "printedName": "PersistenceController",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PersistenceController",
+                "printedName": "SharedModule.PersistenceController",
+                "usr": "s:12SharedModule21PersistenceControllerV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SharedModule21PersistenceControllerV6sharedACvpZ",
+            "mangledName": "$s12SharedModule21PersistenceControllerV6sharedACvpZ",
+            "moduleName": "SharedModule",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PersistenceController",
+                    "printedName": "SharedModule.PersistenceController",
+                    "usr": "s:12SharedModule21PersistenceControllerV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SharedModule21PersistenceControllerV6sharedACvgZ",
+                "mangledName": "$s12SharedModule21PersistenceControllerV6sharedACvgZ",
+                "moduleName": "SharedModule",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "container",
+            "printedName": "container",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSPersistentContainer",
+                "printedName": "CoreData.NSPersistentContainer",
+                "usr": "c:objc(cs)NSPersistentContainer"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SharedModule21PersistenceControllerV9containerSo21NSPersistentContainerCvp",
+            "mangledName": "$s12SharedModule21PersistenceControllerV9containerSo21NSPersistentContainerCvp",
+            "moduleName": "SharedModule",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 0,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSPersistentContainer",
+                    "printedName": "CoreData.NSPersistentContainer",
+                    "usr": "c:objc(cs)NSPersistentContainer"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SharedModule21PersistenceControllerV9containerSo21NSPersistentContainerCvg",
+                "mangledName": "$s12SharedModule21PersistenceControllerV9containerSo21NSPersistentContainerCvg",
+                "moduleName": "SharedModule",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "context",
+            "printedName": "context",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSManagedObjectContext",
+                "printedName": "CoreData.NSManagedObjectContext",
+                "usr": "c:objc(cs)NSManagedObjectContext"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SharedModule21PersistenceControllerV7contextSo22NSManagedObjectContextCvp",
+            "mangledName": "$s12SharedModule21PersistenceControllerV7contextSo22NSManagedObjectContextCvp",
+            "moduleName": "SharedModule",
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSManagedObjectContext",
+                    "printedName": "CoreData.NSManagedObjectContext",
+                    "usr": "c:objc(cs)NSManagedObjectContext"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SharedModule21PersistenceControllerV7contextSo22NSManagedObjectContextCvg",
+                "mangledName": "$s12SharedModule21PersistenceControllerV7contextSo22NSManagedObjectContextCvg",
+                "moduleName": "SharedModule",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PersistenceController",
+                "printedName": "SharedModule.PersistenceController",
+                "usr": "s:12SharedModule21PersistenceControllerV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12SharedModule21PersistenceControllerVACycfc",
+            "mangledName": "$s12SharedModule21PersistenceControllerVACycfc",
+            "moduleName": "SharedModule",
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:12SharedModule21PersistenceControllerV",
+        "mangledName": "$s12SharedModule21PersistenceControllerV",
+        "moduleName": "SharedModule",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}

@@ -1,0 +1,158 @@
+{
+  "" : {
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SwimCraft-master.dia",
+    "emit-module-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SwimCraft-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SwimCraft-master-emit-module.dia",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SwimCraft-master.swiftdeps"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SharedModule/PersistenceController.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/PersistenceController.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/PersistenceController.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/PersistenceController.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/PersistenceController.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/PersistenceController.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/PersistenceController.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/PersistenceController.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/PersistenceController~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SharedModule/SharedModels.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SharedModels.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SharedModels.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SharedModels.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SharedModels.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SharedModels.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SharedModels.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SharedModels.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SharedModels~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraft/AddButtonCell.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AddButtonCell.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AddButtonCell.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AddButtonCell.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AddButtonCell.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AddButtonCell.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AddButtonCell.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AddButtonCell.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AddButtonCell~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraft/AppDelegate.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AppDelegate.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AppDelegate.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AppDelegate.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AppDelegate.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AppDelegate.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/AppDelegate~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraft/CSVParser.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/CSVParser.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/CSVParser.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/CSVParser.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/CSVParser.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/CSVParser.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/CSVParser.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/CSVParser.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/CSVParser~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraft/HealthKitManager.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/HealthKitManager.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/HealthKitManager.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/HealthKitManager.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/HealthKitManager.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/HealthKitManager.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/HealthKitManager.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/HealthKitManager.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/HealthKitManager~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraft/SceneDelegate.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SceneDelegate.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SceneDelegate.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SceneDelegate.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SceneDelegate.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SceneDelegate.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SceneDelegate.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SceneDelegate.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SceneDelegate~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraft/SwimWorkoutManager.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SwimWorkoutManager.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SwimWorkoutManager.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SwimWorkoutManager.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SwimWorkoutManager.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SwimWorkoutManager.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SwimWorkoutManager.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SwimWorkoutManager.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/SwimWorkoutManager~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraft/WorkoutCreationTableViewCell.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationTableViewCell.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationTableViewCell.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationTableViewCell.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationTableViewCell.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationTableViewCell.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationTableViewCell.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationTableViewCell.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationTableViewCell~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraft/WorkoutCreationViewController.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationViewController.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationViewController.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationViewController.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationViewController.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationViewController.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationViewController.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationViewController.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutCreationViewController~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraft/WorkoutDetailTableViewCell.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailTableViewCell.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailTableViewCell.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailTableViewCell.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailTableViewCell.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailTableViewCell.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailTableViewCell.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailTableViewCell.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailTableViewCell~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraft/WorkoutDetailViewController.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailViewController.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailViewController.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailViewController.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailViewController.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailViewController.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailViewController.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailViewController.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutDetailViewController~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraft/WorkoutListTableViewCell.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListTableViewCell.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListTableViewCell.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListTableViewCell.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListTableViewCell.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListTableViewCell.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListTableViewCell.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListTableViewCell.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListTableViewCell~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/SwimCraft/WorkoutListViewController.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListViewController.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListViewController.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListViewController.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListViewController.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListViewController.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListViewController.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListViewController.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/WorkoutListViewController~partial.swiftmodule"
+  },
+  "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/ravenmargret/MobileDevelopment/COS6/SwimCraft/SwimCraft/build/SwimCraft.build/Debug-iphonesimulator/SwimCraft.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}

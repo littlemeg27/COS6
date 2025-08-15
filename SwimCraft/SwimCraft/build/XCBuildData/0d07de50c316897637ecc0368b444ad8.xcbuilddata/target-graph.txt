@@ -1,0 +1,11 @@
+Target dependency graph (5 targets)
+Target 'SwimCraftUITests' in project 'SwimCraft'
+➜ Explicit dependency on target 'SwimCraft' in project 'SwimCraft'
+Target 'SwimCraftTests' in project 'SwimCraft'
+➜ Explicit dependency on target 'SwimCraft' in project 'SwimCraft'
+Target 'SharedModuleTests' in project 'SwimCraft'
+➜ Explicit dependency on target 'SharedModule' in project 'SwimCraft'
+➜ Explicit dependency on target 'SwimCraft' in project 'SwimCraft'
+Target 'SwimCraft' in project 'SwimCraft'
+➜ Explicit dependency on target 'SharedModule' in project 'SwimCraft'
+Target 'SharedModule' in project 'SwimCraft' (no dependencies)

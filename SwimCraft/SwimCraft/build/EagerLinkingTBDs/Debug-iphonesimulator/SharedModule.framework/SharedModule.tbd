@@ -1,0 +1,50 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_$s12SharedModule21PersistenceControllerV7contextSo22NSManagedObjectContextCvg",
+            "_$s12SharedModule21PersistenceControllerVMa",
+            "_$s12SharedModule21PersistenceControllerV9containerSo21NSPersistentContainerCvg",
+            "_SharedModuleVersionNumber",
+            "_$s12SharedModule21PersistenceControllerV7contextSo22NSManagedObjectContextCvpMV",
+            "_$s12SharedModule21PersistenceControllerV6sharedACvpZMV",
+            "_$s12SharedModule21PersistenceControllerV6sharedACvpZ",
+            "_$s12SharedModule21PersistenceControllerVMn",
+            "_$s12SharedModule21PersistenceControllerV9containerSo21NSPersistentContainerCvpMV",
+            "_SharedModuleVersionString",
+            "_$s12SharedModule21PersistenceControllerV6sharedACvau",
+            "_$s12SharedModule21PersistenceControllerV6sharedACvgZ",
+            "_$s12SharedModule21PersistenceControllerVACycfC",
+            "_$s12SharedModule21PersistenceControllerVN"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/SharedModule.framework/SharedModule"
+      }
+    ],
+    "swift_abi": [
+      {
+        "abi": 7
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "18.5",
+        "target": "arm64-ios-simulator"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}
