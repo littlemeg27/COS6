@@ -347,11 +347,11 @@ SWIFT_CLASS("_TtC9SwimCraft13SceneDelegate")
 @class UIButton;
 SWIFT_CLASS("_TtC9SwimCraft28WorkoutCreationTableViewCell")
 @interface WorkoutCreationTableViewCell : UITableViewCell
-@property (nonatomic, weak) IBOutlet UITextField * _Nullable yardsTextField;
-@property (nonatomic, weak) IBOutlet UIButton * _Nullable typeButton;
-@property (nonatomic, weak) IBOutlet UITextField * _Nullable amountTextField;
-@property (nonatomic, weak) IBOutlet UIButton * _Nullable strokeButton;
-@property (nonatomic, weak) IBOutlet UIButton * _Nullable timeButton;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified yardsTextField;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified typeButton;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified amountTextField;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified strokeButton;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified timeButton;
 - (void)awakeFromNib;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;

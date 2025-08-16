@@ -289,6 +289,13 @@
                                                 <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="SegmentCell" label="SegmentCell"/>
+                                                <connections>
+                                                    <outlet property="amountLabel" destination="Cy2-mB-gzK" id="G2y-bN-aOX"/>
+                                                    <outlet property="strokeLabel" destination="9cH-WO-Obm" id="yel-A7-fxL"/>
+                                                    <outlet property="timeLabel" destination="Kpp-Kq-z7U" id="Bzj-co-6DE"/>
+                                                    <outlet property="typeLabel" destination="XDT-9n-LnZ" id="duj-As-YRA"/>
+                                                    <outlet property="yardsLabel" destination="27f-FU-hLj" id="zNm-eP-hU3"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -342,9 +349,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="hOU-4O-DMz"/>
                     <connections>
-                        <outlet property="coachLabel" destination="c3C-Vf-tTn" id="uMp-uK-fIA"/>
-                        <outlet property="nameLabel" destination="AUY-7e-KgO" id="TA1-0N-NM9"/>
-                        <outlet property="tableView" destination="9xn-Yo-d6n" id="uD5-ne-5Mv"/>
+                        <outlet property="coachLabel" destination="c3C-Vf-tTn" id="XXh-e9-vYy"/>
+                        <outlet property="nameLabel" destination="AUY-7e-KgO" id="5cs-5D-ekH"/>
+                        <outlet property="tableView" destination="9xn-Yo-d6n" id="979-ue-Vy4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNk-4Q-KLQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

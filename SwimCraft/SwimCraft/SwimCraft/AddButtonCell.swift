@@ -51,13 +51,13 @@ class AddButtonCell: UITableViewCell
             return
         }
         
-        addLabel.text = "Add Segment"
+        addLabel.text = "Add"
         addLabel.font = .boldSystemFont(ofSize: 16)
         addLabel.textAlignment = .center
         addLabel.textColor = UIColor(hexString: "#293241")
         addLabel.backgroundColor = UIColor(hexString: "#98C1D9") 
         addLabel.isAccessibilityElement = true
-        addLabel.accessibilityLabel = "Add Segment"
+        addLabel.accessibilityLabel = "Add"
         addLabel.accessibilityHint = "Tap to add a new workout segment"
         
         contentView.backgroundColor = .systemGray6
