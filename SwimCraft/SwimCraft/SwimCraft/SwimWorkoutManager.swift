@@ -8,12 +8,10 @@
 
 import Foundation
 
-class SwimWorkoutManager
-{
+class SwimWorkoutManager {
     static let shared = SwimWorkoutManager()
     
-    func createSwimWorkout(name: String, distance: Double, duration: TimeInterval, strokes: [String], completion: @escaping (SwimWorkout?, Error?) -> Void)
-    {
+    func createSwimWorkout(name: String, distance: Double, duration: TimeInterval, strokes: [String], completion: @escaping (SwimWorkout?, Error?) -> Void) {
         let workout = SwimWorkout(
             id: UUID(),
             name: name,
@@ -22,7 +20,8 @@ class SwimWorkoutManager
             mainSet: [WorkoutSegment(yards: distance, type: "Swim", amount: 1, stroke: strokes.first ?? "Freestyle", time: duration)],
             coolDown: [],
             createdViaWorkoutKit: true,
-            source: "WorkoutKit"
+            source: "WorkoutKit",
+            date: Date()  
         )
         completion(workout, nil)
     }

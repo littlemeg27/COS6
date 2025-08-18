@@ -418,22 +418,20 @@ SWIFT_CLASS("_TtC9SwimCraft24WorkoutListTableViewCell")
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 @end
 
-@class UISwipeActionsConfiguration;
+@class UIStoryboardSegue;
 SWIFT_CLASS("_TtC9SwimCraft25WorkoutListViewController")
 @interface WorkoutListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tableView;
-@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified clearButton;
-@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified shareButton;
-@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified clearAllButton;
+@property (nonatomic, weak) IBOutlet UIButton * _Nullable clearButton;
+@property (nonatomic, weak) IBOutlet UIButton * _Nullable shareButton;
 - (void)viewDidLoad;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (UISwipeActionsConfiguration * _Nullable)tableView:(UITableView * _Nonnull)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (IBAction)toggleEditing:(id _Nonnull)sender;
-- (IBAction)deleteSelectedWorkouts:(id _Nonnull)sender;
-- (IBAction)deleteAllWorkouts:(id _Nonnull)sender;
-- (IBAction)shareSelectedWorkout:(id _Nonnull)sender;
+- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
+- (IBAction)clearButtonTapped:(UIButton * _Nonnull)sender;
+- (IBAction)shareButtonTapped:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end

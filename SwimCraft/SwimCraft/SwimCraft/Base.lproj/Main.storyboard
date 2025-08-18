@@ -91,9 +91,6 @@
                                             <color key="baseForegroundColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <action selector="shareSelectedWorkout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="owD-hJ-qpy"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZX-UE-cBX">
                                         <rect key="frame" x="232" y="180" width="145" height="35"/>
@@ -108,9 +105,6 @@
                                             <color key="baseForegroundColor" red="0.16078431369999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <action selector="deleteSelectedWorkouts:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7BH-5A-y5b"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="toWorkoutCreation" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbC-0X-Hez" userLabel="toWorkoutCreation">
                                         <rect key="frame" x="124" y="137" width="145" height="35"/>
@@ -148,7 +142,7 @@
                                             <color key="baseBackgroundColor" red="0.93333333330000001" green="0.42352941179999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="deleteAllWorkouts:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mpl-3a-1A6"/>
+                                            <action selector="clearButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aI1-kO-4aY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -186,7 +180,6 @@
                         <fragment content="WorkoutListViewController"/>
                     </attributedString>
                     <connections>
-                        <outlet property="clearAllButton" destination="da7-h4-Gll" id="rU0-iV-A2H"/>
                         <outlet property="clearButton" destination="BZX-UE-cBX" id="zTr-Lu-KwO"/>
                         <outlet property="shareButton" destination="EcX-gN-g7g" id="4if-JK-9s8"/>
                         <outlet property="tableView" destination="3ZK-gE-90O" id="5ni-kd-ENo"/>

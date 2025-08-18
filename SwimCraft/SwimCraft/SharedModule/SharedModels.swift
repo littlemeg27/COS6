@@ -39,34 +39,55 @@ struct WorkoutSegment: Hashable {
     }
 }
 
-struct SwimWorkout: Hashable {
-    var id: UUID
-    var name: String
-    var coach: Coach?
-    var warmUp: [WorkoutSegment]
-    var mainSet: [WorkoutSegment]
-    var coolDown: [WorkoutSegment]
-    var createdViaWorkoutKit: Bool
-    var source: String?
+struct SwimWorkout: Hashable {  // Add Hashable conformance
+    let id: UUID
+    let name: String
+    let coach: Coach?
+    let warmUp: [WorkoutSegment]
+    let mainSet: [WorkoutSegment]
+    let coolDown: [WorkoutSegment]
+    let createdViaWorkoutKit: Bool
+    let source: String?
+    let date: Date
     
     var distance: Double {
-        [warmUp, mainSet, coolDown].flatMap { $0 }.reduce(0) { $0 + ($1.yards ?? 0) }
+        (warmUp + mainSet + coolDown).reduce(0) { $0 + ($1.yards ?? 0) }
     }
     
     var duration: TimeInterval {
-        [warmUp, mainSet, coolDown].flatMap { $0 }.reduce(0) { $0 + ($1.time ?? 0) }
+        (warmUp + mainSet + coolDown).reduce(0) { $0 + ($1.time ?? 0) }
     }
     
     var strokes: [String] {
-        Array(Set([warmUp, mainSet, coolDown].flatMap { $0 }.map { $0.stroke }))
+        Array(Set((warmUp + mainSet + coolDown).compactMap { $0.stroke }))
+    }
+    
+    var estimatedCalories: Double {
+        return distance * 0.5
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
+        hasher.combine(name)
+        hasher.combine(coach)
+        hasher.combine(warmUp)
+        hasher.combine(mainSet)
+        hasher.combine(coolDown)
+        hasher.combine(createdViaWorkoutKit)
+        hasher.combine(source)
+        hasher.combine(date)
     }
     
     static func == (lhs: SwimWorkout, rhs: SwimWorkout) -> Bool {
-        lhs.id == rhs.id
+        lhs.id == rhs.id &&
+        lhs.name == rhs.name &&
+        lhs.coach == rhs.coach &&
+        lhs.warmUp == rhs.warmUp &&
+        lhs.mainSet == rhs.mainSet &&
+        lhs.coolDown == rhs.coolDown &&
+        lhs.createdViaWorkoutKit == rhs.createdViaWorkoutKit &&
+        lhs.source == rhs.source &&
+        lhs.date == rhs.date
     }
 }
 

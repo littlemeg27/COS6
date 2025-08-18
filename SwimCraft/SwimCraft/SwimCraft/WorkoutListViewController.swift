@@ -9,36 +9,43 @@ import UIKit
 import HealthKit
 import CoreData
 
-class WorkoutListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class WorkoutListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var clearButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var clearAllButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton?
+    @IBOutlet weak var shareButton: UIButton?
     
     var workouts: [SwimWorkout] = []
+    var selectedWorkout: SwimWorkout?
+    var context: NSManagedObjectContext?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("WorkoutListViewController viewDidLoad, clearButton: \(clearButton != nil ? "connected" : "not connected"), shareButton: \(shareButton != nil ? "connected" : "not connected")")
+        
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.allowsMultipleSelectionDuringEditing = true
-        print("WorkoutListViewController viewDidLoad, clearButton: \(clearButton != nil ? "connected" : "nil"), shareButton: \(shareButton != nil ? "connected" : "nil")")
-        fetchWorkouts()
-    }
-    
-    private func fetchWorkouts() {
-        let context = PersistenceController.shared.context
-        HealthKitManager.shared.fetchWorkouts(context: context) { [weak self] workouts, error in
-            if let error = error {
+        
+        context = PersistenceController.shared.context // Set context here to avoid nil
+        
+        HealthKitManager.shared.fetchWorkouts(context: context)
+        {
+            workouts, error in
+            
+            if let error = error
+            {
                 print("Error fetching workouts: \(error.localizedDescription)")
-                return
             }
-            self?.workouts = workouts
-            print("Number of workouts: \(workouts.count)")
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
+            else
+            {
+                self.workouts = workouts
+                self.tableView.reloadData()
+                print("Number of workouts: \(self.workouts.count)")
             }
         }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,130 +56,69 @@ class WorkoutListViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath)
         let workout = workouts[indexPath.row]
         cell.textLabel?.text = workout.name
-        cell.accessoryType = .disclosureIndicator
+        cell.detailTextLabel?.text = "Distance: \(workout.distance) yards"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.isEditing {
-            print("Selected workout at \(indexPath): \(workouts[indexPath.row].name)")
-        } else {
-            tableView.deselectRow(at: indexPath, animated: true)
-            let workout = workouts[indexPath.row]
-            let detailVC = WorkoutDetailViewController()
-            detailVC.workout = workout
-            navigationController?.pushViewController(detailVC, animated: true)
-            print("Navigating to WorkoutDetailViewController for workout: \(workout.name)")
-        }
+        selectedWorkout = workouts[indexPath.row]
+        performSegue(withIdentifier: "ShowDetail", sender: self)
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let shareAction = UIContextualAction(style: .normal, title: "Share") { [weak self] _, _, completion in
-            guard let self = self else { return }
-            let workout = self.workouts[indexPath.row]
-            self.shareWorkout(workout)
-            completion(true)
-        }
-        shareAction.backgroundColor = .systemBlue
-        
-        return UISwipeActionsConfiguration(actions: [shareAction])
-    }
-    
-    @IBAction func toggleEditing(_ sender: AnyObject) {
-        tableView.setEditing(!tableView.isEditing, animated: true)
-        print("Toggled editing mode: \(tableView.isEditing)")
-    }
-    
-    @IBAction func deleteSelectedWorkouts(_ sender: AnyObject) {
-        guard let selectedIndexPaths = tableView.indexPathsForSelectedRows else {
-            print("No workouts selected for deletion")
-            showAlert(message: "No workouts selected")
-            return
-        }
-        let selectedWorkouts = selectedIndexPaths.map { workouts[$0.row] }
-        print("deleteSelectedWorkouts triggered")
-        print("Attempting to delete \(selectedWorkouts.count) workouts: \(selectedWorkouts.map { $0.name })")
-        
-        let context = PersistenceController.shared.context
-        HealthKitManager.shared.deleteWorkouts(selectedWorkouts, context: context) { [weak self] success, error in
-            if success {
-                print("Successfully deleted \(selectedWorkouts.count) workouts, remaining count: \(self?.workouts.count ?? 0)")
-                let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SwimWorkoutEntity")
-                if let coreDataWorkouts = try? context.fetch(fetchRequest) {
-                    print("Core Data contains \(coreDataWorkouts.count) SwimWorkout entities after deletion")
-                    for entity in coreDataWorkouts {
-                        print("Core Data workout: ID=\(entity.value(forKey: "id") as? String ?? "N/A"), name=\(entity.value(forKey: "name") as? String ?? "N/A")")
-                    }
-                }
-                self?.fetchWorkouts()
-            } else {
-                print("Error deleting workouts: \(error?.localizedDescription ?? "Unknown error")")
-                self?.showAlert(message: "Failed to delete workouts: \(error?.localizedDescription ?? "Unknown error")")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" {
+            if let detailVC = segue.destination as? WorkoutDetailViewController {
+                detailVC.workout = selectedWorkout
             }
         }
     }
     
-    @IBAction func deleteAllWorkouts(_ sender: AnyObject) {
+    @IBAction func clearButtonTapped(_ sender: UIButton) {
         guard !workouts.isEmpty else {
             print("No workouts to delete")
-            showAlert(message: "No workouts to delete")
             return
         }
-        let alert = UIAlertController(title: "Delete All Workouts", message: "Are you sure you want to delete all workouts?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
-            guard let self = self else { return }
-            print("deleteAllWorkouts triggered")
-            print("Attempting to delete all \(self.workouts.count) workouts: \(self.workouts.map { $0.name })")
-            
-            let context = PersistenceController.shared.context
-            HealthKitManager.shared.deleteWorkouts(self.workouts, context: context) { success, error in
-                if success {
-                    print("Successfully deleted all workouts")
-                    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SwimWorkoutEntity")
-                    if let coreDataWorkouts = try? context.fetch(fetchRequest) {
-                        print("Core Data contains \(coreDataWorkouts.count) SwimWorkout entities after deletion")
-                    }
-                    self.fetchWorkouts()
-                } else {
-                    print("Error deleting all workouts: \(error?.localizedDescription ?? "Unknown error")")
-                    self.showAlert(message: "Failed to delete workouts: \(error?.localizedDescription ?? "Unknown error")")
-                }
+        
+        HealthKitManager.shared.deleteWorkouts(workouts, context: context!) { success, error in
+            if success {
+                print("Successfully deleted workouts")
+                self.workouts = []
+                self.tableView.reloadData()
+            } else if let error = error {
+                print("Error deleting workouts: \(error.localizedDescription)")
             }
-        })
-        present(alert, animated: true)
+        }
     }
     
-    @IBAction func shareSelectedWorkout(_ sender: AnyObject) {
-        guard let selectedIndexPaths = tableView.indexPathsForSelectedRows, !selectedIndexPaths.isEmpty else {
-            print("No workouts selected for sharing")
-            showAlert(message: "Please select a workout to share")
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+        guard let selectedWorkout = selectedWorkout else {
+            print("No workout selected")
             return
         }
-        // Share only the first selected workout for simplicity
-        let workout = workouts[selectedIndexPaths[0].row]
-        shareWorkout(workout)
-        print("shareSelectedWorkout triggered for workout: \(workout.name)")
-    }
-    
-    private func shareWorkout(_ workout: SwimWorkout) {
-        let text = """
-        Workout: \(workout.name)
-        Coach: \(workout.coach?.name ?? "N/A")
-        Distance: \(workout.distance) meters
-        Duration: \(Int(workout.duration)) seconds
-        Warm Up: \(workout.warmUp.map { "\($0.amount ?? 1) x \($0.yards ?? 0) \($0.stroke) \($0.type)" }.joined(separator: "\n"))
-        Main Set: \(workout.mainSet.map { "\($0.amount ?? 1) x \($0.yards ?? 0) \($0.stroke) \($0.type)" }.joined(separator: "\n"))
-        Cool Down: \(workout.coolDown.map { "\($0.amount ?? 1) x \($0.yards ?? 0) \($0.stroke) \($0.type)" }.joined(separator: "\n"))
-        """
-        let activityVC = UIActivityViewController(activityItems: [text], applicationActivities: nil)
-        present(activityVC, animated: true)
-        print("Sharing workout: \(workout.name)")
-    }
-    
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
+        
+        var shareText = "Workout: \(selectedWorkout.name)\n"
+        if let coach = selectedWorkout.coach {
+            shareText += "Coach: \(coach.name)\n"
+        }
+        shareText += "Distance: \(selectedWorkout.distance) yards\n"
+        shareText += "Duration: \(selectedWorkout.duration) seconds\n"
+        
+        shareText += "\nWarm Up:\n"
+        for segment in selectedWorkout.warmUp {
+            shareText += "\(segment.amount ?? 1) x \(segment.yards ?? 0) \(segment.stroke) \(segment.type)\n"
+        }
+        
+        shareText += "\nMain Set:\n"
+        for segment in selectedWorkout.mainSet {
+            shareText += "\(segment.amount ?? 1) x \(segment.yards ?? 0) \(segment.stroke) \(segment.type)\n"
+        }
+        
+        shareText += "\nCool Down:\n"
+        for segment in selectedWorkout.coolDown {
+            shareText += "\(segment.amount ?? 1) x \(segment.yards ?? 0) \(segment.stroke) \(segment.type)\n"
+        }
+        
+        let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        present(activityViewController, animated: true)
     }
 }
