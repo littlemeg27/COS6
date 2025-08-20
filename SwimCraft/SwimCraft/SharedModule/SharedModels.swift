@@ -9,6 +9,7 @@ import Foundation
 
 public struct WorkoutSegment: Hashable
 {
+    public var id = UUID()
     public var yards: Double?
     public var type: String
     public var amount: Int?
