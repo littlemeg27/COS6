@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import SharedModule
 
 class WorkoutCreationTableViewCell: UITableViewCell
 {
-    @IBOutlet weak var yardsTextField: UITextField!
-    @IBOutlet weak var typeButton: UIButton!
-    @IBOutlet weak var amountTextField: UITextField!
-    @IBOutlet weak var strokeButton: UIButton!
-    @IBOutlet weak var timeButton: UIButton!
+    @IBOutlet weak var yardsTextField: UITextField?
+    @IBOutlet weak var typeButton: UIButton?
+    @IBOutlet weak var amountTextField: UITextField?
+    @IBOutlet weak var strokeButton: UIButton?
+    @IBOutlet weak var timeButton: UIButton?
     
     var segment: WorkoutSegment?
     var onUpdate: ((WorkoutSegment) -> Void)?
@@ -56,7 +57,10 @@ class WorkoutCreationTableViewCell: UITableViewCell
         
         typeButton.menu = typeMenu
         typeButton.showsMenuAsPrimaryAction = true
+        strokeButton.layer.borderWidth = 1
+        strokeButton.layer.borderColor = UIColor.red.cgColor
         typeButton.setTitle(segment?.type ?? types.first ?? "Swim", for: .normal)
+        print("Button '\(typeButton.currentTitle ?? "nil")' menu children: \(typeButton.menu?.children.count ?? 0)")
         
         let strokeMenu = UIMenu(title: "Select Stroke", children: strokes.map { stroke in
             UIAction(title: stroke, handler:
@@ -67,12 +71,17 @@ class WorkoutCreationTableViewCell: UITableViewCell
                 strokeButton.setTitle(stroke, for: .normal)
                 self?.segment = segment
                 self?.onUpdate?(segment)
+                
                 print("Selected stroke: \(stroke)")
             })
         })
         strokeButton.menu = strokeMenu
         strokeButton.showsMenuAsPrimaryAction = true
+        strokeButton.layer.borderWidth = 1
+        strokeButton.layer.borderColor = UIColor.red.cgColor
         strokeButton.setTitle(segment?.stroke ?? strokes.first ?? "Freestyle", for: .normal)
+        print("Button '\(strokeButton.currentTitle ?? "nil")' menu children: \(strokeButton.menu?.children.count ?? 0)")
+
         
         let timeMenu = UIMenu(title: "Select Time", children: times.map
                               {
@@ -89,17 +98,20 @@ class WorkoutCreationTableViewCell: UITableViewCell
         
         timeButton.menu = timeMenu
         timeButton.showsMenuAsPrimaryAction = true
+        strokeButton.layer.borderWidth = 1
+        strokeButton.layer.borderColor = UIColor.red.cgColor
         let timeTitle = segment?.time ?? 0 > 0 ? "\(Int(segment?.time ?? times.first ?? 30)) sec" : "\(Int(times.first ?? 30)) sec"
         timeButton.setTitle(timeTitle, for: .normal)
+        print("Button '\(timeButton.currentTitle ?? "nil")' menu children: \(timeButton.menu?.children.count ?? 0)")
     }
     
     private func setupTextFields()
     {
-        yardsTextField.text = segment?.yards ?? 0 > 0 ? "\(segment?.yards ?? 0)" : ""
-        amountTextField.text = segment?.amount ?? 0 > 0 ? "\(segment?.amount ?? 0)" : ""
+        yardsTextField?.text = segment?.yards ?? 0 > 0 ? "\(segment?.yards ?? 0)" : ""
+        amountTextField?.text = segment?.amount ?? 0 > 0 ? "\(segment?.amount ?? 0)" : ""
         
-        yardsTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        amountTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        yardsTextField?.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        amountTextField?.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     @objc private func textFieldDidChange(_ textField: UITextField)
@@ -126,8 +138,8 @@ class WorkoutCreationTableViewCell: UITableViewCell
     func configure(with segment: WorkoutSegment, types: [String], strokes: [String], times: [TimeInterval])
     {
         self.segment = segment
-        yardsTextField.text = segment.yards ?? 0 > 0 ? "\(segment.yards ?? 0)" : ""
-        amountTextField.text = segment.amount ?? 0 > 0 ? "\(segment.amount ?? 0)" : ""
+        yardsTextField?.text = segment.yards ?? 0 > 0 ? "\(segment.yards ?? 0)" : ""
+        amountTextField?.text = segment.amount ?? 0 > 0 ? "\(segment.amount ?? 0)" : ""
         setupButtons(types: types, strokes: strokes, times: times)
         print("Configured cell with segment: type=\(segment.type), stroke=\(segment.stroke), yards=\(segment.yards ?? 0), amount=\(segment.amount ?? 0), time=\(segment.time ?? 0)")
     }

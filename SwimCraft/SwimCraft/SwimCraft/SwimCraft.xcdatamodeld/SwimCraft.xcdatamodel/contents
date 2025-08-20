@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24G207" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
-    <entity name="SwimWorkoutEntity" representedClassName="SwimWorkoutEntity" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24G210" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="SwimWorkoutEntity" representedClassName="SwimWorkoutEntity" syncable="YES">
         <attribute name="coachName" optional="YES" attributeType="String"/>
         <attribute name="createdViaWorkoutKit" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="source" optional="YES" attributeType="String"/>
-        <relationship name="coolDown" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutSegmentEntity"/>
-        <relationship name="mainSet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutSegmentEntity"/>
-        <relationship name="warmUp" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutSegmentEntity"/>
+        <relationship name="coolDown" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutSegmentEntity" inverseName="workout_cooldown" inverseEntity="WorkoutSegmentEntity"/>
+        <relationship name="mainSet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutSegmentEntity" inverseName="workout_mainset" inverseEntity="WorkoutSegmentEntity"/>
+        <relationship name="warmUp" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutSegmentEntity" inverseName="workout_warmup" inverseEntity="WorkoutSegmentEntity"/>
     </entity>
-    <entity name="WorkoutSegmentEntity" representedClassName="WorkoutSegmentEntity" syncable="YES" codeGenerationType="class">
+    <entity name="WorkoutSegmentEntity" representedClassName="WorkoutSegmentEntity" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="stroke" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="yards" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="workout_cooldown" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SwimWorkoutEntity" inverseName="coolDown" inverseEntity="SwimWorkoutEntity"/>
+        <relationship name="workout_mainset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SwimWorkoutEntity" inverseName="mainSet" inverseEntity="SwimWorkoutEntity"/>
+        <relationship name="workout_warmup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SwimWorkoutEntity" inverseName="warmUp" inverseEntity="SwimWorkoutEntity"/>
     </entity>
 </model>

@@ -8,3 +8,57 @@ import Swift
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+public struct WorkoutSegment : Swift.Hashable {
+  public var yards: Swift.Double?
+  public var type: Swift.String
+  public var amount: Swift.Int?
+  public var stroke: Swift.String
+  public var time: Foundation.TimeInterval?
+  public init(yards: Swift.Double?, type: Swift.String, amount: Swift.Int?, stroke: Swift.String, time: Foundation.TimeInterval?)
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (lhs: SharedModule.WorkoutSegment, rhs: SharedModule.WorkoutSegment) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct SwimWorkout : Swift.Hashable {
+  public let id: Foundation.UUID
+  public let name: Swift.String
+  public let coach: SharedModule.Coach?
+  public let warmUp: [SharedModule.WorkoutSegment]
+  public let mainSet: [SharedModule.WorkoutSegment]
+  public let coolDown: [SharedModule.WorkoutSegment]
+  public let createdViaWorkoutKit: Swift.Bool
+  public let source: Swift.String?
+  public let date: Foundation.Date
+  public var distance: Swift.Double {
+    get
+  }
+  public var duration: Foundation.TimeInterval {
+    get
+  }
+  public var strokes: [Swift.String] {
+    get
+  }
+  public var estimatedCalories: Swift.Double {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (lhs: SharedModule.SwimWorkout, rhs: SharedModule.SwimWorkout) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Coach : Swift.Hashable {
+  public var name: Swift.String
+  public var level: Swift.String
+  public var dateCompleted: Foundation.Date
+  public var clubAbbr: Swift.String
+  public var clubName: Swift.String
+  public var lmsc: Swift.String
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (lhs: SharedModule.Coach, rhs: SharedModule.Coach) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}

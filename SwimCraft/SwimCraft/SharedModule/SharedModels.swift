@@ -7,14 +7,16 @@
 
 import Foundation
 
-struct WorkoutSegment: Hashable {
-    var yards: Double?
-    var type: String
-    var amount: Int?
-    var stroke: String
-    var time: TimeInterval?
+public struct WorkoutSegment: Hashable
+{
+    public var yards: Double?
+    public var type: String
+    public var amount: Int?
+    public var stroke: String
+    public var time: TimeInterval?
     
-    init(yards: Double?, type: String, amount: Int?, stroke: String, time: TimeInterval?) {
+    public init(yards: Double?, type: String, amount: Int?, stroke: String, time: TimeInterval?)
+    {
         self.yards = yards
         self.type = type
         self.amount = amount
@@ -22,7 +24,8 @@ struct WorkoutSegment: Hashable {
         self.time = time
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher)
+    {
         hasher.combine(type)
         hasher.combine(stroke)
         hasher.combine(yards)
@@ -30,7 +33,8 @@ struct WorkoutSegment: Hashable {
         hasher.combine(time)
     }
     
-    static func == (lhs: WorkoutSegment, rhs: WorkoutSegment) -> Bool {
+    public static func == (lhs: WorkoutSegment, rhs: WorkoutSegment) -> Bool
+    {
         lhs.type == rhs.type &&
         lhs.stroke == rhs.stroke &&
         lhs.yards == rhs.yards &&
@@ -39,34 +43,40 @@ struct WorkoutSegment: Hashable {
     }
 }
 
-struct SwimWorkout: Hashable {  // Add Hashable conformance
-    let id: UUID
-    let name: String
-    let coach: Coach?
-    let warmUp: [WorkoutSegment]
-    let mainSet: [WorkoutSegment]
-    let coolDown: [WorkoutSegment]
-    let createdViaWorkoutKit: Bool
-    let source: String?
-    let date: Date
+public struct SwimWorkout: Hashable
+{
+    public let id: UUID
+    public let name: String
+    public let coach: Coach?
+    public let warmUp: [WorkoutSegment]
+    public let mainSet: [WorkoutSegment]
+    public let coolDown: [WorkoutSegment]
+    public let createdViaWorkoutKit: Bool
+    public let source: String?
+    public let date: Date
     
-    var distance: Double {
+    public var distance: Double
+    {
         (warmUp + mainSet + coolDown).reduce(0) { $0 + ($1.yards ?? 0) }
     }
     
-    var duration: TimeInterval {
+    public var duration: TimeInterval
+    {
         (warmUp + mainSet + coolDown).reduce(0) { $0 + ($1.time ?? 0) }
     }
     
-    var strokes: [String] {
+    public var strokes: [String]
+    {
         Array(Set((warmUp + mainSet + coolDown).compactMap { $0.stroke }))
     }
     
-    var estimatedCalories: Double {
+    public var estimatedCalories: Double
+    {
         return distance * 0.5
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher)
+    {
         hasher.combine(id)
         hasher.combine(name)
         hasher.combine(coach)
@@ -78,7 +88,8 @@ struct SwimWorkout: Hashable {  // Add Hashable conformance
         hasher.combine(date)
     }
     
-    static func == (lhs: SwimWorkout, rhs: SwimWorkout) -> Bool {
+    public static func == (lhs: SwimWorkout, rhs: SwimWorkout) -> Bool
+    {
         lhs.id == rhs.id &&
         lhs.name == rhs.name &&
         lhs.coach == rhs.coach &&
@@ -91,15 +102,17 @@ struct SwimWorkout: Hashable {  // Add Hashable conformance
     }
 }
 
-struct Coach: Hashable {
-    var name: String
-    var level: String
-    var dateCompleted: Date
-    var clubAbbr: String
-    var clubName: String
-    var lmsc: String
+public struct Coach: Hashable
+{
+    public var name: String
+    public var level: String
+    public var dateCompleted: Date
+    public var clubAbbr: String
+    public var clubName: String
+    public var lmsc: String
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher)
+    {
         hasher.combine(name)
         hasher.combine(level)
         hasher.combine(dateCompleted)
@@ -108,7 +121,8 @@ struct Coach: Hashable {
         hasher.combine(lmsc)
     }
     
-    static func == (lhs: Coach, rhs: Coach) -> Bool {
+    public static func == (lhs: Coach, rhs: Coach) -> Bool
+    {
         lhs.name == rhs.name &&
         lhs.level == rhs.level &&
         lhs.dateCompleted == rhs.dateCompleted &&

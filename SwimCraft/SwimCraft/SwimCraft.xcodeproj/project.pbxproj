@@ -91,13 +91,6 @@
 			);
 			target = BA4FF5912E307E3C00E594A3 /* SwimCraft */;
 		};
-		BA4FF6712E3096A900E594A3 /* Exceptions for "SharedModule" folder in "SharedModule" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				SharedModels.swift,
-			);
-			target = BA4FF6032E30853A00E594A3 /* SharedModule */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
@@ -132,9 +125,6 @@
 		};
 		BA4FF6052E30853A00E594A3 /* SharedModule */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				BA4FF6712E3096A900E594A3 /* Exceptions for "SharedModule" folder in "SharedModule" target */,
-			);
 			path = SharedModule;
 			sourceTree = "<group>";
 		};
