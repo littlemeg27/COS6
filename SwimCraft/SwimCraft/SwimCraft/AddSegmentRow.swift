@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct AddSegmentRow: View {
-    var body: some View {
+struct AddSegmentRow: View
+{
+    var body: some View
+    {
         Text("Add")
-            .font(.boldSystemFont(ofSize: 16))
+            .font(.system(size: 16, weight: .bold))
             .frame(maxWidth: .infinity)
             .foregroundColor(Color(hex: "#293241"))
             .background(Color(hex: "#98C1D9"))
@@ -20,9 +22,10 @@ struct AddSegmentRow: View {
     }
 }
 
-// Extension for hex color (similar to UIKit version)
-extension Color {
-    init(hex: String) {
+extension Color
+{
+    init(hex: String)
+    {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var rgb: UInt64 = 0
         Scanner(string: hex).scanHexInt64(&rgb)

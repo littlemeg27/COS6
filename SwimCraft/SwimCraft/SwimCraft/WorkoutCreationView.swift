@@ -8,7 +8,8 @@
 
 import SwiftUI
 
-struct WorkoutCreationView: View {
+struct WorkoutCreationView: View
+{
     @State private var name: String = ""
     @State private var selectedCoach: Coach?
     @State private var coaches: [Coach] = []
@@ -21,54 +22,76 @@ struct WorkoutCreationView: View {
     
     var onSave: (SwimWorkout) -> Void
     
-    var body: some View {
-        NavigationView {
-            Form {
+    var body: some View
+    {
+        NavigationView
+        {
+            Form
+            {
                 TextField("Workout Name", text: $name)
                 
-                Picker("Coach", selection: $selectedCoach) {
-                    ForEach(coaches, id: \.self) { coach in
+                Picker("Coach", selection: $selectedCoach)
+                {
+                    ForEach(coaches, id: \.self)
+                    {
+                        coach in
                         Text("\(coach.name) (\(coach.level))").tag(coach as Coach?)
                     }
                 }
                 
-                Section(header: Text("Warm Up")) {
-                    ForEach($warmUpSegments) { $segment in
+                Section(header: Text("Warm Up"))
+                {
+                    ForEach($warmUpSegments)
+                    {
+                        $segment in
                         SegmentEditRow(segment: $segment, types: segmentTypes, strokes: strokeTypes, times: timeOptions)
                     }
-                    Button(action: {
+                    Button(action:
+                            {
                         warmUpSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
-                    }) {
+                    })
+                    {
                         AddSegmentRow()
                     }
                 }
                 
-                Section(header: Text("Main Set")) {
-                    ForEach($mainSetSegments) { $segment in
+                Section(header: Text("Main Set"))
+                {
+                    ForEach($mainSetSegments)
+                    {
+                        $segment in
                         SegmentEditRow(segment: $segment, types: segmentTypes, strokes: strokeTypes, times: timeOptions)
                     }
-                    Button(action: {
+                    Button(action:
+                            {
                         mainSetSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
-                    }) {
+                    })
+                    {
                         AddSegmentRow()
                     }
                 }
                 
-                Section(header: Text("Cool Down")) {
+                Section(header: Text("Cool Down"))
+                {
                     ForEach($coolDownSegments) { $segment in
                         SegmentEditRow(segment: $segment, types: segmentTypes, strokes: strokeTypes, times: timeOptions)
                     }
-                    Button(action: {
+                    Button(action:
+                            {
                         coolDownSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
-                    }) {
+                    })
+                    {
                         AddSegmentRow()
                     }
                 }
             }
             .navigationTitle("Create Workout")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
+            .toolbar
+            {
+                ToolbarItem(placement: .navigationBarTrailing)
+                {
+                    Button("Save")
+                    {
                         let workout = SwimWorkout(
                             id: UUID(),
                             name: name,
@@ -85,26 +108,87 @@ struct WorkoutCreationView: View {
                     .disabled(name.isEmpty || warmUpSegments.allSatisfy { $0.yards == 0 } && mainSetSegments.allSatisfy { $0.yards == 0 } && coolDownSegments.allSatisfy { $0.yards == 0 })
                 }
             }
-            .onAppear {
+            .onAppear
+            {
                 loadCoaches()
             }
         }
     }
     
-    private func loadCoaches() {
-        // Your existing loadCoaches logic, adapted to SwiftUI
-        do {
+    private func loadCoaches()
+    {
+        
+        do
+        {
             coaches = try loadCoaches(from: "CertifiedCoaches")
             selectedCoach = coaches.first
-        } catch {
+        }
+        catch
+        {
             coaches = [Coach(name: "Default Coach", level: "Level 1", dateCompleted: Date(), clubAbbr: "", clubName: "", lmsc: "")]
             selectedCoach = coaches.first
         }
     }
     
-    // Your loadCoaches function here, moved from UIKit version
-    private func loadCoaches(from resource: String) throws -> [Coach] {
-        // Existing code...
+    private func loadCoaches(from resource: String) throws -> [Coach]
+    {
+        print("loadCoaches: Looking for (resource).csv")
+        guard let url = Bundle.main.url(forResource: resource, withExtension: "csv") else
+        {
+            print("Error: Could not find (resource).csv in bundle")
+            throw NSError(domain: "SwimCraft", code: -1, userInfo: [NSLocalizedDescriptionKey: "Coach resource not found"])
+        }
+        
+        print("loadCoaches: Found file at (url)")
+        
+        let data = try String(contentsOf: url, encoding: .utf8)
+        
+        print("loadCoaches: Loaded (data.count) characters of data")
+        
+        var coaches: [Coach] = []
+        let rows = data.components(separatedBy: .newlines).filter { !$0.isEmpty }
+        
+        guard !rows.isEmpty else
+        {
+            print("Error: CSV file is empty")
+            throw NSError(domain: "SwimCraft", code: -2, userInfo: [NSLocalizedDescriptionKey: "CSV file is empty"])
+        }
+        let expectedHeader = ["Coach", "Level", "Date Completed", "Club Abbr", "Club Name", "LMSC"]
+        let header = rows[0].components(separatedBy: ",")
+        
+        guard header == expectedHeader else
+        {
+            print("Error: Invalid CSV header: (header)")
+            throw NSError(domain: "SwimCraft", code: -3, userInfo: [NSLocalizedDescriptionKey: "Invalid CSV header"])
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        for row in rows.dropFirst()
+        {
+            let columns = row.components(separatedBy: ",")
+            guard columns.count == 6 else
+            {
+                print("Warning: Skipping invalid row: (row)")
+                continue
+            }
+            
+            let name = columns[0].trimmingCharacters(in: .whitespaces)
+            let level = columns[1].trimmingCharacters(in: .whitespaces)
+            let dateString = columns[2].trimmingCharacters(in: .whitespaces)
+            let clubAbbr = columns[3].trimmingCharacters(in: .whitespaces)
+            let clubName = columns[4].trimmingCharacters(in: .whitespaces)
+            let lmsc = columns[5].trimmingCharacters(in: .whitespaces)
+            guard !name.isEmpty, !level.isEmpty, let date = dateFormatter.date(from: dateString) else
+            {
+                print("Warning: Skipping invalid coach data: (row)")
+                continue
+            }
+            let coach = Coach(name: name, level: level, dateCompleted: date, clubAbbr: clubAbbr, clubName: clubName, lmsc: lmsc)
+            coaches.append(coach)
+        }
+        print("loadCoaches: Parsed (coaches.count) coaches")
+        return coaches
     }
 }
 

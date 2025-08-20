@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct WorkoutSegment: Hashable
+public struct WorkoutSegment: Hashable, Identifiable
 {
     public var id = UUID()
     public var yards: Double?
@@ -16,8 +16,9 @@ public struct WorkoutSegment: Hashable
     public var stroke: String
     public var time: TimeInterval?
     
-    public init(yards: Double?, type: String, amount: Int?, stroke: String, time: TimeInterval?)
+    public init(id: UUID = UUID(), yards: Double?, type: String, amount: Int?, stroke: String, time: TimeInterval?)
     {
+        self.id = id
         self.yards = yards
         self.type = type
         self.amount = amount
@@ -27,6 +28,7 @@ public struct WorkoutSegment: Hashable
     
     public func hash(into hasher: inout Hasher)
     {
+        hasher.combine(id)
         hasher.combine(type)
         hasher.combine(stroke)
         hasher.combine(yards)
@@ -36,6 +38,7 @@ public struct WorkoutSegment: Hashable
     
     public static func == (lhs: WorkoutSegment, rhs: WorkoutSegment) -> Bool
     {
+        lhs.id == rhs.id &&
         lhs.type == rhs.type &&
         lhs.stroke == rhs.stroke &&
         lhs.yards == rhs.yards &&
@@ -44,7 +47,7 @@ public struct WorkoutSegment: Hashable
     }
 }
 
-public struct SwimWorkout: Hashable
+public struct SwimWorkout: Hashable, Identifiable
 {
     public let id: UUID
     public let name: String

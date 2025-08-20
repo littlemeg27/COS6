@@ -7,131 +7,93 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA4FF6192E30853A00E594A3 /* SharedModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4FF6042E30853A00E594A3 /* SharedModule.framework */; };
-		BA4FF61A2E30853A00E594A3 /* SharedModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA4FF6042E30853A00E594A3 /* SharedModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BA4FF6512E30872B00E594A3 /* SharedModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4FF6042E30853A00E594A3 /* SharedModule.framework */; };
-		BABA27042E5620A900BDF824 /* SwimCraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABA27032E5620A900BDF824 /* SwimCraftApp.swift */; };
-		BABA27052E5620A900BDF824 /* SwimCraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABA27032E5620A900BDF824 /* SwimCraftApp.swift */; };
+		BABA27B32E5693A900BDF824 /* SharedModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABA27A82E5693A800BDF824 /* SharedModule.framework */; };
+		BABA27BD2E5693A900BDF824 /* SharedModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABA27A82E5693A800BDF824 /* SharedModule.framework */; };
+		BABA27BE2E5693A900BDF824 /* SharedModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BABA27A82E5693A800BDF824 /* SharedModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BA4FF5A92E307E3D00E594A3 /* PBXContainerItemProxy */ = {
+		BABA272E2E56917D00BDF824 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BA4FF58A2E307E3C00E594A3 /* Project object */;
+			containerPortal = BABA27182E56917B00BDF824 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BA4FF5912E307E3C00E594A3;
+			remoteGlobalIDString = BABA271F2E56917B00BDF824;
 			remoteInfo = SwimCraft;
 		};
-		BA4FF5B32E307E3D00E594A3 /* PBXContainerItemProxy */ = {
+		BABA27382E56917D00BDF824 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BA4FF58A2E307E3C00E594A3 /* Project object */;
+			containerPortal = BABA27182E56917B00BDF824 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BA4FF5912E307E3C00E594A3;
+			remoteGlobalIDString = BABA271F2E56917B00BDF824;
 			remoteInfo = SwimCraft;
 		};
-		BA4FF6102E30853A00E594A3 /* PBXContainerItemProxy */ = {
+		BABA27B42E5693A900BDF824 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BA4FF58A2E307E3C00E594A3 /* Project object */;
+			containerPortal = BABA27182E56917B00BDF824 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BA4FF6032E30853A00E594A3;
+			remoteGlobalIDString = BABA27A72E5693A800BDF824;
 			remoteInfo = SharedModule;
 		};
-		BA4FF6122E30853A00E594A3 /* PBXContainerItemProxy */ = {
+		BABA27B62E5693A900BDF824 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BA4FF58A2E307E3C00E594A3 /* Project object */;
+			containerPortal = BABA27182E56917B00BDF824 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BA4FF5912E307E3C00E594A3;
+			remoteGlobalIDString = BABA271F2E56917B00BDF824;
 			remoteInfo = SwimCraft;
 		};
-		BA4FF6172E30853A00E594A3 /* PBXContainerItemProxy */ = {
+		BABA27BB2E5693A900BDF824 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BA4FF58A2E307E3C00E594A3 /* Project object */;
+			containerPortal = BABA27182E56917B00BDF824 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BA4FF6032E30853A00E594A3;
+			remoteGlobalIDString = BABA27A72E5693A800BDF824;
 			remoteInfo = SharedModule;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BA4FF5F82E3084AD00E594A3 /* Embed Frameworks */ = {
+		BABA27C22E5693A900BDF824 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BA4FF61A2E30853A00E594A3 /* SharedModule.framework in Embed Frameworks */,
+				BABA27BE2E5693A900BDF824 /* SharedModule.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BA4FF64A2E30870100E594A3 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BA4FF5922E307E3C00E594A3 /* SwimCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwimCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA4FF5A82E307E3D00E594A3 /* SwimCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA4FF5B22E307E3D00E594A3 /* SwimCraftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimCraftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA4FF6042E30853A00E594A3 /* SharedModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA4FF60E2E30853A00E594A3 /* SharedModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BABA27032E5620A900BDF824 /* SwimCraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimCraftApp.swift; sourceTree = "<group>"; };
+		BABA27202E56917B00BDF824 /* SwimCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwimCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABA272D2E56917D00BDF824 /* SwimCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABA27372E56917D00BDF824 /* SwimCraftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimCraftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABA27A82E5693A800BDF824 /* SharedModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABA27B22E5693A900BDF824 /* SharedModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		BA4FF5BA2E307E3D00E594A3 /* Exceptions for "SwimCraft" folder in "SwimCraft" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-				SwimCraft.xcdatamodeld,
-			);
-			target = BA4FF5912E307E3C00E594A3 /* SwimCraft */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		BAC38EF22E4D18100061BE12 /* Exceptions for "SwimCraft" folder in "Copy Bundle Resources" phase from "SwimCraft" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = BA4FF5902E307E3C00E594A3 /* Resources */;
-			membershipExceptions = (
-				SwimCraft.xcdatamodeld,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		BA4FF5942E307E3C00E594A3 /* SwimCraft */ = {
+		BABA27222E56917B00BDF824 /* SwimCraft */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				BA4FF5BA2E307E3D00E594A3 /* Exceptions for "SwimCraft" folder in "SwimCraft" target */,
-				BAC38EF22E4D18100061BE12 /* Exceptions for "SwimCraft" folder in "Copy Bundle Resources" phase from "SwimCraft" target */,
-			);
 			path = SwimCraft;
 			sourceTree = "<group>";
 		};
-		BA4FF5AB2E307E3D00E594A3 /* SwimCraftTests */ = {
+		BABA27302E56917D00BDF824 /* SwimCraftTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SwimCraftTests;
 			sourceTree = "<group>";
 		};
-		BA4FF5B52E307E3D00E594A3 /* SwimCraftUITests */ = {
+		BABA273A2E56917D00BDF824 /* SwimCraftUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SwimCraftUITests;
 			sourceTree = "<group>";
 		};
-		BA4FF6052E30853A00E594A3 /* SharedModule */ = {
+		BABA27A92E5693A800BDF824 /* SharedModule */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SharedModule;
 			sourceTree = "<group>";
 		};
-		BA4FF6142E30853A00E594A3 /* SharedModuleTests */ = {
+		BABA27B82E5693A900BDF824 /* SharedModuleTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SharedModuleTests;
 			sourceTree = "<group>";
@@ -139,83 +101,74 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BA4FF58F2E307E3C00E594A3 /* Frameworks */ = {
+		BABA271D2E56917B00BDF824 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA4FF6192E30853A00E594A3 /* SharedModule.framework in Frameworks */,
+				BABA27BD2E5693A900BDF824 /* SharedModule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA4FF5A52E307E3D00E594A3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BA4FF5AF2E307E3D00E594A3 /* Frameworks */ = {
+		BABA272A2E56917D00BDF824 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA4FF6012E30853A00E594A3 /* Frameworks */ = {
+		BABA27342E56917D00BDF824 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA4FF60B2E30853A00E594A3 /* Frameworks */ = {
+		BABA27A52E5693A800BDF824 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA4FF6512E30872B00E594A3 /* SharedModule.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABA27AF2E5693A900BDF824 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BABA27B32E5693A900BDF824 /* SharedModule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BA4FF5892E307E3C00E594A3 = {
+		BABA27172E56917B00BDF824 = {
 			isa = PBXGroup;
 			children = (
-				BABA27032E5620A900BDF824 /* SwimCraftApp.swift */,
-				BA4FF5942E307E3C00E594A3 /* SwimCraft */,
-				BA4FF5AB2E307E3D00E594A3 /* SwimCraftTests */,
-				BA4FF5B52E307E3D00E594A3 /* SwimCraftUITests */,
-				BA4FF6052E30853A00E594A3 /* SharedModule */,
-				BA4FF6142E30853A00E594A3 /* SharedModuleTests */,
-				BA4FF6732E30975800E594A3 /* Frameworks */,
-				BA4FF5932E307E3C00E594A3 /* Products */,
+				BABA27222E56917B00BDF824 /* SwimCraft */,
+				BABA27302E56917D00BDF824 /* SwimCraftTests */,
+				BABA273A2E56917D00BDF824 /* SwimCraftUITests */,
+				BABA27A92E5693A800BDF824 /* SharedModule */,
+				BABA27B82E5693A900BDF824 /* SharedModuleTests */,
+				BABA27212E56917B00BDF824 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		BA4FF5932E307E3C00E594A3 /* Products */ = {
+		BABA27212E56917B00BDF824 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BA4FF5922E307E3C00E594A3 /* SwimCraft.app */,
-				BA4FF5A82E307E3D00E594A3 /* SwimCraftTests.xctest */,
-				BA4FF5B22E307E3D00E594A3 /* SwimCraftUITests.xctest */,
-				BA4FF6042E30853A00E594A3 /* SharedModule.framework */,
-				BA4FF60E2E30853A00E594A3 /* SharedModuleTests.xctest */,
+				BABA27202E56917B00BDF824 /* SwimCraft.app */,
+				BABA272D2E56917D00BDF824 /* SwimCraftTests.xctest */,
+				BABA27372E56917D00BDF824 /* SwimCraftUITests.xctest */,
+				BABA27A82E5693A800BDF824 /* SharedModule.framework */,
+				BABA27B22E5693A900BDF824 /* SharedModuleTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		BA4FF6732E30975800E594A3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		BA4FF5FF2E30853A00E594A3 /* Headers */ = {
+		BABA27A32E5693A800BDF824 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -225,212 +178,206 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		BA4FF5912E307E3C00E594A3 /* SwimCraft */ = {
+		BABA271F2E56917B00BDF824 /* SwimCraft */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA4FF5BB2E307E3D00E594A3 /* Build configuration list for PBXNativeTarget "SwimCraft" */;
+			buildConfigurationList = BABA27412E56917D00BDF824 /* Build configuration list for PBXNativeTarget "SwimCraft" */;
 			buildPhases = (
-				BA4FF58E2E307E3C00E594A3 /* Sources */,
-				BA4FF58F2E307E3C00E594A3 /* Frameworks */,
-				BA4FF5902E307E3C00E594A3 /* Resources */,
-				BA4FF5F82E3084AD00E594A3 /* Embed Frameworks */,
-				BA4FF64A2E30870100E594A3 /* Embed Watch Content */,
+				BABA271C2E56917B00BDF824 /* Sources */,
+				BABA271D2E56917B00BDF824 /* Frameworks */,
+				BABA271E2E56917B00BDF824 /* Resources */,
+				BABA27C22E5693A900BDF824 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BA4FF6182E30853A00E594A3 /* PBXTargetDependency */,
+				BABA27BC2E5693A900BDF824 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				BA4FF5942E307E3C00E594A3 /* SwimCraft */,
-				BA4FF6052E30853A00E594A3 /* SharedModule */,
+				BABA27222E56917B00BDF824 /* SwimCraft */,
 			);
 			name = SwimCraft;
 			packageProductDependencies = (
 			);
 			productName = SwimCraft;
-			productReference = BA4FF5922E307E3C00E594A3 /* SwimCraft.app */;
+			productReference = BABA27202E56917B00BDF824 /* SwimCraft.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BA4FF5A72E307E3D00E594A3 /* SwimCraftTests */ = {
+		BABA272C2E56917D00BDF824 /* SwimCraftTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA4FF5C02E307E3D00E594A3 /* Build configuration list for PBXNativeTarget "SwimCraftTests" */;
+			buildConfigurationList = BABA27442E56917D00BDF824 /* Build configuration list for PBXNativeTarget "SwimCraftTests" */;
 			buildPhases = (
-				BA4FF5A42E307E3D00E594A3 /* Sources */,
-				BA4FF5A52E307E3D00E594A3 /* Frameworks */,
-				BA4FF5A62E307E3D00E594A3 /* Resources */,
+				BABA27292E56917D00BDF824 /* Sources */,
+				BABA272A2E56917D00BDF824 /* Frameworks */,
+				BABA272B2E56917D00BDF824 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BA4FF5AA2E307E3D00E594A3 /* PBXTargetDependency */,
+				BABA272F2E56917D00BDF824 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				BA4FF5AB2E307E3D00E594A3 /* SwimCraftTests */,
+				BABA27302E56917D00BDF824 /* SwimCraftTests */,
 			);
 			name = SwimCraftTests;
 			packageProductDependencies = (
 			);
 			productName = SwimCraftTests;
-			productReference = BA4FF5A82E307E3D00E594A3 /* SwimCraftTests.xctest */;
+			productReference = BABA272D2E56917D00BDF824 /* SwimCraftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BA4FF5B12E307E3D00E594A3 /* SwimCraftUITests */ = {
+		BABA27362E56917D00BDF824 /* SwimCraftUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA4FF5C32E307E3D00E594A3 /* Build configuration list for PBXNativeTarget "SwimCraftUITests" */;
+			buildConfigurationList = BABA27472E56917D00BDF824 /* Build configuration list for PBXNativeTarget "SwimCraftUITests" */;
 			buildPhases = (
-				BA4FF5AE2E307E3D00E594A3 /* Sources */,
-				BA4FF5AF2E307E3D00E594A3 /* Frameworks */,
-				BA4FF5B02E307E3D00E594A3 /* Resources */,
+				BABA27332E56917D00BDF824 /* Sources */,
+				BABA27342E56917D00BDF824 /* Frameworks */,
+				BABA27352E56917D00BDF824 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BA4FF5B42E307E3D00E594A3 /* PBXTargetDependency */,
+				BABA27392E56917D00BDF824 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				BA4FF5B52E307E3D00E594A3 /* SwimCraftUITests */,
+				BABA273A2E56917D00BDF824 /* SwimCraftUITests */,
 			);
 			name = SwimCraftUITests;
 			packageProductDependencies = (
 			);
 			productName = SwimCraftUITests;
-			productReference = BA4FF5B22E307E3D00E594A3 /* SwimCraftUITests.xctest */;
+			productReference = BABA27372E56917D00BDF824 /* SwimCraftUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		BA4FF6032E30853A00E594A3 /* SharedModule */ = {
+		BABA27A72E5693A800BDF824 /* SharedModule */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA4FF61B2E30853A00E594A3 /* Build configuration list for PBXNativeTarget "SharedModule" */;
+			buildConfigurationList = BABA27BF2E5693A900BDF824 /* Build configuration list for PBXNativeTarget "SharedModule" */;
 			buildPhases = (
-				BA4FF5FF2E30853A00E594A3 /* Headers */,
-				BA4FF6002E30853A00E594A3 /* Sources */,
-				BA4FF6012E30853A00E594A3 /* Frameworks */,
-				BA4FF6022E30853A00E594A3 /* Resources */,
+				BABA27A32E5693A800BDF824 /* Headers */,
+				BABA27A42E5693A800BDF824 /* Sources */,
+				BABA27A52E5693A800BDF824 /* Frameworks */,
+				BABA27A62E5693A800BDF824 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				BA4FF6052E30853A00E594A3 /* SharedModule */,
+				BABA27A92E5693A800BDF824 /* SharedModule */,
 			);
 			name = SharedModule;
 			packageProductDependencies = (
 			);
 			productName = SharedModule;
-			productReference = BA4FF6042E30853A00E594A3 /* SharedModule.framework */;
+			productReference = BABA27A82E5693A800BDF824 /* SharedModule.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BA4FF60D2E30853A00E594A3 /* SharedModuleTests */ = {
+		BABA27B12E5693A900BDF824 /* SharedModuleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA4FF61E2E30853A00E594A3 /* Build configuration list for PBXNativeTarget "SharedModuleTests" */;
+			buildConfigurationList = BABA27C32E5693A900BDF824 /* Build configuration list for PBXNativeTarget "SharedModuleTests" */;
 			buildPhases = (
-				BA4FF60A2E30853A00E594A3 /* Sources */,
-				BA4FF60B2E30853A00E594A3 /* Frameworks */,
-				BA4FF60C2E30853A00E594A3 /* Resources */,
+				BABA27AE2E5693A900BDF824 /* Sources */,
+				BABA27AF2E5693A900BDF824 /* Frameworks */,
+				BABA27B02E5693A900BDF824 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BA4FF6112E30853A00E594A3 /* PBXTargetDependency */,
-				BA4FF6132E30853A00E594A3 /* PBXTargetDependency */,
+				BABA27B52E5693A900BDF824 /* PBXTargetDependency */,
+				BABA27B72E5693A900BDF824 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				BA4FF6142E30853A00E594A3 /* SharedModuleTests */,
+				BABA27B82E5693A900BDF824 /* SharedModuleTests */,
 			);
 			name = SharedModuleTests;
 			packageProductDependencies = (
 			);
 			productName = SharedModuleTests;
-			productReference = BA4FF60E2E30853A00E594A3 /* SharedModuleTests.xctest */;
+			productReference = BABA27B22E5693A900BDF824 /* SharedModuleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BA4FF58A2E307E3C00E594A3 /* Project object */ = {
+		BABA27182E56917B00BDF824 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				KnownAssetTags = (
-					styleButton,
-					typeButton,
-				);
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
-					BA4FF5912E307E3C00E594A3 = {
+					BABA271F2E56917B00BDF824 = {
 						CreatedOnToolsVersion = 16.4;
 					};
-					BA4FF5A72E307E3D00E594A3 = {
+					BABA272C2E56917D00BDF824 = {
 						CreatedOnToolsVersion = 16.4;
-						TestTargetID = BA4FF5912E307E3C00E594A3;
+						TestTargetID = BABA271F2E56917B00BDF824;
 					};
-					BA4FF5B12E307E3D00E594A3 = {
+					BABA27362E56917D00BDF824 = {
 						CreatedOnToolsVersion = 16.4;
-						TestTargetID = BA4FF5912E307E3C00E594A3;
+						TestTargetID = BABA271F2E56917B00BDF824;
 					};
-					BA4FF6032E30853A00E594A3 = {
+					BABA27A72E5693A800BDF824 = {
 						CreatedOnToolsVersion = 16.4;
 					};
-					BA4FF60D2E30853A00E594A3 = {
+					BABA27B12E5693A900BDF824 = {
 						CreatedOnToolsVersion = 16.4;
-						TestTargetID = BA4FF5912E307E3C00E594A3;
+						TestTargetID = BABA271F2E56917B00BDF824;
 					};
 				};
 			};
-			buildConfigurationList = BA4FF58D2E307E3C00E594A3 /* Build configuration list for PBXProject "SwimCraft" */;
+			buildConfigurationList = BABA271B2E56917B00BDF824 /* Build configuration list for PBXProject "SwimCraft" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = BA4FF5892E307E3C00E594A3;
+			mainGroup = BABA27172E56917B00BDF824;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = BA4FF5932E307E3C00E594A3 /* Products */;
+			productRefGroup = BABA27212E56917B00BDF824 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BA4FF5912E307E3C00E594A3 /* SwimCraft */,
-				BA4FF5A72E307E3D00E594A3 /* SwimCraftTests */,
-				BA4FF5B12E307E3D00E594A3 /* SwimCraftUITests */,
-				BA4FF6032E30853A00E594A3 /* SharedModule */,
-				BA4FF60D2E30853A00E594A3 /* SharedModuleTests */,
+				BABA271F2E56917B00BDF824 /* SwimCraft */,
+				BABA272C2E56917D00BDF824 /* SwimCraftTests */,
+				BABA27362E56917D00BDF824 /* SwimCraftUITests */,
+				BABA27A72E5693A800BDF824 /* SharedModule */,
+				BABA27B12E5693A900BDF824 /* SharedModuleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BA4FF5902E307E3C00E594A3 /* Resources */ = {
+		BABA271E2E56917B00BDF824 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA4FF5A62E307E3D00E594A3 /* Resources */ = {
+		BABA272B2E56917D00BDF824 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA4FF5B02E307E3D00E594A3 /* Resources */ = {
+		BABA27352E56917D00BDF824 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA4FF6022E30853A00E594A3 /* Resources */ = {
+		BABA27A62E5693A800BDF824 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA4FF60C2E30853A00E594A3 /* Resources */ = {
+		BABA27B02E5693A900BDF824 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -440,37 +387,35 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BA4FF58E2E307E3C00E594A3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BABA27042E5620A900BDF824 /* SwimCraftApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BA4FF5A42E307E3D00E594A3 /* Sources */ = {
+		BABA271C2E56917B00BDF824 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA4FF5AE2E307E3D00E594A3 /* Sources */ = {
+		BABA27292E56917D00BDF824 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA4FF6002E30853A00E594A3 /* Sources */ = {
+		BABA27332E56917D00BDF824 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BABA27052E5620A900BDF824 /* SwimCraftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA4FF60A2E30853A00E594A3 /* Sources */ = {
+		BABA27A42E5693A800BDF824 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABA27AE2E5693A900BDF824 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -480,102 +425,35 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BA4FF5AA2E307E3D00E594A3 /* PBXTargetDependency */ = {
+		BABA272F2E56917D00BDF824 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BA4FF5912E307E3C00E594A3 /* SwimCraft */;
-			targetProxy = BA4FF5A92E307E3D00E594A3 /* PBXContainerItemProxy */;
+			target = BABA271F2E56917B00BDF824 /* SwimCraft */;
+			targetProxy = BABA272E2E56917D00BDF824 /* PBXContainerItemProxy */;
 		};
-		BA4FF5B42E307E3D00E594A3 /* PBXTargetDependency */ = {
+		BABA27392E56917D00BDF824 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BA4FF5912E307E3C00E594A3 /* SwimCraft */;
-			targetProxy = BA4FF5B32E307E3D00E594A3 /* PBXContainerItemProxy */;
+			target = BABA271F2E56917B00BDF824 /* SwimCraft */;
+			targetProxy = BABA27382E56917D00BDF824 /* PBXContainerItemProxy */;
 		};
-		BA4FF6112E30853A00E594A3 /* PBXTargetDependency */ = {
+		BABA27B52E5693A900BDF824 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BA4FF6032E30853A00E594A3 /* SharedModule */;
-			targetProxy = BA4FF6102E30853A00E594A3 /* PBXContainerItemProxy */;
+			target = BABA27A72E5693A800BDF824 /* SharedModule */;
+			targetProxy = BABA27B42E5693A900BDF824 /* PBXContainerItemProxy */;
 		};
-		BA4FF6132E30853A00E594A3 /* PBXTargetDependency */ = {
+		BABA27B72E5693A900BDF824 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BA4FF5912E307E3C00E594A3 /* SwimCraft */;
-			targetProxy = BA4FF6122E30853A00E594A3 /* PBXContainerItemProxy */;
+			target = BABA271F2E56917B00BDF824 /* SwimCraft */;
+			targetProxy = BABA27B62E5693A900BDF824 /* PBXContainerItemProxy */;
 		};
-		BA4FF6182E30853A00E594A3 /* PBXTargetDependency */ = {
+		BABA27BC2E5693A900BDF824 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BA4FF6032E30853A00E594A3 /* SharedModule */;
-			targetProxy = BA4FF6172E30853A00E594A3 /* PBXContainerItemProxy */;
+			target = BABA27A72E5693A800BDF824 /* SharedModule */;
+			targetProxy = BABA27BB2E5693A900BDF824 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		BA4FF5BC2E307E3D00E594A3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SwimCraft/SwimCraftDebug.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D3758JUXWN;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwimCraft/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SwimCraft;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app requires access to HealthKit to read your swim workouts for display";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app requires access to HealthKit to save your swim workouts for tracking your fitness progress";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp.SwimCraft;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		BA4FF5BD2E307E3D00E594A3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D3758JUXWN;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwimCraft/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SwimCraft;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app requires access to HealthKit to read your swim workouts for display";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app requires access to HealthKit to save your swim workouts for tracking your fitness progress";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp.SwimCraft;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		BA4FF5BE2E307E3D00E594A3 /* Debug */ = {
+		BABA273F2E56917D00BDF824 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -639,7 +517,7 @@
 			};
 			name = Debug;
 		};
-		BA4FF5BF2E307E3D00E594A3 /* Release */ = {
+		BABA27402E56917D00BDF824 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -696,7 +574,63 @@
 			};
 			name = Release;
 		};
-		BA4FF5C12E307E3D00E594A3 /* Debug */ = {
+		BABA27422E56917D00BDF824 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D3758JUXWN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp..SwimCraft;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BABA27432E56917D00BDF824 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D3758JUXWN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp..SwimCraft;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BABA27452E56917D00BDF824 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -706,7 +640,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp.SwimCraftTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp..SwimCraftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -715,7 +649,7 @@
 			};
 			name = Debug;
 		};
-		BA4FF5C22E307E3D00E594A3 /* Release */ = {
+		BABA27462E56917D00BDF824 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -725,7 +659,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp.SwimCraftTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp..SwimCraftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -734,7 +668,7 @@
 			};
 			name = Release;
 		};
-		BA4FF5C42E307E3D00E594A3 /* Debug */ = {
+		BABA27482E56917D00BDF824 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -742,7 +676,7 @@
 				DEVELOPMENT_TEAM = D3758JUXWN;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp.SwimCraftUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp..SwimCraftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -751,7 +685,7 @@
 			};
 			name = Debug;
 		};
-		BA4FF5C52E307E3D00E594A3 /* Release */ = {
+		BABA27492E56917D00BDF824 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -759,7 +693,7 @@
 				DEVELOPMENT_TEAM = D3758JUXWN;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp.SwimCraftUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp..SwimCraftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -768,7 +702,7 @@
 			};
 			name = Release;
 		};
-		BA4FF61C2E30853A00E594A3 /* Debug */ = {
+		BABA27C02E5693A900BDF824 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -790,7 +724,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp.SharedModule;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp..SharedModule;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -803,7 +737,7 @@
 			};
 			name = Debug;
 		};
-		BA4FF61D2E30853A00E594A3 /* Release */ = {
+		BABA27C12E5693A900BDF824 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -825,7 +759,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp.SharedModule;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp..SharedModule;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -838,7 +772,7 @@
 			};
 			name = Release;
 		};
-		BA4FF61F2E30853A00E594A3 /* Debug */ = {
+		BABA27C42E5693A900BDF824 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -846,7 +780,7 @@
 				DEVELOPMENT_TEAM = D3758JUXWN;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp.SharedModuleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp..SharedModuleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -855,7 +789,7 @@
 			};
 			name = Debug;
 		};
-		BA4FF6202E30853A00E594A3 /* Release */ = {
+		BABA27C52E5693A900BDF824 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -863,7 +797,7 @@
 				DEVELOPMENT_TEAM = D3758JUXWN;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp.SharedModuleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenDesign.testApp..SharedModuleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -875,61 +809,61 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BA4FF58D2E307E3C00E594A3 /* Build configuration list for PBXProject "SwimCraft" */ = {
+		BABA271B2E56917B00BDF824 /* Build configuration list for PBXProject "SwimCraft" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA4FF5BE2E307E3D00E594A3 /* Debug */,
-				BA4FF5BF2E307E3D00E594A3 /* Release */,
+				BABA273F2E56917D00BDF824 /* Debug */,
+				BABA27402E56917D00BDF824 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA4FF5BB2E307E3D00E594A3 /* Build configuration list for PBXNativeTarget "SwimCraft" */ = {
+		BABA27412E56917D00BDF824 /* Build configuration list for PBXNativeTarget "SwimCraft" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA4FF5BC2E307E3D00E594A3 /* Debug */,
-				BA4FF5BD2E307E3D00E594A3 /* Release */,
+				BABA27422E56917D00BDF824 /* Debug */,
+				BABA27432E56917D00BDF824 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA4FF5C02E307E3D00E594A3 /* Build configuration list for PBXNativeTarget "SwimCraftTests" */ = {
+		BABA27442E56917D00BDF824 /* Build configuration list for PBXNativeTarget "SwimCraftTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA4FF5C12E307E3D00E594A3 /* Debug */,
-				BA4FF5C22E307E3D00E594A3 /* Release */,
+				BABA27452E56917D00BDF824 /* Debug */,
+				BABA27462E56917D00BDF824 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA4FF5C32E307E3D00E594A3 /* Build configuration list for PBXNativeTarget "SwimCraftUITests" */ = {
+		BABA27472E56917D00BDF824 /* Build configuration list for PBXNativeTarget "SwimCraftUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA4FF5C42E307E3D00E594A3 /* Debug */,
-				BA4FF5C52E307E3D00E594A3 /* Release */,
+				BABA27482E56917D00BDF824 /* Debug */,
+				BABA27492E56917D00BDF824 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA4FF61B2E30853A00E594A3 /* Build configuration list for PBXNativeTarget "SharedModule" */ = {
+		BABA27BF2E5693A900BDF824 /* Build configuration list for PBXNativeTarget "SharedModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA4FF61C2E30853A00E594A3 /* Debug */,
-				BA4FF61D2E30853A00E594A3 /* Release */,
+				BABA27C02E5693A900BDF824 /* Debug */,
+				BABA27C12E5693A900BDF824 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA4FF61E2E30853A00E594A3 /* Build configuration list for PBXNativeTarget "SharedModuleTests" */ = {
+		BABA27C32E5693A900BDF824 /* Build configuration list for PBXNativeTarget "SharedModuleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA4FF61F2E30853A00E594A3 /* Debug */,
-				BA4FF6202E30853A00E594A3 /* Release */,
+				BABA27C42E5693A900BDF824 /* Debug */,
+				BABA27C52E5693A900BDF824 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = BA4FF58A2E307E3C00E594A3 /* Project object */;
+	rootObject = BABA27182E56917B00BDF824 /* Project object */;
 }
