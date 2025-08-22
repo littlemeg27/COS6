@@ -13,7 +13,8 @@ struct WorkoutDetailView: View
     
     var body: some View
     {
-        List {
+        List
+        {
             Text("Name: \(workout.name)")
             Text("Coach: \(workout.coach?.name ?? "None")")
             Text("Distance: \(workout.distance) yards")
@@ -30,13 +31,18 @@ struct WorkoutDetailView: View
             
             Section(header: Text("Main Set"))
             {
-                ForEach(workout.mainSet, id: \.id) { segment in
+                ForEach(workout.mainSet, id: \.id)
+                {
+                    segment in
                     SegmentRow(segment: segment)
                 }
             }
             
-            Section(header: Text("Cool Down")) {
-                ForEach(workout.coolDown, id: \.id) { segment in
+            Section(header: Text("Cool Down"))
+            {
+                ForEach(workout.coolDown, id: \.id)
+                {
+                    segment in
                     SegmentRow(segment: segment)
                 }
             }
@@ -45,15 +51,18 @@ struct WorkoutDetailView: View
     }
 }
 
-struct SegmentRow: View {
+struct SegmentRow: View
+{
     let segment: WorkoutSegment
     
-    var body: some View {
+    var body: some View
+    {
         Text("\(segment.amount ?? 1) x \(segment.yards ?? 0) \(segment.stroke) \(segment.type)")
     }
 }
 
-#Preview {
+#Preview
+{
     WorkoutDetailView(workout: SwimWorkout(id: UUID(), name: "Sample Workout", coach: nil, warmUp: [], mainSet: [], coolDown: [], createdViaWorkoutKit: false, source: nil, date: Date()))
 }
 

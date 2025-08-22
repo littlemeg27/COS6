@@ -8,10 +8,12 @@
 
 import Foundation
 
-class SwimWorkoutManager {
+class SwimWorkoutManager
+{
     static let shared = SwimWorkoutManager()
     
-    func createSwimWorkout(name: String, distance: Double, duration: TimeInterval, strokes: [String], completion: @escaping (SwimWorkout?, Error?) -> Void) {
+    func createSwimWorkout(name: String, distance: Double, duration: TimeInterval, strokes: [String], completion: @escaping (SwimWorkout?, Error?) -> Void)
+    {
         let workout = SwimWorkout(
             id: UUID(),
             name: name,

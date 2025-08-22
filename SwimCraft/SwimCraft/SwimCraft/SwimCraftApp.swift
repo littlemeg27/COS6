@@ -8,10 +8,16 @@
 import SwiftUI
 
 @main
-struct SwimCraftApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
+struct SwimCraftApp: App
+{
+    let persistenceController = PersistenceController.shared
+    
+    var body: some Scene
+    {
+        WindowGroup
+        {
+            WorkoutListView()
+                .environment(\.managedObjectContext, persistenceController.context)
         }
     }
 }
