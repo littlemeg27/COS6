@@ -66,8 +66,8 @@ struct PersistenceController
         workoutEntity.setValue(workout.createdViaWorkoutKit, forKey: "createdViaWorkoutKit")
         workoutEntity.setValue(workout.source, forKey: "source")
         
-        let warmUpSet = NSOrderedSet(array: workout.warmUp.map
-                                     {
+        let warmUpSet = NSSet(array: workout.warmUp.map
+                              {
             segment in
             let segmentEntity = NSEntityDescription.insertNewObject(forEntityName: "WorkoutSegmentEntity", into: context)
             segmentEntity.setValue(segment.yards, forKey: "yards")
@@ -79,8 +79,8 @@ struct PersistenceController
         })
         workoutEntity.setValue(warmUpSet, forKey: "warmUp")
         
-        let mainSetSet = NSOrderedSet(array: workout.mainSet.map
-                                      {
+        let mainSetSet = NSSet(array: workout.mainSet.map
+                               {
             segment in
             let segmentEntity = NSEntityDescription.insertNewObject(forEntityName: "WorkoutSegmentEntity", into: context)
             segmentEntity.setValue(segment.yards, forKey: "yards")
@@ -92,8 +92,8 @@ struct PersistenceController
         })
         workoutEntity.setValue(mainSetSet, forKey: "mainSet")
         
-        let coolDownSet = NSOrderedSet(array: workout.coolDown.map
-                                       {
+        let coolDownSet = NSSet(array: workout.coolDown.map
+                                {
             segment in
             let segmentEntity = NSEntityDescription.insertNewObject(forEntityName: "WorkoutSegmentEntity", into: context)
             segmentEntity.setValue(segment.yards, forKey: "yards")
