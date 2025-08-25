@@ -47,7 +47,10 @@ struct WorkoutDetailView: View
                 }
             }
         }
+        .listRowBackground(Color(hex: "#98C1D9"))
         .navigationTitle(workout.name)
+        .background(Color(hex: "#E0FBFC"))
+        .scrollContentBackground(.hidden)
     }
 }
 

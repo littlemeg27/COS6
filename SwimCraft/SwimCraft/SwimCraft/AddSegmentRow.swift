@@ -15,10 +15,10 @@ struct AddSegmentRow: View
             .font(.system(size: 16, weight: .bold))
             .frame(maxWidth: .infinity)
             .foregroundColor(Color(hex: "#293241"))
-            .background(Color(hex: "#98C1D9"))
+            .background(Color(hex: "#3d5a80"))
             .accessibilityLabel("Add")
             .accessibilityHint("Tap to add a new workout segment")
-            .contentShape(Rectangle()) // Make the entire row tappable
+            .contentShape(Rectangle()) 
     }
 }
 

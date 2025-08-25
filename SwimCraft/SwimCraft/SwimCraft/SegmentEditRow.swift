@@ -20,7 +20,7 @@ struct SegmentEditRow: View
         {
             TextField("Yards", value: $segment.yards, formatter: NumberFormatter()) // Text for Yards
                 .keyboardType(.numberPad)
-                .frame(width: 50, height: 20)
+                .frame(width: 50, height: 25)
                 .border(Color.gray)
                 .multilineTextAlignment(.center)
             
@@ -44,7 +44,7 @@ struct SegmentEditRow: View
             
             TextField("Amount", value: $segment.amount, formatter: NumberFormatter()) // Text for Amount
                 .keyboardType(.numberPad)
-                .frame(width: 50, height: 20)
+                .frame(width: 50, height: 25)
                 .border(Color.gray)
                 .multilineTextAlignment(.center)
             
@@ -62,7 +62,7 @@ struct SegmentEditRow: View
         label:
             {
                 Text(segment.stroke)
-                    .frame(width: 80)
+                    .frame(width: 100)
                     .border(Color.gray)
             }
             
@@ -80,7 +80,7 @@ struct SegmentEditRow: View
         label:
             {
                 Text("\(Int(segment.time ?? 30)) sec")
-                    .frame(width: 60)
+                    .frame(width: 80)
                     .border(Color.gray)
             }
         }
