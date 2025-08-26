@@ -10,6 +10,22 @@ import SwiftUI
 import CoreData
 import UIKit
 
+
+extension Color
+{
+    init(customHex: String)
+    {
+        let scanner = Scanner(string: customHex)
+        _ = scanner.scanString("#") 
+        var rgb: UInt64 = 0
+        scanner.scanHexInt64(&rgb)
+        let r = Double((rgb >> 16) & 0xFF) / 255.0
+        let g = Double((rgb >> 8) & 0xFF) / 255.0
+        let b = Double(rgb & 0xFF) / 255.0
+        self.init(red: r, green: g, blue: b)
+    }
+}
+
 struct WorkoutListView: View
 {
     @Environment(\.managedObjectContext) private var context
@@ -31,9 +47,10 @@ struct WorkoutListView: View
                         {
                             Text(workout.name)
                                 .font(.headline)
+                                .foregroundColor(Color(customHex: "#98C1D9"))
                             Text("Distance: \(workout.distance) yards")
                                 .font(.subheadline)
-                                .foregroundColor(.secondary)
+                                .foregroundColor(Color(customHex: "#902D41"))
                         }
                     }
                     .swipeActions(edge: .trailing)
@@ -47,6 +64,7 @@ struct WorkoutListView: View
                             .tint(.blue)
                         }
                     }
+                    .listRowBackground(Color(customHex: "#004FFF")) 
                 }
                 .onDelete
                 {
@@ -54,14 +72,18 @@ struct WorkoutListView: View
                     deleteWorkouts(at: indices)
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(Color(customHex: "#31AFD4"))
             .navigationTitle("Workouts")
-            .toolbar {
+            .toolbar
+            {
                 ToolbarItem(placement: .topBarTrailing)
                 {
                     Button("Add Workout")
                     {
                         showingCreation = true
                     }
+                    .foregroundStyle(Color(customHex: "#902D41"))
                 }
                 ToolbarItem(placement: .topBarLeading)
                 {
@@ -69,6 +91,7 @@ struct WorkoutListView: View
                     {
                         deleteAllWorkouts()
                     }
+                    .foregroundStyle(Color(customHex: "#902D41"))
                 }
             }
             .sheet(isPresented: $showingCreation)
@@ -85,6 +108,8 @@ struct WorkoutListView: View
                 fetchWorkouts()
             }
         }
+        .background(Color(customHex: "#31AFD4"))
+        .ignoresSafeArea()
     }
     
     private func generatePDF(for workout: SwimWorkout) -> URL?
@@ -103,26 +128,23 @@ struct WorkoutListView: View
         Warm Up:
         \(workout.warmUp.map
         {
-        segment in
+            segment in
             "\(segment.amount ?? 1) x \(segment.yards ?? 0) \(segment.stroke) \(segment.type) on \(Int(segment.time ?? 0)) sec"
-        }
-        .joined(separator: "\n"))
+        }.joined(separator: "\n"))
         
         Main Set:
         \(workout.mainSet.map
         {
-        segment in
+            segment in
             "\(segment.amount ?? 1) x \(segment.yards ?? 0) \(segment.stroke) \(segment.type) on \(Int(segment.time ?? 0)) sec"
-        }
-        .joined(separator: "\n"))
+        }.joined(separator: "\n"))
         
         Cool Down:
         \(workout.coolDown.map
         {
-        segment in
+            segment in
             "\(segment.amount ?? 1) x \(segment.yards ?? 0) \(segment.stroke) \(segment.type) on \(Int(segment.time ?? 0)) sec"
-        }
-        .joined(separator: "\n"))
+        }.joined(separator: "\n"))
         """
         
         let renderer = UIGraphicsPDFRenderer(bounds: pageRect)
@@ -203,7 +225,7 @@ struct WorkoutListView: View
         let coachName = entity.coachName ?? ""
         let coach = Coach(name: coachName, level: "", dateCompleted: Date(), clubAbbr: "", clubName: "", lmsc: "")
         
-        let warmUpEntities = entity.warmUp?.allObjects as? [WorkoutSegmentEntity] ?? [] // Use .allObjects for NSSet
+        let warmUpEntities = entity.warmUp?.allObjects as? [WorkoutSegmentEntity] ?? []
         let warmUp = warmUpEntities.map
         {
             seg in
@@ -243,7 +265,6 @@ struct WorkoutListView: View
         HealthKitManager.shared.saveWorkoutToHealthKit(workout: workout)
         {
             success, error in
-            
             if let error = error
             {
                 print("Error saving to HealthKit: \(error.localizedDescription)")

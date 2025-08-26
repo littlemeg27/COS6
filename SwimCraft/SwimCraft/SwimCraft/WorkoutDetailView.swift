@@ -28,6 +28,7 @@ struct WorkoutDetailView: View
                     SegmentRow(segment: segment)
                 }
             }
+            .foregroundStyle(Color(hex: "#902D41"))
             
             Section(header: Text("Main Set"))
             {
@@ -37,6 +38,7 @@ struct WorkoutDetailView: View
                     SegmentRow(segment: segment)
                 }
             }
+            .foregroundStyle(Color(hex: "#902D41"))
             
             Section(header: Text("Cool Down"))
             {
@@ -46,10 +48,11 @@ struct WorkoutDetailView: View
                     SegmentRow(segment: segment)
                 }
             }
+            .foregroundStyle(Color(hex: "#902D41"))
         }
-        .listRowBackground(Color(hex: "#98C1D9"))
+        .listRowBackground(Color(hex: "#004FFF"))
         .navigationTitle(workout.name)
-        .background(Color(hex: "#E0FBFC"))
+        .background(Color(hex: "#31AFD4"))
         .scrollContentBackground(.hidden)
     }
 }

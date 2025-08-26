@@ -19,7 +19,7 @@ struct WorkoutCreationView: View
     @State private var coolDownSegments: [WorkoutSegment] = [WorkoutSegment(yards: 0, type: "Drill", amount: 1, stroke: "Freestyle", time: 30)]
     let segmentTypes = ["Drill", "Swim", "Kick", "Pull", "Sprint", "Easy", "Fins"]
     let strokeTypes = ["Freestyle", "Backstroke", "Breaststroke", "Butterfly", "Individual Medley", "Not Free Style", "Choice"]
-    let timeOptions: [TimeInterval] = [30, 60, 90, 120, 180]
+    let timeOptions: [TimeInterval] = [10,20, 30, 60, 90, 120, 180]
     
     var onSave: (SwimWorkout) -> Void
     
@@ -56,6 +56,7 @@ struct WorkoutCreationView: View
                         AddSegmentRow()
                     }
                 }
+                .foregroundStyle(Color(hex: "#902D41"))
                 
                 Section(header: Text("Main Set"))
                 {
@@ -72,6 +73,7 @@ struct WorkoutCreationView: View
                         AddSegmentRow()
                     }
                 }
+                .foregroundStyle(Color(hex: "#902D41"))
                 
                 Section(header: Text("Cool Down"))
                 {
@@ -88,6 +90,7 @@ struct WorkoutCreationView: View
                         AddSegmentRow()
                     }
                 }
+                .foregroundStyle(Color(hex: "#902D41"))
             }
             .navigationTitle("Create Workout")
             .toolbar
@@ -111,6 +114,7 @@ struct WorkoutCreationView: View
                         dismiss()
                     }
                     .disabled(name.isEmpty || warmUpSegments.allSatisfy { $0.yards == 0 } && mainSetSegments.allSatisfy { $0.yards == 0 } && coolDownSegments.allSatisfy { $0.yards == 0 })
+                    .foregroundStyle(Color(hex: "#902D41"))
                 
                 }
             }
@@ -121,7 +125,7 @@ struct WorkoutCreationView: View
             .listSectionSpacing(4)
             .environment(\.defaultMinListRowHeight, 30)
             .scrollContentBackground(.hidden)
-            .background(Color(hex: "#E0FBFC"))
+            .background(Color(hex: "#31AFD4"))
         }
     }
     
