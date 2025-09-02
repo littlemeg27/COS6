@@ -16,9 +16,20 @@ struct WorkoutDetailView: View
         List
         {
             Text("Name: \(workout.name)")
+                .listRowBackground(Color(hex: "#429EA6"))
+                .foregroundStyle(Color(hex: "#153B50"))
+            
             Text("Coach: \(workout.coach?.name ?? "None")")
-            Text("Distance: \(workout.distance) yards")
-            Text("Duration: \(Int(workout.duration / 60)) minutes")
+                .listRowBackground(Color(hex: "#429EA6"))
+                .foregroundStyle(Color(hex: "#153B50"))
+            
+            Text("Distance: \(String(format: "%.2f", workout.distance)) yards")
+                .listRowBackground(Color(hex: "#429EA6"))
+                .foregroundStyle(Color(hex: "#153B50"))
+            
+            Text("Duration: \(String(format: "%.2f", workout.duration / 60)) minutes")
+                .listRowBackground(Color(hex: "#429EA6"))
+                .foregroundStyle(Color(hex: "#153B50"))
             
             Section(header: Text("Warm Up"))
             {
@@ -27,8 +38,9 @@ struct WorkoutDetailView: View
                     segment in
                     SegmentRow(segment: segment)
                 }
+                .listRowBackground(Color(hex: "#429EA6"))
+                .foregroundStyle(Color(hex: "#153B50"))
             }
-            .foregroundStyle(Color(hex: "#902D41"))
             
             Section(header: Text("Main Set"))
             {
@@ -37,8 +49,9 @@ struct WorkoutDetailView: View
                     segment in
                     SegmentRow(segment: segment)
                 }
+                .listRowBackground(Color(hex: "#429EA6"))
+                .foregroundStyle(Color(hex: "#153B50"))
             }
-            .foregroundStyle(Color(hex: "#902D41"))
             
             Section(header: Text("Cool Down"))
             {
@@ -47,12 +60,15 @@ struct WorkoutDetailView: View
                     segment in
                     SegmentRow(segment: segment)
                 }
+                .listRowBackground(Color(hex: "#429EA6"))
+                .foregroundStyle(Color(hex: "#153B50"))
             }
-            .foregroundStyle(Color(hex: "#902D41"))
+            
         }
-        .listRowBackground(Color(hex: "#004FFF"))
+        .listRowBackground(Color(hex: "#429EA6"))
         .navigationTitle(workout.name)
-        .background(Color(hex: "#31AFD4"))
+        .background(Color(hex: "#CC998D"))
+        .foregroundStyle(Color(hex: "#153B50"))
         .scrollContentBackground(.hidden)
     }
 }
@@ -63,7 +79,7 @@ struct SegmentRow: View
     
     var body: some View
     {
-        Text("\(segment.amount ?? 1) x \(segment.yards ?? 0) \(segment.stroke) \(segment.type)")
+        Text("\(segment.amount ?? 1) x \(String(format: "%.2f", segment.yards ?? 0)) \(segment.stroke) \(segment.type)")
     }
 }
 
@@ -71,4 +87,3 @@ struct SegmentRow: View
 {
     WorkoutDetailView(workout: SwimWorkout(id: UUID(), name: "Sample Workout", coach: nil, warmUp: [], mainSet: [], coolDown: [], createdViaWorkoutKit: false, source: nil, date: Date()))
 }
-

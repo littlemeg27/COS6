@@ -19,7 +19,7 @@ struct WorkoutCreationView: View
     @State private var coolDownSegments: [WorkoutSegment] = [WorkoutSegment(yards: 0, type: "Drill", amount: 1, stroke: "Freestyle", time: 30)]
     let segmentTypes = ["Drill", "Swim", "Kick", "Pull", "Sprint", "Easy", "Fins"]
     let strokeTypes = ["Freestyle", "Backstroke", "Breaststroke", "Butterfly", "Individual Medley", "Not Free Style", "Choice"]
-    let timeOptions: [TimeInterval] = [10,20, 30, 60, 90, 120, 180]
+    let timeOptions: [TimeInterval] = [5, 10, 15, 20,25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180]
     
     var onSave: (SwimWorkout) -> Void
     
@@ -31,6 +31,7 @@ struct WorkoutCreationView: View
             {
                 TextField("Workout Name", text: $name)
                     .multilineTextAlignment(.center)
+                    .listRowBackground(Color(hex: "#429EA6"))
                 
                 Picker("Coach", selection: $selectedCoach)
                 {
@@ -39,7 +40,9 @@ struct WorkoutCreationView: View
                         coach in
                         Text("\(coach.name) (\(coach.level))").tag(coach as Coach?)
                     }
+                    .background(Color(hex: "#153B50"))
                 }
+                .listRowBackground(Color(hex: "#429EA6"))
                 
                 Section(header: Text("Warm Up"))
                 {
@@ -56,7 +59,8 @@ struct WorkoutCreationView: View
                         AddSegmentRow()
                     }
                 }
-                .foregroundStyle(Color(hex: "#902D41"))
+                .listRowBackground(Color(hex: "#429EA6"))
+                .foregroundStyle(Color(hex: "#153B50"))
                 
                 Section(header: Text("Main Set"))
                 {
@@ -73,7 +77,8 @@ struct WorkoutCreationView: View
                         AddSegmentRow()
                     }
                 }
-                .foregroundStyle(Color(hex: "#902D41"))
+                .listRowBackground(Color(hex: "#429EA6"))
+                .foregroundStyle(Color(hex: "#153B50"))
                 
                 Section(header: Text("Cool Down"))
                 {
@@ -90,7 +95,8 @@ struct WorkoutCreationView: View
                         AddSegmentRow()
                     }
                 }
-                .foregroundStyle(Color(hex: "#902D41"))
+                .listRowBackground(Color(hex: "#429EA6"))
+                .foregroundStyle(Color(hex: "#153B50"))
             }
             .navigationTitle("Create Workout")
             .toolbar
@@ -114,7 +120,7 @@ struct WorkoutCreationView: View
                         dismiss()
                     }
                     .disabled(name.isEmpty || warmUpSegments.allSatisfy { $0.yards == 0 } && mainSetSegments.allSatisfy { $0.yards == 0 } && coolDownSegments.allSatisfy { $0.yards == 0 })
-                    .foregroundStyle(Color(hex: "#902D41"))
+                    .foregroundStyle(Color(hex: "#153B50"))
                 
                 }
             }
@@ -122,10 +128,10 @@ struct WorkoutCreationView: View
             {
                 loadCoaches()
             }
-            .listSectionSpacing(4)
+            .listSectionSpacing(3)
             .environment(\.defaultMinListRowHeight, 30)
             .scrollContentBackground(.hidden)
-            .background(Color(hex: "#31AFD4"))
+            .background(Color(hex: "#CC998D"))
         }
     }
     

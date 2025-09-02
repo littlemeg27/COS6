@@ -65,6 +65,7 @@ struct PersistenceController
         workoutEntity.setValue(workout.coach?.name, forKey: "coachName")
         workoutEntity.setValue(workout.createdViaWorkoutKit, forKey: "createdViaWorkoutKit")
         workoutEntity.setValue(workout.source, forKey: "source")
+        workoutEntity.setValue(workout.date, forKey: "date")
         
         let warmUpSet = NSSet(array: workout.warmUp.map
                               {

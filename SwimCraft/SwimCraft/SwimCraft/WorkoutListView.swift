@@ -10,13 +10,12 @@ import SwiftUI
 import CoreData
 import UIKit
 
-
 extension Color
 {
     init(customHex: String)
     {
         let scanner = Scanner(string: customHex)
-        _ = scanner.scanString("#") 
+        _ = scanner.scanString("#")
         var rgb: UInt64 = 0
         scanner.scanHexInt64(&rgb)
         let r = Double((rgb >> 16) & 0xFF) / 255.0
@@ -41,30 +40,7 @@ struct WorkoutListView: View
                 ForEach(workouts)
                 {
                     workout in
-                    NavigationLink(destination: WorkoutDetailView(workout: workout))
-                    {
-                        VStack(alignment: .leading)
-                        {
-                            Text(workout.name)
-                                .font(.headline)
-                                .foregroundColor(Color(customHex: "#98C1D9"))
-                            Text("Distance: \(workout.distance) yards")
-                                .font(.subheadline)
-                                .foregroundColor(Color(customHex: "#902D41"))
-                        }
-                    }
-                    .swipeActions(edge: .trailing)
-                    {
-                        if let pdfURL = generatePDF(for: workout)
-                        {
-                            ShareLink(item: pdfURL, subject: Text(workout.name), message: Text("Check out this workout!"))
-                            {
-                                Label("Share", systemImage: "square.and.arrow.up")
-                            }
-                            .tint(.blue)
-                        }
-                    }
-                    .listRowBackground(Color(customHex: "#004FFF")) 
+                    WorkoutRow(workout: workout)
                 }
                 .onDelete
                 {
@@ -72,8 +48,10 @@ struct WorkoutListView: View
                     deleteWorkouts(at: indices)
                 }
             }
+            .listRowBackground(Color(hex: "##429EA6"))
             .scrollContentBackground(.hidden)
-            .background(Color(customHex: "#31AFD4"))
+            .background(Color(customHex: "#CC998D"))
+            .foregroundStyle(Color(customHex: "#153B50"))
             .navigationTitle("Workouts")
             .toolbar
             {
@@ -83,7 +61,7 @@ struct WorkoutListView: View
                     {
                         showingCreation = true
                     }
-                    .foregroundStyle(Color(customHex: "#902D41"))
+                    .foregroundStyle(Color(customHex: "#153B50"))
                 }
                 ToolbarItem(placement: .topBarLeading)
                 {
@@ -91,7 +69,7 @@ struct WorkoutListView: View
                     {
                         deleteAllWorkouts()
                     }
-                    .foregroundStyle(Color(customHex: "#902D41"))
+                    .foregroundStyle(Color(customHex: "#153B50"))
                 }
             }
             .sheet(isPresented: $showingCreation)
@@ -108,11 +86,46 @@ struct WorkoutListView: View
                 fetchWorkouts()
             }
         }
-        .background(Color(customHex: "#31AFD4"))
-        .ignoresSafeArea()
+        .listRowBackground(Color(hex: "##429EA6"))
+        .background(Color(customHex: "#CC998D"))
+        .foregroundStyle(Color(customHex: "#153B50"))
     }
     
-    private func generatePDF(for workout: SwimWorkout) -> URL?
+    struct WorkoutRow: View
+    {
+        let workout: SwimWorkout
+        
+        var body: some View
+        {
+            NavigationLink(destination: WorkoutDetailView(workout: workout))
+            {
+                VStack(alignment: .leading)
+                {
+                    Text(workout.name)
+                        .font(.headline)
+                    Text("Distance: \(String(format: "%.0f", workout.distance)) yards")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                    Text("Created: \(workout.date.formatted(date: .abbreviated, time: .omitted))")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
+            }
+            .swipeActions(edge: .trailing)
+            {
+                if let pdfURL = WorkoutListView.generatePDF(for: workout)
+                {
+                    ShareLink(item: pdfURL, subject: Text(workout.name), message: Text("Check out this workout!"))
+                    {
+                        Label("Share", systemImage: "square.and.arrow.up")
+                    }
+                    .tint(.blue)
+                }
+            }
+        }
+    }
+    
+    static private func generatePDF(for workout: SwimWorkout) -> URL?
     {
         let pageWidth = 612.0
         let pageHeight = 792.0
@@ -183,7 +196,6 @@ struct WorkoutListView: View
             if let error = error
             {
                 print("Error fetching workouts: \(error.localizedDescription)")
-                
                 DispatchQueue.main.async
                 {
                     self.workouts = fetchFromCoreData()
@@ -255,7 +267,7 @@ struct WorkoutListView: View
             coolDown: coolDown,
             createdViaWorkoutKit: entity.createdViaWorkoutKit,
             source: entity.source,
-            date: Date()
+            date: entity.date ?? Date()
         )
     }
     
@@ -265,6 +277,7 @@ struct WorkoutListView: View
         HealthKitManager.shared.saveWorkoutToHealthKit(workout: workout)
         {
             success, error in
+            
             if let error = error
             {
                 print("Error saving to HealthKit: \(error.localizedDescription)")

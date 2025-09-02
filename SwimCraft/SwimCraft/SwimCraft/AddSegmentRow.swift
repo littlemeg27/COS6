@@ -14,11 +14,11 @@ struct AddSegmentRow: View
         Text("Add")
             .font(.system(size: 16, weight: .bold))
             .frame(maxWidth: .infinity)
-            .foregroundColor(Color(hex: "#98C1D9"))
-            .background(Color(hex: "#004FFF"))
+            .foregroundColor(Color(hex: "#ECEBE4"))
+            .background(Color(hex: "#153B50"))
             .accessibilityLabel("Add")
             .accessibilityHint("Tap to add a new workout segment")
-            .contentShape(Rectangle()) 
+            .contentShape(Rectangle())
     }
 }
 
