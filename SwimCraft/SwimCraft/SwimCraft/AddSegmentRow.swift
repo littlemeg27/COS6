@@ -12,10 +12,13 @@ struct AddSegmentRow: View
     var body: some View
     {
         Text("Add")
-            .font(.system(size: 16, weight: .bold))
+            .font(.system(size: 15, weight: .bold)) // Increased font size for bigger button
             .frame(maxWidth: .infinity)
-            .foregroundColor(Color(hex: "#ECEBE4"))
-            .background(Color(hex: "#153B50"))
+            .padding(.vertical, 12) // Added vertical padding to make the button taller
+            .foregroundColor(Color(hex: "#153B50")) // Dark text for contrast on gradient
+            .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+            .clipShape(Capsule()) // Pill shape like WorkoutListView buttons
+            .shadow(radius: 2) // Subtle shadow for depth
             .accessibilityLabel("Add")
             .accessibilityHint("Tap to add a new workout segment")
             .contentShape(Rectangle())

@@ -35,60 +35,71 @@ struct WorkoutListView: View
     {
         NavigationStack
         {
-            List
+            ZStack
             {
-                ForEach(workouts)
+                LinearGradient(gradient: Gradient(colors: [Color(customHex: "#153B50"), Color(customHex: "#429EA6").opacity(0.8)]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                
+                List
                 {
-                    workout in
-                    WorkoutRow(workout: workout)
-                }
-                .onDelete
-                {
-                    indices in
-                    deleteWorkouts(at: indices)
-                }
-            }
-            .listRowBackground(Color(hex: "##429EA6"))
-            .scrollContentBackground(.hidden)
-            .background(Color(customHex: "#CC998D"))
-            .foregroundStyle(Color(customHex: "#153B50"))
-            .navigationTitle("Workouts")
-            .toolbar
-            {
-                ToolbarItem(placement: .topBarTrailing)
-                {
-                    Button("Add Workout")
+                    ForEach(workouts)
                     {
-                        showingCreation = true
+                        workout in
+                        WorkoutRow(workout: workout)
+                            .padding(.vertical, 4)
                     }
-                    .foregroundStyle(Color(customHex: "#153B50"))
+                    .onDelete { indices in
+                        deleteWorkouts(at: indices)
+                    }
                 }
-                ToolbarItem(placement: .topBarLeading)
+                .listStyle(.plain)
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                .scrollContentBackground(.hidden)
+                .navigationTitle("Workouts")
+                .toolbar
                 {
-                    Button("Clear All")
+                    ToolbarItem(placement: .topBarTrailing)
                     {
-                        deleteAllWorkouts()
+                        Button(action: { showingCreation = true })
+                        {
+                            Label("Add Workout", systemImage: "plus.circle.fill")
+                                .font(.headline)
+                                .foregroundColor(Color(customHex: "#16F4D0"))
+                                .foregroundStyle(Color(customHex: "#16F4D0"))
+                                .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#16F4D0"), Color(customHex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+                                .clipShape(Capsule())
+                                .shadow(radius: 2)
+                        }
                     }
-                    .foregroundStyle(Color(customHex: "#153B50"))
+                    ToolbarItem(placement: .topBarLeading)
+                    {
+                        Button(action: { deleteAllWorkouts() })
+                        {
+                            Label("Clear All", systemImage: "trash.circle.fill")
+                                .font(.headline)
+                                .foregroundColor(Color(customHex: "#16F4D0"))
+                                .foregroundStyle(Color(customHex: "#16F4D0"))
+                                .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#16F4D0"), Color(customHex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+                                .clipShape(Capsule())
+                                .shadow(radius: 2)
+                        }
+                    }
                 }
-            }
-            .sheet(isPresented: $showingCreation)
-            {
-                WorkoutCreationView
+                .sheet(isPresented: $showingCreation)
                 {
-                    newWorkout in
-                    saveWorkout(newWorkout)
+                    WorkoutCreationView { newWorkout in
+                        saveWorkout(newWorkout)
+                        fetchWorkouts()
+                    }
+                }
+                .onAppear
+                {
                     fetchWorkouts()
                 }
             }
-            .onAppear
-            {
-                fetchWorkouts()
-            }
+            .foregroundStyle(Color(customHex: "#16F4D0"))
         }
-        .listRowBackground(Color(hex: "##429EA6"))
-        .background(Color(customHex: "#CC998D"))
-        .foregroundStyle(Color(customHex: "#153B50"))
     }
     
     struct WorkoutRow: View
@@ -99,27 +110,32 @@ struct WorkoutListView: View
         {
             NavigationLink(destination: WorkoutDetailView(workout: workout))
             {
-                VStack(alignment: .leading)
+                VStack(alignment: .leading, spacing: 8)
                 {
                     Text(workout.name)
-                        .font(.headline)
-                    Text("Distance: \(String(format: "%.0f", workout.distance)) yards")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                    Text("Created: \(workout.date.formatted(date: .abbreviated, time: .omitted))")
-                        .font(.caption)
-                        .foregroundColor(.gray)
+                        .font(.headline.bold())
+                    HStack
+                    {
+                        Text("Distance: \(String(format: "%.0f", workout.distance)) yards")
+                            .font(.subheadline)
+                        Spacer()
+                        Text("Created: \(workout.date.formatted(date: .abbreviated, time: .omitted))")
+                            .font(.caption)
+                    }
                 }
+                .padding()
+                .background(Color(customHex: "#429EA6"))
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
             }
             .swipeActions(edge: .trailing)
             {
-                if let pdfURL = WorkoutListView.generatePDF(for: workout)
-                {
+                if let pdfURL = WorkoutListView.generatePDF(for: workout) {
                     ShareLink(item: pdfURL, subject: Text(workout.name), message: Text("Check out this workout!"))
                     {
                         Label("Share", systemImage: "square.and.arrow.up")
                     }
-                    .tint(.blue)
+                    .tint(Color(customHex: "#16F4D0"))
                 }
             }
         }
@@ -196,8 +212,7 @@ struct WorkoutListView: View
             if let error = error
             {
                 print("Error fetching workouts: \(error.localizedDescription)")
-                DispatchQueue.main.async
-                {
+                DispatchQueue.main.async {
                     self.workouts = fetchFromCoreData()
                 }
             }
@@ -308,19 +323,12 @@ struct WorkoutListView: View
     private func deleteWorkouts(at offsets: IndexSet)
     {
         let workoutsToDelete = offsets.map { workouts[$0] }
-        HealthKitManager.shared.deleteWorkouts(workoutsToDelete, context: context)
-        {
-            success, error in
-            
-            if success
-            {
-                DispatchQueue.main.async
-                {
+        HealthKitManager.shared.deleteWorkouts(workoutsToDelete, context: context) { success, error in
+            if success {
+                DispatchQueue.main.async {
                     self.workouts.remove(atOffsets: offsets)
                 }
-            }
-            else if let error = error
-            {
+            } else if let error = error {
                 print("Error deleting workout: \(error.localizedDescription)")
             }
         }

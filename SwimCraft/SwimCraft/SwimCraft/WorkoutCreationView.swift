@@ -27,111 +27,154 @@ struct WorkoutCreationView: View
     {
         NavigationStack
         {
-            Form
+            ZStack
             {
-                TextField("Workout Name", text: $name)
-                    .multilineTextAlignment(.center)
-                    .listRowBackground(Color(hex: "#429EA6"))
+                LinearGradient(gradient: Gradient(colors: [Color(customHex: "#153B50"), Color(customHex: "#429EA6").opacity(0.8)]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                    .foregroundColor(Color(hex: "#16F4D0"))
                 
-                Picker("Coach", selection: $selectedCoach)
+                Form
                 {
-                    ForEach(coaches, id: \.self)
+                    VStack
                     {
-                        coach in
-                        Text("\(coach.name) (\(coach.level))").tag(coach as Coach?)
+                        TextField("Workout Name", text: $name)
+                            .multilineTextAlignment(.center)
                     }
-                    .background(Color(hex: "#153B50"))
-                }
-                .listRowBackground(Color(hex: "#429EA6"))
-                
-                Section(header: Text("Warm Up"))
-                {
-                    ForEach($warmUpSegments)
+                    .padding()
+                    .background(Color(customHex: "#429EA6"))
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                    .shadow(color: Color.black.opacity(0.1), radius: 5)
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+                    
+                    VStack
                     {
-                        $segment in
-                        SegmentEditRow(segment: $segment, types: segmentTypes, strokes: strokeTypes, times: timeOptions)
-                    }
-                    Button(action:
+                        Picker("Coach", selection: $selectedCoach)
+                        {
+                            ForEach(coaches, id: \.self)
                             {
-                        warmUpSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
-                    })
-                    {
-                        AddSegmentRow()
+                                coach in
+                                Text("\(coach.name) (\(coach.level))").tag(coach as Coach?)
+                            }
+                        }
                     }
+                    .padding()
+                    .background(Color(customHex: "#429EA6"))
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                    .shadow(color: Color.black.opacity(0.1), radius: 5)
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+                    
+                    Section(header: Text("Warm Up").font(.title2.bold()))
+                    {
+                        ForEach($warmUpSegments)
+                        {
+                            $segment in
+                            SegmentEditRow(segment: $segment, types: segmentTypes, strokes: strokeTypes, times: timeOptions)
+                                .padding(.vertical, 7)
+                                .background(Color(customHex: "#ECEBE4"))
+                                .clipShape(RoundedRectangle(cornerRadius: 16))
+                                .shadow(color: Color.black.opacity(0.1), radius: 5)
+                        }
+                        Button(action:
+                                {
+                            warmUpSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
+                        })
+                        {
+                            AddSegmentRow()
+                        }
+                        .padding()
+                        .background(Color(customHex: "#ECEBE4"))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .shadow(color: Color.black.opacity(0.05), radius: 3)
+                    }
+                    .listRowBackground(Color.clear)
+                    
+                    Section(header: Text("Main Set").font(.title2.bold()))
+                    {
+                        ForEach($mainSetSegments)
+                        {
+                            $segment in
+                            SegmentEditRow(segment: $segment, types: segmentTypes, strokes: strokeTypes, times: timeOptions)
+                                .padding(.vertical, 7)
+                                .background(Color(customHex: "#ECEBE4"))
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                                .shadow(color: Color.black.opacity(0.05), radius: 3)
+                        }
+                        Button(action:
+                                {
+                            mainSetSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
+                        })
+                        {
+                            AddSegmentRow()
+                        }
+                        .padding()
+                        .background(Color(customHex: "#ECEBE4"))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .shadow(color: Color.black.opacity(0.05), radius: 3)
+                    }
+                    .listRowBackground(Color.clear)
+                    
+                    Section(header: Text("Cool Down").font(.title2.bold()))
+                    {
+                        ForEach($coolDownSegments)
+                        {
+                            $segment in
+                            SegmentEditRow(segment: $segment, types: segmentTypes, strokes: strokeTypes, times: timeOptions)
+                                .padding(.vertical, 7)
+                                .background(Color(customHex: "#ECEBE4"))
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                                .shadow(color: Color.black.opacity(0.05), radius: 3)
+                        }
+                        Button(action:
+                                {
+                            coolDownSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
+                        })
+                        {
+                            AddSegmentRow()
+                        }
+                        .padding()
+                        .background(Color(customHex: "#ECEBE4"))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .shadow(color: Color.black.opacity(0.05), radius: 3)
+                    }
+                    .listRowBackground(Color.clear)
                 }
-                .listRowBackground(Color(hex: "#429EA6"))
-                .foregroundStyle(Color(hex: "#153B50"))
-                
-                Section(header: Text("Main Set"))
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
+                .navigationTitle("Create Workout")
+                .toolbar
                 {
-                    ForEach($mainSetSegments)
+                    ToolbarItem(placement: .topBarTrailing)
                     {
-                        $segment in
-                        SegmentEditRow(segment: $segment, types: segmentTypes, strokes: strokeTypes, times: timeOptions)
-                    }
-                    Button(action:
-                            {
-                        mainSetSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
-                    })
-                    {
-                        AddSegmentRow()
+                        Button("Save")
+                        {
+                            let workout = SwimWorkout(
+                                id: UUID(),
+                                name: name,
+                                coach: selectedCoach,
+                                warmUp: warmUpSegments,
+                                mainSet: mainSetSegments,
+                                coolDown: coolDownSegments,
+                                createdViaWorkoutKit: false,
+                                source: nil,
+                                date: Date()
+                            )
+                            onSave(workout)
+                            dismiss()
+                        }
+                        .disabled(name.isEmpty || warmUpSegments.allSatisfy { $0.yards == 0 } && mainSetSegments.allSatisfy { $0.yards == 0 } && coolDownSegments.allSatisfy { $0.yards == 0 })
+                        .foregroundStyle(Color(customHex: "#16F4D0"))
                     }
                 }
-                .listRowBackground(Color(hex: "#429EA6"))
-                .foregroundStyle(Color(hex: "#153B50"))
-                
-                Section(header: Text("Cool Down"))
+                .onAppear
                 {
-                    ForEach($coolDownSegments)
-                    {
-                        $segment in
-                        SegmentEditRow(segment: $segment, types: segmentTypes, strokes: strokeTypes, times: timeOptions)
-                    }
-                    Button(action:
-                            {
-                        coolDownSegments.append(WorkoutSegment(yards: 0, type: segmentTypes[0], amount: 1, stroke: strokeTypes[0], time: timeOptions[0]))
-                    })
-                    {
-                        AddSegmentRow()
-                    }
+                    loadCoaches()
                 }
-                .listRowBackground(Color(hex: "#429EA6"))
-                .foregroundStyle(Color(hex: "#153B50"))
+                .listSectionSpacing(3)
+                .environment(\.defaultMinListRowHeight, 30)
             }
-            .navigationTitle("Create Workout")
-            .toolbar
-            {
-                ToolbarItem(placement: .topBarTrailing)
-                {
-                    Button("Save")
-                    {
-                        let workout = SwimWorkout(
-                            id: UUID(),
-                            name: name,
-                            coach: selectedCoach,
-                            warmUp: warmUpSegments,
-                            mainSet: mainSetSegments,
-                            coolDown: coolDownSegments,
-                            createdViaWorkoutKit: false,
-                            source: nil,
-                            date: Date()
-                        )
-                        onSave(workout)
-                        dismiss()
-                    }
-                    .disabled(name.isEmpty || warmUpSegments.allSatisfy { $0.yards == 0 } && mainSetSegments.allSatisfy { $0.yards == 0 } && coolDownSegments.allSatisfy { $0.yards == 0 })
-                    .foregroundStyle(Color(hex: "#153B50"))
-                
-                }
-            }
-            .onAppear
-            {
-                loadCoaches()
-            }
-            .listSectionSpacing(3)
-            .environment(\.defaultMinListRowHeight, 30)
-            .scrollContentBackground(.hidden)
-            .background(Color(hex: "#CC998D"))
+            .foregroundStyle(Color(customHex: "#16F4D0"))
         }
     }
     
