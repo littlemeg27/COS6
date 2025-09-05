@@ -88,7 +88,9 @@ struct WorkoutListView: View
                 }
                 .sheet(isPresented: $showingCreation)
                 {
-                    WorkoutCreationView { newWorkout in
+                    WorkoutCreationView
+                    {
+                        newWorkout in
                         saveWorkout(newWorkout)
                         fetchWorkouts()
                     }
@@ -124,13 +126,14 @@ struct WorkoutListView: View
                     }
                 }
                 .padding()
-                .background(Color(customHex: "#429EA6"))
+                .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#153B50"), Color(hex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
             }
             .swipeActions(edge: .trailing)
             {
-                if let pdfURL = WorkoutListView.generatePDF(for: workout) {
+                if let pdfURL = WorkoutListView.generatePDF(for: workout)
+                {
                     ShareLink(item: pdfURL, subject: Text(workout.name), message: Text("Check out this workout!"))
                     {
                         Label("Share", systemImage: "square.and.arrow.up")
@@ -212,7 +215,8 @@ struct WorkoutListView: View
             if let error = error
             {
                 print("Error fetching workouts: \(error.localizedDescription)")
-                DispatchQueue.main.async {
+                DispatchQueue.main.async
+                {
                     self.workouts = fetchFromCoreData()
                 }
             }
@@ -324,11 +328,15 @@ struct WorkoutListView: View
     {
         let workoutsToDelete = offsets.map { workouts[$0] }
         HealthKitManager.shared.deleteWorkouts(workoutsToDelete, context: context) { success, error in
-            if success {
-                DispatchQueue.main.async {
+            if success
+            {
+                DispatchQueue.main.async
+                {
                     self.workouts.remove(atOffsets: offsets)
                 }
-            } else if let error = error {
+            }
+            else if let error = error
+            {
                 print("Error deleting workout: \(error.localizedDescription)")
             }
         }

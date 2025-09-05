@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-struct PersistenceController
+class PersistenceController
 {
     static let shared = PersistenceController()
     
@@ -19,7 +19,7 @@ struct PersistenceController
         return container.viewContext
     }
     
-    init()
+    private init()
     {
         let bundle = Bundle.main
         print("Using bundle: \(bundle.bundleIdentifier ?? "nil") at path: \(bundle.bundlePath)")
@@ -49,12 +49,14 @@ struct PersistenceController
             if let error = error as NSError?
             {
                 print("Core Data failed to load: \(error), \(error.userInfo)")
+                fatalError("Unresolved error \(error), \(error.userInfo)")
             }
             else
             {
                 print("Core Data loaded successfully")
             }
         }
+        container.viewContext.automaticallyMergesChangesFromParent = true
     }
     
     func saveWorkout(_ workout: SwimWorkout)

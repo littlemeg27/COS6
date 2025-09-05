@@ -11,8 +11,8 @@ import CoreData
 
 class HealthKitManager
 {
-    static let shared = HealthKitManager() // Add this to create a shared instance
-
+    static let shared = HealthKitManager()
+    
     let healthStore = HKHealthStore()
     
     func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Void)
@@ -65,7 +65,9 @@ class HealthKitManager
             let energyQuantity = HKQuantity(unit: HKUnit.kilocalorie(), doubleValue: workout.estimatedCalories)
             let energySample = HKQuantitySample(type: HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!, quantity: energyQuantity, start: workout.date, end: workout.date.addingTimeInterval(workout.duration))
             
-            builder.add([distanceSample, energySample]) { success, error in
+            builder.add([distanceSample, energySample])
+            {
+                success, error in
                 guard success else
                 {
                     completion(false, error)
@@ -99,7 +101,7 @@ class HealthKitManager
         
         let query = HKSampleQuery(sampleType: HKObjectType.workoutType(), predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: [sortDescriptor])
         {
-            query, samples, error in
+            _, samples, error in
             completion(samples as? [HKWorkout], error)
         }
         
@@ -110,7 +112,9 @@ class HealthKitManager
     {
         let predicate = HKQuery.predicateForWorkouts(with: .swimming)
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
-        let query = HKSampleQuery(sampleType: .workoutType(), predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: [sortDescriptor]) { _, samples, error in
+        let query = HKSampleQuery(sampleType: .workoutType(), predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: [sortDescriptor])
+        {
+            _, samples, error in
             print("Fetched samples: \(samples?.count ?? 0), error: \(error?.localizedDescription ?? "none")")
 
             if let allWorkouts = samples as? [HKWorkout]
@@ -130,8 +134,7 @@ class HealthKitManager
                 let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SwimWorkoutEntity")
                 fetchRequest.predicate = NSPredicate(format: "id == %@", workoutID)
                 
-                do
-                {
+                do {
                     guard let swimWorkoutEntity = try context.fetch(fetchRequest).first else
                     {
                         print("No Core Data entity found for workout ID: \(workoutID)")
@@ -214,9 +217,11 @@ class HealthKitManager
             print("Fetched \(uniqueWorkouts.count) unique workouts: \(uniqueWorkouts.map { $0.name })")
 
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SwimWorkoutEntity")
+            
             if let coreDataWorkouts = try? context.fetch(fetchRequest)
             {
                 print("Core Data contains \(coreDataWorkouts.count) SwimWorkout entities")
+                
                 for entity in coreDataWorkouts
                 {
                     print("Core Data workout: ID=\(entity.value(forKey: "id") as? String ?? "N/A"), name=\(entity.value(forKey: "name") as? String ?? "N/A")")
@@ -234,7 +239,10 @@ class HealthKitManager
         print("Attempting to delete \(workouts.count) workouts: \(workouts.map { $0.name })")
         
         let predicate = HKQuery.predicateForObjects(withMetadataKey: "WorkoutID", allowedValues: workoutIDs)
-        let query = HKSampleQuery(sampleType: .workoutType(), predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { _, samples, error in
+        let query = HKSampleQuery(sampleType: .workoutType(), predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil)
+        {
+            _, samples, error in
+            
             guard let hkWorkouts = samples as? [HKWorkout], error == nil else
             {
                 print("Error fetching workouts to delete: \(error?.localizedDescription ?? "Unknown error")")
@@ -242,7 +250,10 @@ class HealthKitManager
                 return
             }
             
-            self.healthStore.delete(hkWorkouts) { success, error in
+            self.healthStore.delete(hkWorkouts)
+            {
+                success, error in
+                
                 if success
                 {
                     print("Successfully deleted \(hkWorkouts.count) HKWorkouts")
@@ -251,12 +262,13 @@ class HealthKitManager
                         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SwimWorkoutEntity")
                         fetchRequest.predicate = NSPredicate(format: "id IN %@", workoutIDs)
                         let entities = try context.fetch(fetchRequest)
-                        for entity in entities
-                        {
+                        for entity in entities {
                             context.delete(entity)
                         }
                         try context.save()
-                        print("Successfully deleted \(entities.count) SwimWorkout entities, remaining count: \(try? context.count(for: NSFetchRequest(entityName: "SwimWorkoutEntity")) ?? 0)")
+                        let remainingRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "SwimWorkoutEntity")
+                        let remainingCount = (try? context.count(for: remainingRequest)) ?? 0
+                        print("Successfully deleted \(entities.count) SwimWorkout entities, remaining count: \(remainingCount)")
                         completion(true, nil)
                     }
                     catch

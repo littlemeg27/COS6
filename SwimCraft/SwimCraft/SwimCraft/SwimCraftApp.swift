@@ -16,7 +16,7 @@ struct SwimCraftApp: App
     {
         WindowGroup
         {
-            WorkoutListView()
+            SplashView()
                 .environment(\.managedObjectContext, persistenceController.context)
         }
     }

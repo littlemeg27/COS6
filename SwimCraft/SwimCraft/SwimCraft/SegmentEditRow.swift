@@ -87,5 +87,6 @@ struct SegmentEditRow: View
         }
         .padding()
         .frame(height: 25)
+        .foregroundStyle(Color(hex: "#153B50"))
     }
 }

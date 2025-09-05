@@ -41,7 +41,7 @@ struct WorkoutDetailView: View
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding()
-                    .background(Color(customHex: "#ECEBE4"))
+                    .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#ECEBE4"), Color(customHex: "#d9d9d9")]), startPoint: .leading, endPoint: .trailing))
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
 
@@ -58,7 +58,7 @@ struct WorkoutDetailView: View
                         }
                     }
                     .padding()
-                    .background(Color(customHex: "#ECEBE4"))
+                    .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#ECEBE4"), Color(customHex: "#d9d9d9")]), startPoint: .leading, endPoint: .trailing))
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
 
@@ -75,7 +75,7 @@ struct WorkoutDetailView: View
                         }
                     }
                     .padding()
-                    .background(Color(customHex: "#ECEBE4"))
+                    .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#ECEBE4"), Color(customHex: "#d9d9d9")]), startPoint: .leading, endPoint: .trailing))
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
 
@@ -92,7 +92,7 @@ struct WorkoutDetailView: View
                         }
                     }
                     .padding()
-                    .background(Color(customHex: "#ECEBE4"))
+                    .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#ECEBE4"), Color(customHex: "#d9d9d9")]), startPoint: .leading, endPoint: .trailing))
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
                 }
@@ -102,6 +102,7 @@ struct WorkoutDetailView: View
             .navigationBarTitleDisplayMode(.inline)
         }
         .foregroundStyle(Color(customHex: "#153B50"))
+        
     }
 }
 
