@@ -17,7 +17,7 @@ struct RandomWorkoutGeneratorView: View
     {
         ZStack
         {
-            LinearGradient(gradient: Gradient(colors: [Color(customHex: "#153B50"), Color(customHex: "#429EA6").opacity(0.8)]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [Color(customHex: "#153B50"), Color(customHex: "#153B50")]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
             VStack()
@@ -26,6 +26,7 @@ struct RandomWorkoutGeneratorView: View
                     .font(.largeTitle)
                     .bold()
                     .multilineTextAlignment(.center)
+                    .foregroundStyle(Color(customHex: "#16F4D0"))
                     .padding(.top, 50)
                     .padding(.bottom, 40)
                 
@@ -42,7 +43,7 @@ struct RandomWorkoutGeneratorView: View
                     .frame(maxWidth: .infinity)
                     .frame(minHeight: 50)
                     .foregroundStyle(Color(customHex: "#153B50"))
-                    .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+                    .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#55f7dc")]), startPoint: .leading, endPoint: .trailing))
                     .clipShape(RoundedRectangle(cornerRadius: 25))
                     .padding()
                 }
@@ -62,7 +63,7 @@ struct RandomWorkoutGeneratorView: View
                 .frame(maxWidth: .infinity)
                 .frame(minHeight: 50)
                 .foregroundStyle(Color(customHex: "#153B50"))
-                .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+                .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#55f7dc")]), startPoint: .leading, endPoint: .trailing))
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 .padding()
                 

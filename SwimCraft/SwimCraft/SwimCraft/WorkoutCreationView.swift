@@ -29,7 +29,7 @@ struct WorkoutCreationView: View
         {
             ZStack
             {
-                LinearGradient(gradient: Gradient(colors: [Color(customHex: "#153B50"), Color(customHex: "#429EA6").opacity(0.8)]), startPoint: .top, endPoint: .bottom)
+                LinearGradient(gradient: Gradient(colors: [Color(customHex: "#153B50"), Color(customHex: "#153B50")]), startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                     .foregroundColor(Color(hex: "#16F4D0"))
                 

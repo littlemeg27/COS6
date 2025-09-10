@@ -29,6 +29,7 @@ struct MonthlySummaryView: View
                     .font(.largeTitle)
                     .bold()
                     .multilineTextAlignment(.center)
+                    .foregroundStyle(Color(customHex: "#16F4D0"))
                     .frame(maxWidth: .infinity)
                     .padding(.top, 60)
                 
@@ -54,11 +55,12 @@ struct MonthlySummaryView: View
                         {
                             value in
                             AxisValueLabel(format: .dateTime.day(.twoDigits))
+                                .foregroundStyle(Color(hex: "#F2F2F2"))
                         }
                     }
                     .frame(height: 300)
                     .padding()
-                    .background(Color(customHex: "#429EA6").opacity(0.3))
+                    .background(Color(customHex: "#F2F2F2").opacity(0.3))
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                     .shadow(radius: 5)
                 }
@@ -72,13 +74,13 @@ struct MonthlySummaryView: View
                 
                 Button("View All Workouts")
                 {
-                showingWorkoutList = true
+                    showingWorkoutList = true
                 }
                 .font(.system(size: 15, weight: .bold))
                 .frame(maxWidth: .infinity)
                 .frame(minHeight: 50)
                 .foregroundStyle(Color(customHex: "#153B50"))
-                .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+                .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#55F7DC")]), startPoint: .leading, endPoint: .trailing))
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 .padding(.horizontal, 30)
                 .padding(.vertical, 50)
@@ -92,7 +94,7 @@ struct MonthlySummaryView: View
                 .frame(maxWidth: .infinity)
                 .frame(minHeight: 50)
                 .foregroundStyle(Color(customHex: "#153B50"))
-                .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+                .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#55F7DC")]), startPoint: .leading, endPoint: .trailing))
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 .padding(.horizontal, 20)
                 .padding(.vertical, 15)
@@ -102,7 +104,7 @@ struct MonthlySummaryView: View
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
-            .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#153B50"), Color(customHex: "#429EA6").opacity(0.8)]), startPoint: .top, endPoint: .bottom))
+            .background(Color(customHex: "#153B50"))
             .ignoresSafeArea()
             .sheet(isPresented: $showingWorkoutList)
             {
@@ -188,13 +190,15 @@ struct MonthlySummaryView: View
     }
 }
 
-struct DailyYardage: Identifiable {
+struct DailyYardage: Identifiable
+{
     let id = UUID()
     let date: Date
     let yards: Double
 }
 
-#Preview {
+#Preview
+{
     MonthlySummaryView()
         .environment(\.managedObjectContext, PersistenceController.shared.context)
 }

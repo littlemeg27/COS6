@@ -37,7 +37,7 @@ struct WorkoutListView: View
         {
             ZStack
             {
-                LinearGradient(gradient: Gradient(colors: [Color(customHex: "#153B50"), Color(customHex: "#429EA6").opacity(0.8)]), startPoint: .top, endPoint: .bottom)
+                LinearGradient(gradient: Gradient(colors: [Color(customHex: "#153B50"), Color(customHex: "#153B50")]), startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                 
                 List
@@ -48,7 +48,9 @@ struct WorkoutListView: View
                         WorkoutRow(workout: workout)
                             .padding(.vertical, 4)
                     }
-                    .onDelete { indices in
+                    .onDelete
+                    {
+                        indices in
                         deleteWorkouts(at: indices)
                     }
                 }
@@ -56,9 +58,15 @@ struct WorkoutListView: View
                 .listRowBackground(Color.clear)
                 .listRowSeparator(.hidden)
                 .scrollContentBackground(.hidden)
-                .navigationTitle("Workouts")
+                .tint(Color(customHex: "#153B50"))
                 .toolbar
                 {
+                    ToolbarItem(placement: .principal)
+                    {
+                        Text("Workouts")
+                            .font(.largeTitle.bold())
+                            .foregroundStyle(Color(customHex: "#16F4D0"))
+                    }
                     ToolbarItem(placement: .topBarTrailing)
                     {
                         Button(action: { showingCreation = true })
@@ -67,7 +75,7 @@ struct WorkoutListView: View
                                 .font(.headline)
                                 .foregroundColor(Color(customHex: "#16F4D0"))
                                 .foregroundStyle(Color(customHex: "#16F4D0"))
-                                .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#16F4D0"), Color(customHex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+                                .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#429EA6"), Color(customHex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
                                 .clipShape(Capsule())
                                 .shadow(radius: 2)
                         }
@@ -80,7 +88,7 @@ struct WorkoutListView: View
                                 .font(.headline)
                                 .foregroundColor(Color(customHex: "#16F4D0"))
                                 .foregroundStyle(Color(customHex: "#16F4D0"))
-                                .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#16F4D0"), Color(customHex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+                                .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#429EA6"), Color(customHex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
                                 .clipShape(Capsule())
                                 .shadow(radius: 2)
                         }
@@ -100,7 +108,7 @@ struct WorkoutListView: View
                     fetchWorkouts()
                 }
             }
-            .foregroundStyle(Color(customHex: "#16F4D0"))
+            .foregroundStyle(Color(customHex: "#429EA6"))
         }
     }
     
@@ -116,17 +124,20 @@ struct WorkoutListView: View
                 {
                     Text(workout.name)
                         .font(.headline.bold())
+                        .foregroundStyle(Color(customHex: "#153B50"))
                     HStack
                     {
                         Text("Distance: \(String(format: "%.0f", workout.distance)) yards")
                             .font(.subheadline)
+                            .foregroundStyle(Color(customHex: "#153B50"))
                         Spacer()
                         Text("Created: \(workout.date.formatted(date: .abbreviated, time: .omitted))")
                             .font(.caption)
+                            .foregroundStyle(Color(customHex: "#153B50")) 
                     }
                 }
                 .padding()
-                .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#153B50"), Color(hex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+                .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#429EA6"), Color(hex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
             }
@@ -138,7 +149,7 @@ struct WorkoutListView: View
                     {
                         Label("Share", systemImage: "square.and.arrow.up")
                     }
-                    .tint(Color(customHex: "#16F4D0"))
+                    .tint(Color(customHex: "#153B50"))
                 }
             }
         }
@@ -327,15 +338,17 @@ struct WorkoutListView: View
     private func deleteWorkouts(at offsets: IndexSet)
     {
         let workoutsToDelete = offsets.map { workouts[$0] }
-        HealthKitManager.shared.deleteWorkouts(workoutsToDelete, context: context) { success, error in
+        HealthKitManager.shared.deleteWorkouts(workoutsToDelete, context: context)
+        {
+            success, error in
+            
             if success
             {
                 DispatchQueue.main.async
                 {
                     self.workouts.remove(atOffsets: offsets)
                 }
-            }
-            else if let error = error
+            } else if let error = error
             {
                 print("Error deleting workout: \(error.localizedDescription)")
             }

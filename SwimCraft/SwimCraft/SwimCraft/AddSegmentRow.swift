@@ -16,7 +16,7 @@ struct AddSegmentRow: View
             .frame(maxWidth: .infinity)
             .padding(.vertical, 12)
             .foregroundColor(Color(hex: "#153B50"))
-            .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+            .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#55f7dc")]), startPoint: .leading, endPoint: .trailing))
             .clipShape(Capsule())
             .shadow(radius: 2)
             .accessibilityLabel("Add")
