@@ -29,6 +29,7 @@ struct RandomWorkoutGeneratorView: View
                     .foregroundStyle(Color(customHex: "#16F4D0"))
                     .padding(.top, 50)
                     .padding(.bottom, 40)
+                    .shadow(radius: 2)
                 
                 if let workout = generatedWorkout
                 {
@@ -45,6 +46,7 @@ struct RandomWorkoutGeneratorView: View
                     .foregroundStyle(Color(customHex: "#153B50"))
                     .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#55f7dc")]), startPoint: .leading, endPoint: .trailing))
                     .clipShape(RoundedRectangle(cornerRadius: 25))
+                    .shadow(radius: 6)
                     .padding()
                 }
                 else
@@ -66,6 +68,7 @@ struct RandomWorkoutGeneratorView: View
                 .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#55f7dc")]), startPoint: .leading, endPoint: .trailing))
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 .padding()
+                .shadow(radius: 6)
                 
                 Spacer()
             }
@@ -83,8 +86,11 @@ private func createRandomWorkout() -> SwimWorkout
     let amountOptions = [1, 2, 3, 4]
     let timeOptions = [30.0, 45.0, 60.0, 90.0]
     
-    func randomSegments(count: Int) -> [WorkoutSegment] {
-        (0..<count).map { _ in
+    func randomSegments(count: Int) -> [WorkoutSegment]
+    {
+        (0..<count).map
+        {
+            _ in
             WorkoutSegment(
                 yards: yardOptions.randomElement() ?? 100.0,
                 type: segmentTypes.randomElement() ?? "Swim",

@@ -27,6 +27,7 @@ struct WorkoutDetailView: View
                         Text(workout.name)
                             .font(.largeTitle.bold())
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .shadow(radius: 2)
                         Text("Coach: \(workout.coach?.name ?? "None")")
                             .font(.title3)
                             .frame(maxWidth: .infinity, alignment: .leading)

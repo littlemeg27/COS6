@@ -66,6 +66,7 @@ struct WorkoutListView: View
                         Text("Workouts")
                             .font(.largeTitle.bold())
                             .foregroundStyle(Color(customHex: "#16F4D0"))
+                            .shadow(radius: 2)
                     }
                     ToolbarItem(placement: .topBarTrailing)
                     {
@@ -73,8 +74,7 @@ struct WorkoutListView: View
                         {
                             Label("Add Workout", systemImage: "plus.circle.fill")
                                 .font(.headline)
-                                .foregroundColor(Color(customHex: "#16F4D0"))
-                                .foregroundStyle(Color(customHex: "#16F4D0"))
+                                .foregroundStyle(.black, .gray)
                                 .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#429EA6"), Color(customHex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
                                 .clipShape(Capsule())
                                 .shadow(radius: 2)
@@ -86,8 +86,7 @@ struct WorkoutListView: View
                         {
                             Label("Clear All", systemImage: "trash.circle.fill")
                                 .font(.headline)
-                                .foregroundColor(Color(customHex: "#16F4D0"))
-                                .foregroundStyle(Color(customHex: "#16F4D0"))
+                                .foregroundStyle(.black, .gray)
                                 .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#429EA6"), Color(customHex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
                                 .clipShape(Capsule())
                                 .shadow(radius: 2)

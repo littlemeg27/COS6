@@ -24,7 +24,6 @@ struct MonthlySummaryView: View
         {
             VStack(alignment: .center, spacing: 20)
             {
-                
                 Text("Monthly Swimming Summary")
                     .font(.largeTitle)
                     .bold()
@@ -32,13 +31,14 @@ struct MonthlySummaryView: View
                     .foregroundStyle(Color(customHex: "#16F4D0"))
                     .frame(maxWidth: .infinity)
                     .padding(.top, 60)
+                    .shadow(radius: 2)
                 
                 Text("Total Yards Swam This Month: \(String(format: "%.0f", totalYards))")
                     .font(.title2)
                     .foregroundStyle(Color(customHex: "#16F4D0"))
                     .padding(.top, 10)
                 
-
+                
                 if !dailyYards.isEmpty
                 {
                     Chart(dailyYards)
@@ -83,9 +83,10 @@ struct MonthlySummaryView: View
                 .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#16F4D0"), Color(hex: "#55F7DC")]), startPoint: .leading, endPoint: .trailing))
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 .padding(.horizontal, 30)
-                .padding(.vertical, 50)
-                .shadow(radius: 2)
-                
+                .padding(.vertical, 20)
+                .padding(.top, 90)
+                .shadow(radius: 6)
+
                 Button("Generate Random Workout")
                 {
                     showingWorkoutGenerator = true
@@ -98,7 +99,7 @@ struct MonthlySummaryView: View
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 .padding(.horizontal, 20)
                 .padding(.vertical, 15)
-                .shadow(radius: 2)
+                .shadow(radius: 6)
                 
                 Spacer()
             }
@@ -165,7 +166,7 @@ struct MonthlySummaryView: View
             }
             totalYards = entities.reduce(0.0) { $0 + calculateDistance(for: $1) }
             
-
+            
             let groupedByDay = Dictionary(grouping: entities, by: { calendar.startOfDay(for: $0.date ?? now) })
             dailyYards = groupedByDay.map
             {

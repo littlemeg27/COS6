@@ -142,9 +142,16 @@ struct WorkoutCreationView: View
                 }
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
-                .navigationTitle("Create Workout")
                 .toolbar
                 {
+                    ToolbarItem(placement: .principal)
+                    {
+                        Text("Create Workout")
+                            .padding(.top, 60)
+                            .font(.largeTitle.bold())
+                            .foregroundStyle(Color(customHex: "#16F4D0"))
+                            .shadow(radius: 2)
+                    }
                     ToolbarItem(placement: .topBarTrailing)
                     {
                         Button("Save")
