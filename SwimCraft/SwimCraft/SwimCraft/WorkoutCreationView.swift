@@ -154,8 +154,8 @@ struct WorkoutCreationView: View
                     }
                     ToolbarItem(placement: .topBarTrailing)
                     {
-                        Button("Save")
-                        {
+                        Button(action:
+                                {
                             let workout = SwimWorkout(
                                 id: UUID(),
                                 name: name,
@@ -169,9 +169,17 @@ struct WorkoutCreationView: View
                             )
                             onSave(workout)
                             dismiss()
+                        })
+                        {
+                            Label("Save", systemImage: "checkmark.circle.fill")
+                                .imageScale(.large)
+                                .font(.headline)
+                                .foregroundStyle(.black, Color(customHex: "#16F4D0"))
+                                .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#429EA6"), Color(customHex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+                                .clipShape(Capsule())
+                                .shadow(radius: 2)
                         }
                         .disabled(name.isEmpty || warmUpSegments.allSatisfy { $0.yards == 0 } && mainSetSegments.allSatisfy { $0.yards == 0 } && coolDownSegments.allSatisfy { $0.yards == 0 })
-                        .foregroundStyle(Color(customHex: "#16F4D0"))
                     }
                 }
                 .onAppear

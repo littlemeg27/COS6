@@ -73,11 +73,13 @@ struct WorkoutListView: View
                         Button(action: { showingCreation = true })
                         {
                             Label("Add Workout", systemImage: "plus.circle.fill")
+                                .imageScale(.large)
                                 .font(.headline)
-                                .foregroundStyle(.black, .gray)
+                                .foregroundStyle(.black, Color(customHex: "#16F4D0"))
                                 .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#429EA6"), Color(customHex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
                                 .clipShape(Capsule())
                                 .shadow(radius: 2)
+                                .imageScale(.large)
                         }
                     }
                     ToolbarItem(placement: .topBarLeading)
@@ -85,11 +87,13 @@ struct WorkoutListView: View
                         Button(action: { deleteAllWorkouts() })
                         {
                             Label("Clear All", systemImage: "trash.circle.fill")
+                                .imageScale(.large)
                                 .font(.headline)
-                                .foregroundStyle(.black, .gray)
+                                .foregroundStyle(.black, Color(customHex: "#16F4D0"))
                                 .background(LinearGradient(gradient: Gradient(colors: [Color(customHex: "#429EA6"), Color(customHex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
                                 .clipShape(Capsule())
                                 .shadow(radius: 2)
+                                
                         }
                     }
                 }
@@ -136,7 +140,7 @@ struct WorkoutListView: View
                     }
                 }
                 .padding()
-                .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#429EA6"), Color(hex: "#429EA6")]), startPoint: .leading, endPoint: .trailing))
+                .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#ECEBE4"), Color(hex: "#D9D9D9")]), startPoint: .leading, endPoint: .trailing))
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
             }
